@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customObject>true</customObject>
-    <description>Causeview - Benefits related to Event Levels or Membership Levels.</description>
-    <mobileReady>false</mobileReady>
-    <motif>Custom3: Sun</motif>
-</CustomTab>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Causeview - Templates used by Enhanced Batch Entry interface.  Visualforce page view.</description>
-    <label>Gift Batch Templates</label>
-    <mobileReady>false</mobileReady>
-    <motif>Custom57: Building Block</motif>
-    <page>BatchPresets_moc</page>
-</CustomTab>

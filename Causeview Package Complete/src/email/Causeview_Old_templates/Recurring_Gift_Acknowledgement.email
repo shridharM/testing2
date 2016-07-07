@@ -1,6 +1,0 @@
-<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
-<tr height="400" valign="top" >
-<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
-<![CDATA[<br>Dear {!Gift__c.Constituent_Name__c},<br><br>Thank you for your donation to {!Organization.Name}.<br><br>Your generous recurring gift of {!Gift__c.Expected_Amount__c} will be supporting our work to passionately advance our cause.<br><br>If you have any questions about your donation or about our work, we would love to hear from you. Please call {!Organization.Phone}.<br><br>Sincerely,<br><br><div style="text-align: center;"><span style="font-size: 12pt;">{!Organization.Name}</span></div><div style="text-align: center;"><span style="font-size: 12pt;">{!Organization.Street}</span></div><div style="text-align: center;"><span style="font-size: 12pt;">{!Organization.City}, {!Organization.State}&nbsp; {!Organization.StateCode}</span></div><div style="text-align: center;"><span style="font-size: 12pt;">Telephone: {!Organization.Phone}</span></div>]]></td>
-</tr>
-</table>

@@ -1,6 +1,0 @@
-<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
-<tr height="400" valign="top" >
-<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
-<![CDATA[Dear {!Contact.FirstName},<br><br>Thank you for expressing interest in volunteering with {!Organization.Name}.<br><br>We have successfully received your application submission.&nbsp; We will review your application shortly.&nbsp; Someone from our team will then reach out to you with additional information.<br><br>Sincerely,<br><br>{!Organization.Name}<br><br><br><br><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt; text-align: center;"><div><span style="font-size: 12pt;">{!Organization.Name}</span></div><div><span style="font-size: 12pt;">{!Organization.Street}</span></div><div><span style="font-size: 12pt;">{!Organization.City}, {!Organization.State}&nbsp; {!Organization.StateCode}</span></div><div><span style="font-size: 12pt;">Telephone: {!Organization.Phone}</span></div></div><br><br>]]></td>
-</tr>
-</table>
