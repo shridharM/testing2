@@ -1,0 +1,5 @@
+<apex:page id="page" controller="Controller_GiftAid" contentType="{!exportContentType}" cache="true">{!header}
+<apex:repeat value="{!lstwrapper}" var="x">
+{!x.title},{!x.firstName},{!x.lastName},{!x.house},{!x.postal},,,<apex:outputText value="{0, date,dd/MM/yy}"><apex:param value="{!x.giftDate}"/></apex:outputText>,<apex:outputText value="{0, number,###,###.##}"><apex:param value="{!x.giftAmount}"/></apex:outputText>
+</apex:repeat>
+</apex:page>

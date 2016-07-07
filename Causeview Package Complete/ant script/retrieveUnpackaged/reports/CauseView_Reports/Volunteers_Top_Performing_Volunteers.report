@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SALUTATION</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Total_Fiscal_Year_In_Kind_Value__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Total_Service_Hours_Completed_This_Year__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Total_Miles_Traveled_This_Year__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Total_Lifetime_In_Kind_Value__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Total_Service_Hours_Completed__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Total_Miles_Traveled__c</field>
+    </columns>
+    <description>List of volunteers sorted by most volunteered hours</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Volunteer_Status__c</column>
+            <operator>equals</operator>
+            <value>In Training,Active</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Volunteers - Top Performing Volunteers</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Contact.Total_Service_Hours_Completed__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

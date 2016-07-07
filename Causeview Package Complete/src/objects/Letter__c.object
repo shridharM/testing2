@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Causeview - Customization of Thank you/Receipt Letters (Acknowledgments).</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Body_Text_Block_Plain_Text__c</fullName>
+        <description>Plain text body text block</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Plain text body text block</inlineHelpText>
+        <label>Body Text Block (Plain Text)</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Custom_Rich_Text_1__c</fullName>
+        <description>Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter.</inlineHelpText>
+        <label>Custom Rich Text 1</label>
+        <length>4096</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Custom_Rich_Text_2__c</fullName>
+        <description>Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter.</inlineHelpText>
+        <label>Custom Rich Text 2</label>
+        <length>4096</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Custom_Rich_Text_3__c</fullName>
+        <description>Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter.</inlineHelpText>
+        <label>Custom Rich Text 3</label>
+        <length>4096</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Description of Letter.</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Email_Subject__c</fullName>
+        <description>Defines the subject line for the email template used for this letter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the subject line for the email template used for this letter.</inlineHelpText>
+        <label>Email Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fund_Name__c</fullName>
+        <description>Name of fund to be printed on letter.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of fund to be printed on letter.</inlineHelpText>
+        <label>Fund Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Introduction_Text_Block_Rich_Text__c</fullName>
+        <description>Rich text introduction text block</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rich text introduction text block</inlineHelpText>
+        <label>Introduction Text Block (Rich Text)</label>
+        <length>4096</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Introduction__c</fullName>
+        <description>Introduction text for letter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Introduction text for letter</inlineHelpText>
+        <label>Introduction Text Block (Plain Text)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Logo__c</fullName>
+        <description>URL to logo for use on acknowledgement letter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>URL to logo for use on acknowledgement letter</inlineHelpText>
+        <label>Logo</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <description>Name of Letter</description>
+        <externalId>false</externalId>
+        <label>Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Signature_Image__c</fullName>
+        <description>URL to image of letter signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>URL to image of letter signature</inlineHelpText>
+        <label>Signature Image</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Signature_Rich_Text__c</fullName>
+        <description>Rich text signature block</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rich text signature block</inlineHelpText>
+        <label>Signature (Rich Text)</label>
+        <length>4096</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Signature__c</fullName>
+        <description>Signature text</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Signature text</inlineHelpText>
+        <label>Signature (Plain Text)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Text_Block__c</fullName>
+        <description>Custom text block to be added to letter template.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Body text block</inlineHelpText>
+        <label>Body Text Block (Rich Text)</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <label>Letter</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Name__c</columns>
+        <columns>Description__c</columns>
+        <columns>Fund_Name__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>L{0000}</displayFormat>
+        <label>Letter Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Letters</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Fund_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Fund_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UPDATEDBY_USER</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Fund_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Automated email acknowledgment for pending gifts</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Pending Gift Acknowledgement</name>
+    <style>none</style>
+    <subject>Thank you for supporting {!Organization.Name}</subject>
+    <textOnly>{!relatedTo.causeview__Org_Name__c}
+
+Dear {!causeview_Payment__c.Constituent_FirstName__c},
+
+Thank you for your donation of {!causeviewPayment__c.causeviewAmount__c} to {!Organization.Name}.
+
+Your gift is being processed by your financial institution. Once complete you will receive another email containing your charitable tax receipt for income tax purposes.
+
+[Your Name Here]
+[Your Title Here]
+{!Organization.Name}
+
+
+© {!relatedTo.causeview__Org_Name__c}. All Rights Reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

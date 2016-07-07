@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$Volunteer_Shift__c.Volunteer__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Volunteer_Hours__c.Mileage__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Volunteer_Hours__c.Service_Hours_Completed__c</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Hours__c.End_Day__c</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Hours__c.Status__c</field>
+    </columns>
+    <description>Summarizes all volunteer hours by role, opportunity and program.</description>
+    <filter>
+        <criteriaItems>
+            <column>Volunteer_Hours__c.Status__c</column>
+            <operator>notEqual</operator>
+            <value>No-Show</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Volunteer_Shift__c.Volunteer_Program__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Volunteer_Shift__c.Volunteer_Opportunity__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Volunteer_Shift__c.Volunteer_Role__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Volunteers - Total Hours by Opportunity</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactCustomEntity$Volunteer_Hours__c@Volunteer_Hours__c.Volunteer_Shift__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Volunteer_Hours__c.End_Day__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

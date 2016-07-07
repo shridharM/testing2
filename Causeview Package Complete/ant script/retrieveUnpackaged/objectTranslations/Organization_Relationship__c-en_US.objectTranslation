@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Affiliated Organization</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Affiliated Organizations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Organization --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Affiliated Organizations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reciprocal Organization Relationship --></label>
+        <name>Reciprocal_Organization_Relationship__c</name>
+        <relationshipLabel><!-- Affiliated Organizations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Affiliated Organization --></label>
+        <name>Related_Account__c</name>
+        <relationshipLabel><!-- Affiliated Organizations (Related Account) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Current</masterLabel>
+            <translation><!-- Current --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Former</masterLabel>
+            <translation><!-- Former --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Collaborator</masterLabel>
+            <translation><!-- Collaborator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral</masterLabel>
+            <translation><!-- Referral --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Organization Relationship Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

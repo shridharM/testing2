@@ -1,0 +1,65 @@
+<apex:page standardController="Gift_Batch__c" extensions="BatchPresetController_New" tabStyle="Batch_Presets__tab">
+  <apex:form >
+
+<!--    <apex:outputPanel rendered="{!isSelectPreset}">
+        <apex:sectionHeader title="Batch Preset" subtitle="Select Batch Preset Type"/>
+        <apex:outputText >Select a preset type for the Batch Preset.</apex:outputText><br/><br/>
+        <apex:pageBlock title="Select Batch Preset Type">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!template.Type__c}" required="true"/>
+                <!--
+                <apex:selectList label="Preset Type of new record" value="{!batchPresetType}" size="1">
+                    <apex:selectOptions value="{!batchTypeOptions}"/>
+                </apex:selectList>
+                -->
+<!--             </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Continue" action="{!editBatchPreset}"/>
+                <apex:commandButton value="Cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:outputPanel>
+-->
+     
+    <apex:outputPanel > <!--   rendered="{!isShowPreset}" -->
+        <apex:sectionHeader title="Batch Template" subtitle="Gift Batch Templates"/>
+
+<!--         <apex:outputLabel for="bpPickVal"><b>Preset Type: </b></apex:outputLabel>
+        <apex:inputField id="bpPickVal" value="{!template.Type__c}"/>
+        <!--
+        <apex:selectList id="bpPickVal" label="Preset Type of new record" value="{!batchPresetType}" size="1">
+          <apex:selectOptions value="{!batchTypeOptions}"/>
+        </apex:selectList>
+        -->
+<!--         <apex:commandButton value="Go!" action="{!editBatchPreset}"/><br/><br/>
+-->
+
+        <apex:pageBlock >
+          <apex:pageBlockButtons location="top">
+              <apex:commandButton value="New Batch" action="{!createNewBatch}"/>
+              <!--<apex:commandButton value="Cancel"/>-->
+          </apex:pageBlockButtons>
+
+          <apex:outputPanel rendered="{!presetTemplateOptions.size <= 0}">
+              <apex:outputText >No Batch Templates to display . . . . </apex:outputText>
+          </apex:outputPanel>
+
+          <apex:selectRadio value="{!selectedBatchTemplate}" layout="pageDirection" rendered="{!presetTemplateOptions.size > 0}">
+                  <apex:selectOptions value="{!presetTemplateOptions}"/>
+          </apex:selectRadio>
+
+
+<!--          <apex:pageBlockTable value="{!ViewPresets}" var="vp">
+              <apex:column headerValue="Template Name">
+                  <apex:commandLink value="{!vp.Name}" action="{!editBatchPreset}">
+                       <apex:param name="templateId" value="{!vp.Id}"/>
+                  </apex:commandLink>
+              </apex:column>
+--><!--               <apex:column headerValue="Template Type" value="{!vp.Type__c}"/>    -->
+<!--          </apex:pageBlockTable>
+-->        </apex:pageBlock>
+      </apex:outputPanel>
+
+  </apex:form>
+</apex:page>

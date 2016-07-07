@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Tribute</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tributes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Tributes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date To --></label>
+        <name>Date_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date From --></label>
+        <name>Date_from__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fund --></label>
+        <name>Default_Fund__c</name>
+        <relationshipLabel><!-- Tributes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fund Name --></label>
+        <name>Fund_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribute Type --></label>
+        <name>Tribute_Type__c</name>
+        <picklistValues>
+            <masterLabel>In Honour</masterLabel>
+            <translation><!-- In Honour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Memory</masterLabel>
+            <translation><!-- In Memory --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Tribute Layout 1.62</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Total_Gifts --></label>
+        <name>Total_Gifts</name>
+    </webLinks>
+</CustomObjectTranslation>

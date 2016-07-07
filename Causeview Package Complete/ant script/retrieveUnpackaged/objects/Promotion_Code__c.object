@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Causeview - promotion codes applied to event ticketing</description>
+    <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apply_To__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Define how promotion should be applied</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Define how promotion should be applied: to specified levels or the entire purchase</inlineHelpText>
+        <label>Apply To</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Each Ticket per Event Level</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entire Purchase</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Code__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Promotion Code</description>
+        <externalId>true</externalId>
+        <inlineHelpText>e.g. VIP10 (Do not use spaces or special characters)</inlineHelpText>
+        <label>Code</label>
+        <length>48</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of promotion</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Discount_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defines the type of discount to apply to the promotion code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the type of discount to apply to the promotion code</inlineHelpText>
+        <label>Discount Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Percentage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fixed Ticket Price</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Discounted_Price__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Price of event level after discount</description>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(Apply_To__c, &quot;Event Level&quot;), IF(ISPICKVAL(Discount_Type__c, &quot;Percentage&quot;), ( Event_Level__r.Level_Price__c *  Percentage__c ),  Fixed_Price__c ), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Price of event level after discount</inlineHelpText>
+        <label>Discounted Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Promo valid end date</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Event_Level__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Event Level the discount will be applied to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Event Level the discount will be applied to</inlineHelpText>
+        <label>Event Level</label>
+        <referenceTo>Event_Level__c</referenceTo>
+        <relationshipLabel>Promotion Codes</relationshipLabel>
+        <relationshipName>Promotion_Codes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Event__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event related to promotion</description>
+        <externalId>false</externalId>
+        <label>Event</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Promotion Codes</relationshipLabel>
+        <relationshipName>Promotion_Codes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Fixed_Price__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defines the fixed price per ticket or purchase</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the fixed price per ticket or purchase</inlineHelpText>
+        <label>Fixed Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Limited_Time_Promotion__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Check to define period promotion is valid</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check to define period promotion is valid</inlineHelpText>
+        <label>Limited Time Promotion</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Max_Usage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of times the promotion code can be used</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of times the promotion code can be used</inlineHelpText>
+        <label>Max Usage</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Percentage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Percentage discount to be applied</description>
+        <externalId>false</externalId>
+        <label>Percentage</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Promo valid start date</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <label>Promotion Code</label>
+    <nameField>
+        <displayFormat>Promo-{000000}</displayFormat>
+        <label>Promo Code No.</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Promotion Codes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>EventLevelDiscount</fullName>
+        <active>true</active>
+        <description>Confirms event level is selected when Apply To is set to Event Level</description>
+        <errorConditionFormula>AND( Event_Level__c = null, (ISPICKVAL(Apply_To__c,&quot;Each Ticket per Event Level&quot;)))</errorConditionFormula>
+        <errorDisplayField>Event_Level__c</errorDisplayField>
+        <errorMessage>You must select an Event Level if Apply To is set to Event Level</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>FixedPriceRequired</fullName>
+        <active>true</active>
+        <description>Requires Fixed Price field be populated if Fixed Price is selected.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Discount_Type__c, &quot;Fixed Price&quot;), ISBLANK( Fixed_Price__c ))</errorConditionFormula>
+        <errorDisplayField>Fixed_Price__c</errorDisplayField>
+        <errorMessage>You must input a Fixed Price</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NoSpaces</fullName>
+        <active>true</active>
+        <description>Validates promo code does not contain spaces</description>
+        <errorConditionFormula>CONTAINS(Code__c, &quot; &quot;)</errorConditionFormula>
+        <errorDisplayField>Code__c</errorDisplayField>
+        <errorMessage>Promotion codes cannot contain spaces</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>NonEventLevelDiscount</fullName>
+        <active>true</active>
+        <description>Confirms event level is NOT selected when Apply To is set to Entire Purchase</description>
+        <errorConditionFormula>AND( NOT(ISBLANK(Event_Level__c )), ( ISPICKVAL(Apply_To__c,&quot;Entire Purchase&quot;)))</errorConditionFormula>
+        <errorDisplayField>Event_Level__c</errorDisplayField>
+        <errorMessage>You should not select an Event Level if Apply To is set to Entire Purchase.  Event Level should only be selected if Apply To is set to Event Level.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PercentOrFixed</fullName>
+        <active>true</active>
+        <description>Ensures only Percentage OR Fixed Price is entered, not both.</description>
+        <errorConditionFormula>AND(NOT(ISBLANK( Fixed_Price__c)), NOT(ISBLANK( Percentage__c )))</errorConditionFormula>
+        <errorMessage>You cannot enter both a Percentage and Fixed Price discount.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>PercentageRequired</fullName>
+        <active>true</active>
+        <description>Requires Percentage field be populated if Percentage is selected.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Discount_Type__c, &quot;Percentage&quot;), ISBLANK(  Percentage__c  ))</errorConditionFormula>
+        <errorDisplayField>Percentage__c</errorDisplayField>
+        <errorMessage>You must input a Percentage</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Letter</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Letters</value>
+    </caseValues>
+    <fields>
+        <help><!-- Plain text body text block --></help>
+        <label><!-- Body Text Block (Plain Text) --></label>
+        <name>Body_Text_Block_Plain_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter. --></help>
+        <label><!-- Custom Rich Text 1 --></label>
+        <name>Custom_Rich_Text_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter. --></help>
+        <label><!-- Custom Rich Text 2 --></label>
+        <name>Custom_Rich_Text_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Custom letter field that is copied to receipt if letter is selected.  Can be used for custom merge elements in Acknowledgement letter. --></help>
+        <label><!-- Custom Rich Text 3 --></label>
+        <name>Custom_Rich_Text_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defines the subject line for the email template used for this letter. --></help>
+        <label><!-- Email Subject --></label>
+        <name>Email_Subject__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of fund to be printed on letter. --></help>
+        <label><!-- Fund Name --></label>
+        <name>Fund_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rich text introduction text block --></help>
+        <label><!-- Introduction Text Block (Rich Text) --></label>
+        <name>Introduction_Text_Block_Rich_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- Introduction text for letter --></help>
+        <label><!-- Introduction Text Block (Plain Text) --></label>
+        <name>Introduction__c</name>
+    </fields>
+    <fields>
+        <help><!-- URL to logo for use on acknowledgement letter --></help>
+        <label><!-- Logo --></label>
+        <name>Logo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- URL to image of letter signature --></help>
+        <label><!-- Signature Image --></label>
+        <name>Signature_Image__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rich text signature block --></help>
+        <label><!-- Signature (Rich Text) --></label>
+        <name>Signature_Rich_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- Signature text --></help>
+        <label><!-- Signature (Plain Text) --></label>
+        <name>Signature__c</name>
+    </fields>
+    <fields>
+        <help><!-- Body text block --></help>
+        <label><!-- Body Text Block (Rich Text) --></label>
+        <name>Text_Block__c</name>
+    </fields>
+    <layouts>
+        <layout>Letter Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Letter Details - Plain Text --></label>
+            <section>Letter Details - Plain Text</section>
+        </sections>
+        <sections>
+            <label><!-- Letter Details - Rich Text --></label>
+            <section>Letter Details - Rich Text</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

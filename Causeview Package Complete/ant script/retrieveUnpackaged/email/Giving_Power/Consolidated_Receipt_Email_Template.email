@@ -1,0 +1,17 @@
+<messaging:emailTemplate subject="{!relatedTo.Email_Subject__c}" recipientType="Contact" relatedToType="Receipt__c">
+    <messaging:htmlEmailBody >
+          <c:DocEmailTemplate _recipientType="Contact" _relatedToType="Receipt__c" 
+               _recipientId="{!recipient.Id}" _relatedToId="{!relatedTo.Id}" templateType="ConsolidatedReceipt"/>
+    </messaging:htmlEmailBody>
+    
+    <messaging:plainTextEmailBody >
+
+    </messaging:plainTextEmailBody>
+    
+      
+    <messaging:attachment filename="OfficialConsolidatedTaxReceipt.pdf" renderAs="PDF">
+         <c:ConsolidatedReceiptPDFTemplate _recipientType="Contact" _relatedToType="Receipt__c" 
+            _recipientId="{!recipient.Id}" _relatedToId="{!relatedTo.Id}"/>
+    </messaging:attachment>
+    
+</messaging:emailTemplate>

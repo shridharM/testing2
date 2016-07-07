@@ -1,0 +1,21 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial>Dear {!Contact.FirstName},</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial><BR></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial>We currently have the following contact information for you. &nbsp;Please click the link below if you would like to update you information.</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial><BR></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial>First Name:&nbsp;</FONT><SPAN style="FONT-FAMILY: arial" class=Apple-style-span>{!Contact.FirstName}</SPAN></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial>Last Name:&nbsp;{!Contact.LastName}</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial>Birthdate:&nbsp;{!Contact.Birthdate}</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">Email Address:&nbsp;{!Contact.Email}</DIV>
+<DIV><FONT class=Apple-style-span face=arial><BR></FONT></DIV>
+<DIV><FONT class=Apple-style-span face=arial>Lifetime Fundraising: {!Contact.Total_Lifetime_Fundraising__c}</FONT></DIV>
+<DIV><FONT class=Apple-style-span face=arial>Lifetime Giving:&nbsp;{!Contact.Total_Lifetime_Giving__c}</FONT></DIV>
+<DIV><FONT class=Apple-style-span face=arial><BR></FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt">&nbsp;</DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><A href="https://www.opinov.com/breakeven/web/autofill.htm?firstname={!Contact.FirstName}&amp;lastname={!Contact.LastName}&amp;email={!Contact.Email}&amp;birthdate={!Contact.Birthdate}&amp;fundraise={!Contact.Total_Lifetime_Fundraising__c}&amp;gift={!Contact.Total_Lifetime_Giving__c}">https://www.opinov.com/breakeven/web/autofill.htm?firstname={!Contact.FirstName}&amp;lastname={!Contact.LastName}&amp;email={!Contact.Email}&amp;birthdate={!Contact.Birthdate}&amp;fundraise={!Contact.Total_Lifetime_Fundraising__c}&amp;gift={!Contact.Total_Lifetime_Giving__c}</A> <BR></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial>Thank you,</FONT></DIV>
+<DIV style="FONT-FAMILY: arial; COLOR: rgb(0,0,0); FONT-SIZE: 12pt"><FONT class=Apple-style-span face=arial>HN Foundation</FONT></DIV>]]></td>
+</tr>
+</table>

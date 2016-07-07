@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>HTML Editor</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>HTML Editors</value>
+    </caseValues>
+    <fields>
+        <label><!-- Recepient --></label>
+        <name>Recepient__c</name>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation><!-- Contact --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Related To Object --></label>
+        <name>Related_To_Object__c</name>
+        <picklistValues>
+            <masterLabel>Receipt__c</masterLabel>
+            <translation><!-- Receipt__c --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rich Field --></label>
+        <name>Rich_Field__c</name>
+    </fields>
+    <layouts>
+        <layout>HTML Editor Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

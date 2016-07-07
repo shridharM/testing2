@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Volunteer_Shift__c.Volunteer_Role__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Volunteer_Shift__c.Location__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Volunteer_Shift__c.Start_Time__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Volunteer_Shift__c.End_Time__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Volunteer_Shift__c.Volunteer__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Volunteer_Shift__c.Duration_Hours__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Volunteer_Shift__c.Logged_Hours__c</field>
+    </columns>
+    <description>Lists all shifts without any logged hours</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Volunteer_Shift__c.Logged_Hours__c</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Volunteer_Shift__c.Volunteer_Opportunity__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Volunteers - Shifts Without Logged Hours</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactCustomEntity$Volunteer_Hours__c@Volunteer_Hours__c.Volunteer_Shift__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>FK_$Volunteer_Shift__c.Shift_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

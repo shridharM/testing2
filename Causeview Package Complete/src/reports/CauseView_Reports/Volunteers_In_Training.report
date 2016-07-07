@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_CNTC_FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Application__c.Training_Provided__c</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Application__c.Date_of_Program_Specific_Training__c</field>
+    </columns>
+    <description>Lists all volunteers currently in training</description>
+    <filter>
+        <criteriaItems>
+            <column>Volunteer_Application__c.Status__c</column>
+            <operator>equals</operator>
+            <value>Approved,Placed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Volunteer_Application__c.Program_Specific_Training_Status__c</column>
+            <operator>equals</operator>
+            <value>To Be Done</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Volunteers - In Training</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Volunteer_Application__c@Volunteer_Application__c.Volunteer__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

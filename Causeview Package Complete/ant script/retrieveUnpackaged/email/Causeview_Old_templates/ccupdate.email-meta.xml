@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Automated email notification sent to donor 30 days prior to credit card expiry date</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>head1</letterhead>
+    <name>Credit Card Expiry - 30 DAY Notification</name>
+    <style>freeForm</style>
+    <subject>Your Credit Card is Expiring</subject>
+    <textOnly>{!Organization.Name}
+_____________________________________________
+
+
+Dear {!Contact.FirstName},
+
+We appreciate your continued generosity to our organization.  Our records show that your credit card is due to expire: {!Recurring_Donation__c.Credit_Card_Expiry_Date__c}.
+
+Please click the link below to provide your new credit card information:
+
+https://actionpage.causeview.com/ccupdate?{!Recurring_Donation__c.Update_URL_Parameters__c}
+
+We thank you for your support!
+
+
+
+
+{!Organization.Name}
+{!Organization.Address}
+{!Organization.Phone}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Captures benefits related to event levels and membership levels</description>
+    <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Defines if benefit is currently available for use</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines if benefit is currently available for use</inlineHelpText>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Benefit_Code__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Unique Benefit Code</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Unique Benefit Code</inlineHelpText>
+        <label>Benefit Code</label>
+        <length>64</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Benefit_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Define type of benefit</description>
+        <externalId>false</externalId>
+        <label>Benefit Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Advertising</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Material Goods</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complimentary Membership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complimentary Tickets</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Benefit_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defines the benefit value - non taxable</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the benefit value - non taxable</inlineHelpText>
+        <label>Benefit Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Full_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Full description of benefit</description>
+        <externalId>false</externalId>
+        <label>Full Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Quantity_Issued__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number issued via transactions.  Sum of all transactions related to benefit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number issued via transactions.  Sum of all transactions related to benefit.</inlineHelpText>
+        <label>Quantity Issued</label>
+        <summarizedField>Transaction_Benefit__c.Benefit_Quantity__c</summarizedField>
+        <summaryForeignKey>Transaction_Benefit__c.Benefit__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Quantity_Remaining__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Quantity available.  Quantity Start - Quantity Sold.</description>
+        <externalId>false</externalId>
+        <formula>Quantity_Start__c -  Quantity_Issued__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Quantity available.  Quantity Start - Quantity Sold.</inlineHelpText>
+        <label>Quantity Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity_Start__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If applicable: define the quantity of benefit on hand</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable: define the quantity of benefit on hand</inlineHelpText>
+        <label>Quantity Start</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Short_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Brief description of benefit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Brief description of benefit (max of 255 character)</inlineHelpText>
+        <label>Short Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <label>Benefit</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Benefit Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Benefits</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,1007 @@
+<project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+    
+    <property file="build.properties"/>
+    <property environment="env"/>
+    
+    <!-- Dest_userName=ashwin@causeview.com
+     Dest_password= bitorder456
+     Namespace_Prefix=causeview
+     -->
+    <!-- windows-->
+
+    <condition property="sf.sessionId" value=""> <not> <isset property="sf.sessionId"/> </not> </condition>
+    
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="../ant-salesforce.jar" />
+        </classpath>
+    </taskdef>
+    
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+        <classpath>
+            <pathelement location="ant-contrib-0.3.jar"/>
+        </classpath>
+    </taskdef>
+    
+    <target name="teamCityErrorsFix">
+        <antcall target="ChangeSet" />
+        <antcall target="DeleteSiteObject" />
+    </target>
+    <scriptdef name="scripttest" language="javascript">
+        <attribute name="text"/>
+        <attribute name="delim"/>
+        <attribute name="property"/>
+        <attribute name="property1"/>
+        <attribute name="property2"/>
+        <attribute name="property3"/>
+        <attribute name="property4"/>
+        <attribute name="property5"/>
+        <attribute name="property6"/>
+        <![CDATA[
+            
+            var changedFileDetails = attributes.get("text");
+            var delim = attributes.get("delim");
+            var filePath = changedFileDetails.split(":");
+            if(filePath[0].indexOf("src") > -1){
+                var fileName =filePath[0].split("src");
+                var fileExtn =fileName[1].split("/");
+                var fileNameWithoutExtn =fileExtn[2].split("\.");
+                var fldrSubfldr='/'+fileExtn[1]+'/'+fileExtn[2];
+                var fldrSubfldrFile=fileExtn[2]+'/'+fileExtn[3];
+                var fldrSubfldrFileWtEx;
+                if(fileExtn[3]){
+                    fldrSubfldrFileWtEx=fileExtn[2]+'/'+fileExtn[3].split("\.")[0];
+                }
+                project.setProperty(attributes.get("property"), fileName[1]);
+                project.setProperty(attributes.get("property1"), fileExtn[1]);
+                project.setProperty(attributes.get("property2"), fileNameWithoutExtn[0]);
+                project.setProperty(attributes.get("property3"), fldrSubfldr);
+                project.setProperty(attributes.get("property4"), fldrSubfldrFile);
+                project.setProperty(attributes.get("property5"), fldrSubfldrFileWtEx);
+                project.log("----"+fileName[1]);
+                project.log("----"+fileNameWithoutExtn[0]);
+            }
+            project.setProperty(attributes.get("property6"), 'false');
+            if(filePath[1] != undefined){
+                if(filePath[1] == 'DELETED'){
+                        project.setProperty(attributes.get("property6"), 'true');
+                }
+                project.log("---filePath-"+filePath[1]);
+            }
+            
+        ]]>
+    </scriptdef>
+    <loadfile property="file" srcfile="changedFilePath.txt" />
+    
+    <target name="moveChangedFilesToDeployroot">
+        <foreach target="moveChangedFiles" list="${file}" delimiter="${line.separator}" param="var" />
+    </target>
+    <target name="moveChangedFiles">
+        
+        <scripttest text="${var}" delim=":" property="sourcefile" property1="fileExt" property2="fileNameWithoutExt" property3="subFolder" property4="subFolderFile" property5="fldrSubfldrFileWtEx" property6="delete?"/>
+        <available file="retrieveUnpackaged${sourcefile}" property="fileExist"/>
+        <echo message="fileNameWithoutExt=${fileNameWithoutExt}" />
+        <!-- moving changed files from retrieveUnpackaged to filesReadytodeploy -->
+        <if>
+            <equals arg1="${fileExist}" arg2="true" />
+            <then>
+                <delete file="filesReadytodeploy${sourcefile}" />
+                <copy file="retrieveUnpackaged${sourcefile}"  tofile="filesReadytodeploy${sourcefile}"  />
+                <available file="retrieveUnpackaged${sourcefile}-meta.xml" property="xmlFileExist"/>
+                <echo message="xmlFileExist==${xmlFileExist}" />
+                <if>
+                    <equals arg1="${xmlFileExist}" arg2="true" />
+                    <then>
+                        <delete file="filesReadytodeploy${sourcefile}-meta.xml" />
+                        <copy file="retrieveUnpackaged${sourcefile}-meta.xml"  tofile="filesReadytodeploy${sourcefile}-meta.xml"  />
+                    </then>
+                    <else>
+                        
+                    </else>
+                </if>
+            </then>
+            <else>
+                <echo message="There is no file to deploy" />
+            </else>
+        </if>
+        <available file="retrieveUnpackaged${subFolder}-meta.xml" property="subFldrXmlFileExist"/>
+        <echo message="There is no file to deploy========${subFolder}" />
+        <echo message="There is no file to deploy========${subFldrXmlFileExist}" />
+        <if>
+            <and>
+                <equals arg1="${fileExist}" arg2="true" />
+                <equals arg1="${subFldrXmlFileExist}" arg2="true" />
+            </and>
+            <then>
+                <delete file="filesReadytodeploy${subFolder}-meta.xml" />
+                <copy file="retrieveUnpackaged${subFolder}-meta.xml"  tofile="filesReadytodeploy${subFolder}-meta.xml"  />
+            </then>
+        </if>
+        <!-- preparing package.xml --><!-- ONly for the components for which * cant be used in pck.xml has to be added by this scipt.(I have added few other components script too) -->
+        <if>
+            <equals arg1="${delete?}" arg2="false" />
+            <then>
+                <property name="manifestFile" value="package.xml"/>
+            </then>
+            <else>
+                <property name="manifestFile" value="destructiveChanges.xml"/>
+            </else>
+        </if>
+        <echo message="manifestFile===> ${manifestFile}" />
+        <switch value="${fileExt}">
+            <case value="applications">
+                <echo message="component===> applications" />
+                <replaceregexp match="&lt;name&gt;CustomApplication&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;CustomApplication&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="classes">
+                <echo message="component===> classes" />
+                <replaceregexp match="&lt;name&gt;ApexClass&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;ApexClass&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="components">
+                <echo message="component===> components" />
+                <replaceregexp match="&lt;name&gt;ApexComponent&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;ApexComponent&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="connectedApps">
+                <echo message="component===> connectedApps" />
+                <replaceregexp match="&lt;name&gt;ConnectedApp&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;ConnectedApp&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="dashboards">
+                <echo message="component===> dashboards" />
+                <replaceregexp match="&lt;name&gt;Dashboard&lt;/name&gt;" replace="&lt;members&gt;${fldrSubfldrFileWtEx}&lt;/members&gt;${line.separator}        &lt;name&gt;Dashboard&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="documents">
+                <echo message="component===> documents" />
+                <replaceregexp match="&lt;name&gt;Document&lt;/name&gt;" replace="&lt;members&gt;${subFolderFile}&lt;/members&gt;${line.separator}        &lt;name&gt;Document&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="email">
+                <echo message="component===> email" />
+                <replaceregexp match="&lt;name&gt;EmailTemplate&lt;/name&gt;" replace="&lt;members&gt;${fldrSubfldrFileWtEx}&lt;/members&gt;${line.separator}        &lt;name&gt;EmailTemplate&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="homePageLayouts">
+                <echo message="component===> homePageLayouts" />
+                <replaceregexp match="&lt;name&gt;HomePageLayout&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;HomePageLayout&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="labels">
+                <echo message="component===> labels" />
+                <replaceregexp match="&lt;name&gt;CustomLabels&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;CustomLabels&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="letterhead">
+                <echo message="component===> letterhead" />
+                <replaceregexp match="&lt;name&gt;Letterhead&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;Letterhead&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="layouts">
+                <echo message="component===> layouts" />
+                <replaceregexp match="&lt;name&gt;Layout&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;Layout&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="objects">
+                <echo message="component===> objects" />
+                <replaceregexp match="&lt;name&gt;CustomObject&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;CustomObject&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="objectTranslations">
+                <echo message="component===> objectTranslations" />
+                <replaceregexp match="&lt;name&gt;CustomObjectTranslation&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;CustomObjectTranslation&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="pages">
+                <echo message="component===> pages" />
+                <replaceregexp match="&lt;name&gt;ApexPage&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;ApexPage&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="permissionsets">
+                <echo message="component===> permissionsets" />
+                <replaceregexp match="&lt;name&gt;PermissionSet&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;PermissionSet&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="profiles">
+                <echo message="component===> profiles" />
+                <replaceregexp match="&lt;name&gt;Profile&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;Profile&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="queues">
+                <echo message="component===> queues" />
+                <replaceregexp match="&lt;name&gt;Queue&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;Queue&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="remoteSiteSettings">
+                <echo message="component===> remoteSiteSettings" />
+                <replaceregexp match="&lt;name&gt;RemoteSiteSetting&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;RemoteSiteSetting&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="reports">
+                <echo message="component===> reports" />
+                <replaceregexp match="&lt;name&gt;Report&lt;/name&gt;" replace="&lt;members&gt;${fldrSubfldrFileWtEx}&lt;/members&gt;${line.separator}        &lt;name&gt;Report&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="reportTypes">
+                <echo message="component===> reportTypes" />
+                <replaceregexp match="&lt;name&gt;ReportType&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;ReportType&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="roles">
+                <echo message="component===> roles" />
+                <replaceregexp match="&lt;name&gt;Role&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;Role&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="settings">
+                <echo message="component===> settings" />
+                <replaceregexp match="&lt;name&gt;Settings&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;Settings&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="staticresources">
+                <echo message="component===> staticresources" />
+                <replaceregexp match="&lt;name&gt;StaticResource&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;StaticResource&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="tabs">
+                <echo message="component===> tabs" />
+                <replaceregexp match="&lt;name&gt;CustomTab&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;CustomTab&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="triggers">
+                <echo message="component===> triggers" />
+                <replaceregexp match="&lt;name&gt;ApexTrigger&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;ApexTrigger&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <case value="workflows">
+                <echo message="component===> workflows" />
+                <replaceregexp match="&lt;name&gt;Workflow&lt;/name&gt;" replace="&lt;members&gt;${fileNameWithoutExt}&lt;/members&gt;${line.separator}        &lt;name&gt;Workflow&lt;/name&gt;" flags="g" byline="true">
+                    <fileset file="filesReadytodeploy/${manifestFile}"/>
+                </replaceregexp>
+            </case>
+            <default>
+                
+            </default>
+        </switch>
+    </target>
+   
+   
+   
+   
+    <target name="ChangeSet">
+        <delete dir="retrieveUnpackaged" />
+        <mkdir dir="retrieveUnpackaged"/>
+        
+		<copy todir="retrieveUnpackaged" >
+			<fileset dir="../src" includes="**"/>
+		</copy>
+        
+        <delete dir="filesReadytodeploy" />
+        <mkdir dir="filesReadytodeploy"/>
+        
+		<copy todir="filesReadytodeploy" >
+			<fileset dir="manifestFiles" includes="**"/>
+		</copy>
+
+    </target>
+    <target name="DeleteExtraFolders">
+        <delete dir="retrieveUnpackaged/accountSharingRules" />
+        <delete dir="retrieveUnpackaged/assignmentRules" />
+        <delete dir="retrieveUnpackaged/communities" />
+        <delete dir="retrieveUnpackaged/layouts" />
+        <delete dir="retrieveUnpackaged/profiles" />
+        <delete dir="retrieveUnpackaged/quickActions" />
+        <delete dir="retrieveUnpackaged/settings" />
+    </target>
+    
+    <target name="copyPackageFile">
+        <copy file="retrieveUnpackaged/listofMetadataToCopyInNewPackageFile.xml" tofile="retrieveUnpackaged/package.xml"/>
+    </target>
+    
+    <target name="fixcustomSettingsVisibility">
+        <replaceregexp match="\s+&lt;customSettingsVisibility&gt;Public&lt;/customSettingsVisibility&gt;" replace="" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+    </target>
+    
+    <target name="fixNamedFilter">
+        <replaceregexp match="&lt;namedFilters&gt;(.+?)&lt;/namedFilters&gt;" replace=""
+            flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged/objectTranslations"/>
+        </replaceregexp>
+    </target>
+    
+    <target name="fixPermissionsetsTC">
+        <delete dir="retrieveUnpackaged/permissionsets" />
+        <copydir src="../retrieveOutput/permissionsets"   dest="retrieveUnpackaged/permissionsets" />
+        
+        
+    </target>
+    
+    <target name="deleteStdActionAddContact">
+        <replaceregexp match="&lt;actionOverrides&gt;${line.separator}\s+&lt;actionName&gt;AddContact&lt;/actionName&gt;${line.separator}\s+(.+?)&lt;/actionOverrides&gt;" replace=""
+            flags="s" byline="false">
+            <fileset file="retrieveUnpackaged/objects/Contact.object"/>
+        </replaceregexp>
+    </target>
+    
+    <target name="DeleteSiteObject">
+        <delete file="retrieveUnpackaged/objects/Site.object" />
+    </target>
+    
+    <target name="Deletetemp">
+        <delete file="retrieveUnpackaged/triggers/RollupTotalGiving.trigger" />
+        <copyfile src="retrieveOutput/triggers/RollupTotalGiving.trigger"   dest="retrieveUnpackaged/triggers/RollupTotalGiving.trigger"   />
+        <delete file="retrieveUnpackaged/classes/RollupHelper.cls" />
+        <copyfile src="retrieveOutput/classes/RollupHelper.cls"   dest="retrieveUnpackaged/classes/RollupHelper.cls"   />
+        
+        
+    </target>
+    
+    
+    
+    
+    
+    <target name="replaceSite">
+        <replace file="retrieveUnpackaged/objects/site.object"  token="&lt;enableFeeds&gt;false&lt;/enableFeeds&gt;" value="&lt;enableFeeds&gt;true&lt;/enableFeeds&gt;"/>
+    </target>
+    
+    <target name="replaceAllocationTFH">
+        <replace file="retrieveUnpackaged/objects/Gift_Detail__c.object"  token="&lt;trackHistory&gt;true&lt;/trackHistory&gt;" value="&lt;trackHistory&gt;false&lt;/trackHistory&gt;"/>
+    </target>
+    
+    
+    <scriptdef name="scripttestForVersionIssue" language="javascript">
+        <attribute name="version"/>
+        <attribute name="major"/>
+        <attribute name="minor"/>
+        <![CDATA[
+            
+            var versionNo = attributes.get("version");
+            var versionNoList =versionNo.split("\.");
+            project.setProperty(attributes.get("major"), versionNoList[0]);
+            project.setProperty(attributes.get("minor"), versionNoList[1]);
+            project.log('ddddd===='+versionNoList[0]);
+            
+        ]]>
+    </scriptdef>
+    <target name="replaceNPE4Version">
+        <scripttestForVersionIssue version="${sf_com_apps_Version}"  major="majorNo" minor="minorNO" />
+        <replaceregexp match="&lt;packageVersions&gt;\n\s+&lt;majorNumber&gt;[0-9]&lt;/majorNumber&gt;\n\s+&lt;minorNumber&gt;[0-9]&lt;/minorNumber&gt;\n\s+&lt;namespace&gt;sf_com_apps&lt;/namespace&gt;" replace="&lt;packageVersions&gt;${line.separator}&lt;majorNumber&gt;${majorNo}&lt;/majorNumber&gt;${line.separator}&lt;minorNumber&gt;${minorNO}&lt;/minorNumber&gt;${line.separator}&lt;namespace&gt;sf_com_apps&lt;/namespace&gt;" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <scripttestForVersionIssue version="${npe4_Version}"  major="majorNo" minor="minorNO" />
+        <replaceregexp match="&lt;packageVersions&gt;\n\s+&lt;majorNumber&gt;[0-9]&lt;/majorNumber&gt;\n\s+&lt;minorNumber&gt;[0-9][0-9]&lt;/minorNumber&gt;\n\s+&lt;namespace&gt;npe4&lt;/namespace&gt;" replace="&lt;packageVersions&gt;${line.separator}&lt;majorNumber&gt;${majorNo}&lt;/majorNumber&gt;${line.separator}&lt;minorNumber&gt;${minorNO}&lt;/minorNumber&gt;${line.separator}&lt;namespace&gt;npe4&lt;/namespace&gt;" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+    </replaceregexp>
+        
+    </target>
+    
+    
+    <target name="RemoveLastViewedDate">
+        <replaceregexp match="\s+&lt;field&gt;LastViewedDate&lt;/field&gt;" replace="&lt;field&gt;LastViewedDate&lt;/field&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        <replaceregexp match="\s+&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" replace="&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        
+        <replaceregexp match="\s+&lt;isRequired&gt;false&lt;/isRequired&gt;" replace="&lt;isRequired&gt;false&lt;/isRequired&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        <replaceregexp match="\s+&lt;/displayedFields&gt;" replace="&lt;/displayedFields&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        
+        <replace dir="retrieveUnpackaged/objects"  token="&lt;displayedFields&gt;${line.separator}&lt;field&gt;LastViewedDate&lt;/field&gt;${line.separator}&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;${line.separator}&lt;isRequired&gt;false&lt;/isRequired&gt;${line.separator}&lt;/displayedFields&gt;" value=""/>
+        
+        <replaceregexp match="&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" replace="            &lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        
+        <replaceregexp match="&lt;isRequired&gt;false&lt;/isRequired&gt;" replace="            &lt;isRequired&gt;false&lt;/isRequired&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;/displayedFields&gt;" replace="        &lt;/displayedFields&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+    </target>
+    
+    
+    <target name="RemoveLastReferencedDate">
+        <replaceregexp match="\s+&lt;field&gt;LastReferencedDate&lt;/field&gt;" replace="&lt;field&gt;LastReferencedDate&lt;/field&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        <replaceregexp match="\s+&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" replace="&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        
+        <replaceregexp match="\s+&lt;isRequired&gt;false&lt;/isRequired&gt;" replace="&lt;isRequired&gt;false&lt;/isRequired&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        <replaceregexp match="\s+&lt;/displayedFields&gt;" replace="&lt;/displayedFields&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        
+        <replace dir="retrieveUnpackaged/objects"  token="&lt;displayedFields&gt;${line.separator}&lt;field&gt;LastReferencedDate&lt;/field&gt;${line.separator}&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;${line.separator}&lt;isRequired&gt;false&lt;/isRequired&gt;${line.separator}&lt;/displayedFields&gt;" value=""/>
+        
+        <replaceregexp match="&lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" replace="            &lt;isFieldManaged&gt;false&lt;/isFieldManaged&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        
+        <replaceregexp match="&lt;isRequired&gt;false&lt;/isRequired&gt;" replace="            &lt;isRequired&gt;false&lt;/isRequired&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;/displayedFields&gt;" replace="        &lt;/displayedFields&gt;" flags="g" byline="true">
+            <fileset dir="retrieveUnpackaged/objects"/>
+        </replaceregexp>
+        
+    </target>
+    
+    
+    
+    
+    
+    
+    
+    <target name="RollupHelperCodeComment">
+        <replace file="retrieveUnpackaged/classes/RollupHelper.cls"  token="List&lt;Contact&gt; contacts = [Select Id, Consecutive_Years_of_Giving__c, Consecutive_Years_of_Transactions__c" value="List&lt;Contact&gt; contacts = new List&lt;Contact&gt;();/*[Select Id, Consecutive_Years_of_Giving__c, Consecutive_Years_of_Transactions__c"/>
+        
+        <replace file="retrieveUnpackaged/classes/RollupHelper.cls"  token="From Contact c WHERE id IN :ContactIds FOR UPDATE]; " value="From Contact c WHERE id IN :ContactIds FOR UPDATE];*/"/>
+        <replace file="retrieveUnpackaged/classes/RollupHelper.cls"  token=" List&lt;npe4__Relationship__c&gt; relationships = [SELECT Id, npe4__Contact__c, npe4__RelatedContact__c" value="/*List&lt;npe4__Relationship__c&gt; relationships = [SELECT Id, npe4__Contact__c, npe4__RelatedContact__c"/>
+        
+        
+        <replace file="retrieveUnpackaged/classes/RollupHelper.cls"  token=" List&lt;npe5__Affiliation__c&gt; affiliations = [SELECT Id, npe5__Organization__c, npe5__Contact__c, npe5__Role__c" value="/*List&lt;npe5__Affiliation__c&gt; affiliations = [SELECT Id, npe5__Organization__c, npe5__Contact__c, npe5__Role__c"/>
+        <replace file="retrieveUnpackaged/classes/RollupHelper.cls"  token="if (softCredits.size()>0) insert softCredits;" value="if (softCredits.size()>0) insert softCredits;*/"/>
+        <replace file="retrieveUnpackaged/classes/RollupHelper.cls"  token="if (softCredits.size()>0) insert softCredits;*/*/" value="if (softCredits.size()>0) insert softCredits;*/"/>
+        
+        <replace file="retrieveUnpackaged/classes/testRollupHelper.cls"  token="/*" value="\*"/>
+        <replace file="retrieveUnpackaged/classes/testRollupHelper.cls"  token="*/" value="*\"/>
+        <replace file="retrieveUnpackaged/classes/testRollupHelper.cls"  token="testRollupHelper() {" value="testRollupHelper() {/*"/>
+        <replace file="retrieveUnpackaged/classes/testRollupHelper.cls"  token="Test.stopTest();" value="Test.stopTest();*/"/>
+        <replace file="retrieveUnpackaged/classes/testRollupHelper.cls"  token="testRollupHelper() {/*\*" value="testRollupHelper() {/*"/>
+        <replace file="retrieveUnpackaged/classes/testRollupHelper.cls"  token="Test.stopTest();*/*\" value="Test.stopTest();*/"/>
+        
+        
+    </target>
+    
+    <target name="CommentlookupPhoneDialogsAdditionalFields">
+        <replace dir="retrieveUnpackaged/objects"  token=" &lt;lookupPhoneDialogsAdditionalFields&gt;00NA0000009ge69&lt;/lookupPhoneDialogsAdditionalFields&gt;" value="&lt;lookupPhoneDialogsAdditionalFields&gt;Event_Phone__c&lt;/lookupPhoneDialogsAdditionalFields&gt;"/>
+        
+        <replace file="retrieveUnpackaged/objects/Contact.object"  token=" &lt;lookupPhoneDialogsAdditionalFields&gt;00NA000000AKece&lt;/lookupPhoneDialogsAdditionalFields&gt;" value="&lt;lookupPhoneDialogsAdditionalFields&gt;Emergency_Contact_Phone__c&lt;/lookupPhoneDialogsAdditionalFields&gt;"/>
+        
+    </target>
+    
+    <target name="ReplaceContact3lookupFilterFields">
+        <replace file="retrieveUnpackaged/objects/Contact.object"  token="&lt;lookupFilterFields&gt;CONTACT.ADDRESS2_STATE&lt;/lookupFilterFields&gt;" value=""/>
+        <replace file="retrieveUnpackaged/objects/Contact.object"  token="&lt;lookupFilterFields&gt;CONTACT.ADDRESS2_ZIP&lt;/lookupFilterFields&gt;" value=""/>
+        <replace file="retrieveUnpackaged/objects/Contact.object"  token="&lt;lookupFilterFields&gt;CONTACT.ADDRESS2_COUNTRY&lt;/lookupFilterFields&gt;" value=""/>
+        
+    </target>
+    
+    <target name="deleteNonExistingFields">
+        
+		<replaceregexp match="&lt;fields&gt;\n\s+&lt;fullName&gt;IsSelfServiceClosed&lt;/fullName&gt;\n\s+&lt;trackFeedHistory&gt;.*&lt;/trackFeedHistory&gt;\n\s+&lt;trackHistory&gt;.*&lt;/trackHistory&gt;\n\s+&lt;trackTrending&gt;.*&lt;/trackTrending&gt;\n\s+&lt;/fields&gt;" replace=""
+            flags="gi" byline="false">
+            <fileset file="retrieveUnpackaged/objects/*.object"/>
+		</replaceregexp>
+		
+		<replaceregexp match="&lt;fields&gt;\n\s+&lt;fullName&gt;IsVisibleInSelfService&lt;/fullName&gt;\n\s+&lt;trackFeedHistory&gt;.*&lt;/trackFeedHistory&gt;\n\s+&lt;trackHistory&gt;.*&lt;/trackHistory&gt;\n\s+&lt;trackTrending&gt;.*&lt;/trackTrending&gt;\n\s+&lt;/fields&gt;" replace=""
+            flags="gi" byline="false">
+            <fileset file="retrieveUnpackaged/objects/*.object"/>
+		</replaceregexp>
+		
+		<replaceregexp match="&lt;fields&gt;\n\s+&lt;fullName&gt;IsVisibleInSelfService&lt;/fullName&gt;(.+?)&lt;/fields&gt;" replace=""
+            flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged/objects"/>
+		</replaceregexp>
+    </target>
+	
+    <target name="fixPermissionSets">
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsSelfClosed&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsSelfServiceClosed&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsVisibleInSelfService&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsVisibleInCss&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Event.IsVisibleInSelfService&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Task.IsVisibleInSelfService&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.ClosedOnCreate&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+    </target>
+    
+    
+    
+    <target name="fixConnectedAppAndQuickAction">
+        <replaceregexp match="&lt;consumerKey&gt;.*&lt;/consumerKey&gt;" replace="" flags="g" byline="true">
+            <fileset  file="retrieveUnpackaged/connectedApps/Causeview.connectedApp" />
+        </replaceregexp>
+        <delete file="retrieveUnpackaged/quickActions/CollaborationGroup.NewGroupMember.quickAction"/>
+        <delete file="retrieveUnpackaged/quickActions/CollaborationGroup.NewGroupRecord.quickAction"/>
+        <delete file="retrieveUnpackaged/quickActions/NewGroup.quickAction"/>
+        
+    </target>
+    
+    <target name="fixWorkflowsAndLayouts">
+        <delete file="retrieveUnpackaged/Workflows/ExternalEventMapping.workflow"/>
+        <delete file="retrieveUnpackaged/Workflows/SocialPost.workflow"/>
+        <delete file="retrieveUnpackaged/Workflows/Reply.workflow"/>
+        <delete file="retrieveUnpackaged/Workflows/Question.workflow"/>
+        <!--<delete file="retrieveUnpackaged/Workflows/SocialPersona.workflow"/>-->
+        <delete file="retrieveUnpackaged/objectTranslations/Account-en_US.objectTranslation"/>
+        <delete file="retrieveUnpackaged/objectTranslations/Contact-en_US.objectTranslation"/>
+        <replaceregexp match="&lt;value&gt;Deposited,Approved&lt;/value&gt;" replace="&lt;value&gt;Approved&lt;/value&gt;" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+    </target>
+
+    <target name="fixProfile">
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ApproveContract&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;EditPublicReports&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;EditReports&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ManageCssUsers&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ManageDashboards&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ManageSelfService&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;layoutAssignments&gt;\s+&lt;layout&gt;Account-Account Layout 1%2E5&lt;/layout&gt;\s+&lt;/layoutAssignments&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;layoutAssignments&gt;\s+&lt;layout&gt;Contact-Contact Layout 1%2E62&lt;/layout&gt;\s+&lt;/layoutAssignments&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;layoutAssignments&gt;\s+&lt;layout&gt;Contract-Contract Layout&lt;/layout&gt;\s+&lt;/layoutAssignments&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;layoutAssignments&gt;\s+&lt;layout&gt;Account-Account Layout 1%2E5&lt;/layout&gt;\s+&lt;recordType&gt;Account.[a-z]*&lt;/recordType&gt;\s+&lt;/layoutAssignments&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        
+        
+        <replaceregexp match="&lt;layoutAssignments&gt;\n\s+&lt;layout&gt;CollaborationGroup-Group Layout&lt;/layout&gt;\n\s+&lt;/layoutAssignments&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        
+        
+        <delete file="retrieveUnpackaged/profiles/CustomerManager.profile"/>
+        <delete file="retrieveUnpackaged/profiles/Partner.profile"/>
+        <delete file="retrieveUnpackaged/profiles/ServiceCloud.profile"/>
+        <delete file="retrieveUnpackaged/profiles/Advancement Staff.profile"/>
+        <delete file="retrieveUnpackaged/profiles/Demo User.profile"/>
+        <delete file="retrieveUnpackaged/profiles/Causeview User.profile"/>
+        <delete file="retrieveUnpackaged/profiles/Sys Admin Clone.profile"/>
+        <delete file="retrieveUnpackaged/profiles/TeST deprecate.profile"/>
+        <delete file="retrieveUnpackaged/profiles/testprofile.profile"/>
+        <delete file="retrieveUnpackaged/profiles/Chatter External User.profile"/>
+        
+        
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ChatterEditOwnPost&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;CanInsertFeedSystemFields&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ChatterInviteExternalUsers&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ChatterFileLink&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ChatterInternalUser&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ChatterOwnGroups&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ManageUnlistedGroups&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;SelectFilesFromSalesforce&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;userPermissions&gt;\s+&lt;enabled&gt;[a-z]{4,5}&lt;/enabled&gt;\s+&lt;name&gt;ModerateChatter&lt;/name&gt;\s+&lt;/userPermissions&gt;" replace="" flags="gi" byline="false"  >
+            <fileset dir="retrieveUnpackaged/profiles"/>
+        </replaceregexp>
+		
+		<replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsSelfClosed&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsSelfServiceClosed&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsVisibleInSelfService&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.IsVisibleInCss&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Event.IsVisibleInSelfService&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Task.IsVisibleInSelfService&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="&lt;fieldPermissions&gt;\n\s+&lt;editable&gt;[a-z]{4,5}&lt;/editable&gt;\n\s+&lt;field&gt;Case.ClosedOnCreate&lt;/field&gt;(.+?)&lt;/fieldPermissions&gt;" replace="" flags="s" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        
+    </target>
+
+
+    <target name="fixSettings">
+        <delete file="retrieveUnpackaged/settings/Address.settings"/>
+    </target>
+
+    <target name="fixLayout">
+        <delete file="retrieveUnpackaged/layouts/Contract-Contract Layout.layout"/>
+        <delete file="retrieveUnpackaged/layouts/CollaborationGroup-Group Layout.layout"/>
+        <delete file="retrieveUnpackaged/layouts/Global-Global Layout.layout"/>
+        <!--<replaceregexp match="&lt;quickActionList&gt;(.*?)&lt;/quickActionList&gt;" replace="" flags="gis" byline="fasle"  >
+            <fileset dir="retrieveUnpackaged/layouts"/>
+        </replaceregexp>-->
+        
+    </target>
+
+    <target name="clearChangedFilePath">
+        <delete file="changedFilePath.txt" />
+        <touch file="changedFilePath.txt"/>
+    </target>
+    
+    <scriptdef name="deleteFailureHandler" language="javascript">
+        <attribute name="error"/>
+        <attribute name="result"/>
+        <![CDATA[
+            
+            var errorLog = attributes.get("error");
+            var failedFiles = errorLog.split("All Component Failures:");
+            project.setProperty(attributes.get("result"), 'success');
+            if (failedFiles[1] != undefined)
+            {
+                var list = failedFiles[1].split("\n");
+                for (i = 1; i < list.length - 2; i++)
+                {
+                    project.log(i + '======' + list[i]);
+                }
+                for (i = 1; i < list.length - 2; i++)
+                {
+                    if (list[i].indexOf("package.xml") != -1)
+                    {
+                        project.log('===inside 1===' + list[i]);
+                        project.setProperty(attributes.get("result"), 'failed');
+                        break;
+                    }
+                    else if (list[i].indexOf("destructiveChanges.xml -- Warning: No") == -1)
+                    {
+                        project.log('===inside 2===' + list[i]);
+                        project.log('===i===' + i);
+                        project.setProperty(attributes.get("result"), 'failed');
+                        break;
+                    }
+                }
+                }else{
+                    project.setProperty(attributes.get("result"), 'failed');
+                }
+            
+        ]]>
+    </scriptdef>
+
+    <target name="deployCauseview_Pack">
+      <antcall target="teamCityErrorsFix" />
+      <replaceregexp match="cvdevmger@causeview.com" replace="${Package_Org_UN}" flags="gi" byline="false">
+          <fileset dir="retrieveUnpackaged"/>
+      </replaceregexp>
+      <replaceregexp match="cvdevmgr@causeview.com" replace="${Package_Org_UN}" flags="gi" byline="false">
+          <fileset dir="retrieveUnpackaged"/>
+      </replaceregexp>
+      <replaceregexp match="cvdevmanager@causeview.com" replace="${Package_Org_UN}" flags="gi" byline="false">
+          <fileset dir="retrieveUnpackaged"/>
+      </replaceregexp>
+      <replaceregexp match="terrance@causeview.com" replace="${Package_Org_UN}" flags="gi" byline="false">
+          <fileset dir="retrieveUnpackaged"/>
+      </replaceregexp>
+      <antcall target="fixErrors" />
+        
+        <trycatch reference="exception">
+            <try>
+                <sf:deploy
+                username="${Package_Org_UN}"
+                password="${Package_Org_PW}"
+                sessionId="${sf.sessionId}"
+                serverurl="${sf.serverurl}"
+                singlePackage="true"
+                deployroot="filesReadytodeploy" />
+            </try>
+            <catch>
+                <property name="exceptionprop" refid="exception" />
+                <deleteFailureHandler error="${exceptionprop}" result="result" />
+                <if>
+                    <equals arg1="${result}" arg2="failed" />
+                    <then>
+                        <fail message="${exceptionprop}" />
+                    </then>
+                </if>
+            </catch>
+            <finally>
+                <echo message="result====>${result}" />
+            </finally>
+        </trycatch>
+        <antcall target="clearChangedFilePath" />
+    </target>
+
+
+    <target name="replaceNameSpacePrefix_dev1">
+        <replace dir="retrieveUnpackaged"  token="causeview__" value="${Dev_Org_1_Prefix}__"/>
+        <replaceregexp match="'causeview'" replace="'${Dev_Org_1_Prefix}'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="\\'causeview\\'" replace="\\\\'${Dev_Org_1_Prefix}\\\\'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="causeview\." replace="${Dev_Org_1_Prefix}\." flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="name\s*=\s*'${Dev_Org_1_Prefix}'" replace="name = 'causeview'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="${Dev_Org_1_Prefix}.com" replace="causeview.com" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+    </target>
+    
+    <target name="deployCauseview_dev1">
+        <antcall target="teamCityErrorsFix" />
+        <antcall target="replaceNameSpacePrefix_dev1" />
+        <replaceregexp match="cvdevmger@causeview.com" replace="${Dev_Org_1_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="cvdevmgr@causeview.com" replace="${Dev_Org_1_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="cvdevmanager@causeview.com" replace="${Dev_Org_1_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="terrance@causeview.com" replace="${Dev_Org_1_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <antcall target="fixErrors" />
+        
+        <trycatch reference="exception">
+            <try>
+                <sf:deploy
+                username="${Dev_Org_1_UN}"
+                password="${Dev_Org_1_PW}"
+                sessionId="${sf.sessionId}"
+                serverurl="${sf.serverurl}"
+                singlePackage="true"
+                deployroot="filesReadytodeploy" />
+            </try>
+            <catch>
+                <property name="exceptionprop" refid="exception" />
+                <deleteFailureHandler error="${exceptionprop}" result="result" />
+                <if>
+                    <equals arg1="${result}" arg2="failed" />
+                    <then>
+                        <fail message="${exceptionprop}" />
+                    </then>
+                </if>
+            </catch>
+            <finally>
+                <echo message="result====>${result}" />
+            </finally>
+        </trycatch>
+        <antcall target="clearChangedFilePath" />
+    </target>
+    
+    <target name="replaceNameSpacePrefix_dev2">
+        <replace dir="retrieveUnpackaged"  token="causeview__" value="${Dev_Org_2_Prefix}__"/>
+        <replaceregexp match="'causeview'" replace="'${Dev_Org_2_Prefix}'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="\\'causeview\\'" replace="\\\\'${Dev_Org_2_Prefix}\\\\'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="causeview\." replace="${Dev_Org_2_Prefix}\." flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="name\s*=\s*'${Dev_Org_2_Prefix}'" replace="name = 'causeview'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="${Dev_Org_2_Prefix}.com" replace="causeview.com" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+    </target>
+    
+    <target name="deployCauseview_dev2">
+        <antcall target="teamCityErrorsFix" />
+        <antcall target="replaceNameSpacePrefix_dev2" />
+        <replaceregexp match="cvdevmger@causeview.com" replace="${Dev_Org_2_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="cvdevmgr@causeview.com" replace="${Dev_Org_2_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="cvdevmanager@causeview.com" replace="${Dev_Org_2_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="terrance@causeview.com" replace="${Dev_Org_2_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <antcall target="fixErrors" />
+        
+        <trycatch reference="exception">
+            <try>
+                <sf:deploy
+                username="${Dev_Org_2_UN}"
+                password="${Dev_Org_2_PW}"
+                sessionId="${sf.sessionId}"
+                serverurl="${sf.serverurl}"
+                singlePackage="true"
+                deployroot="filesReadytodeploy" />
+            </try>
+            <catch>
+                <property name="exceptionprop" refid="exception" />
+                <deleteFailureHandler error="${exceptionprop}" result="result" />
+                <if>
+                    <equals arg1="${result}" arg2="failed" />
+                    <then>
+                        <fail message="${exceptionprop}" />
+                    </then>
+                </if>
+            </catch>
+            <finally>
+                <echo message="result====>${result}" />
+            </finally>
+        </trycatch>
+        <antcall target="clearChangedFilePath" />
+    </target>
+    
+    <target name="replaceNameSpacePrefix_dev3">
+        <replace dir="retrieveUnpackaged"  token="causeview__" value="${Dev_Org_3_Prefix}__"/>
+        <replaceregexp match="'causeview'" replace="'${Dev_Org_3_Prefix}'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="\\'causeview\\'" replace="\\\\'${Dev_Org_3_Prefix}\\\\'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="causeview\." replace="${Dev_Org_3_Prefix}\." flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="name\s*=\s*'${Dev_Org_3_Prefix}'" replace="name = 'causeview'" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+        <replaceregexp match="${Dev_Org_3_Prefix}.com" replace="causeview.com" flags="gi" byline="true">
+            <fileset dir="retrieveUnpackaged" />
+        </replaceregexp>
+    </target>
+    
+    <target name="deployCauseview_dev3">
+        <antcall target="teamCityErrorsFix" />
+        <antcall target="replaceNameSpacePrefix_dev3" />
+        <replaceregexp match="cvdevmger@causeview.com" replace="${Dev_Org_3_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="cvdevmgr@causeview.com" replace="${Dev_Org_3_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="cvdevmanager@causeview.com" replace="${Dev_Org_3_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <replaceregexp match="terrance@causeview.com" replace="${Dev_Org_3_UN}" flags="gi" byline="false">
+            <fileset dir="retrieveUnpackaged"/>
+        </replaceregexp>
+        <antcall target="fixErrors" />
+        
+        <trycatch reference="exception">
+            <try>
+                <sf:deploy username="${Dev_Org_3_UN}"
+                password="${Dev_Org_3_PW}"
+                sessionId="${sf.sessionId}"
+                serverurl="${sf.serverurl}"
+                singlePackage="true"
+                deployroot="filesReadytodeploy" />
+            </try>
+            <catch>
+                <property name="exceptionprop" refid="exception" />
+                <deleteFailureHandler error="${exceptionprop}" result="result" />
+                <if>
+                    <equals arg1="${result}" arg2="failed" />
+                    <then>
+                        <fail message="${exceptionprop}" />
+                    </then>
+                </if>
+            </catch>
+            <finally>
+                <echo message="result====>${result}" />
+            </finally>
+        </trycatch>
+        <antcall target="clearChangedFilePath" />
+    </target>
+
+
+
+    <target name="fixErrors">
+        <antcall target="replaceNPE4Version" />
+        <antcall target="replaceAllocationTFH" />
+        <antcall target="deleteNonExistingFields" />
+        <antcall target="RemoveLastReferencedDate" />
+        <antcall target="RemoveLastViewedDate" />
+        <!--<antcall target="RollupHelperCodeComment" />--><!--not needed now-->
+        <antcall target="CommentlookupPhoneDialogsAdditionalFields" />
+        <antcall target="ReplaceContact3lookupFilterFields" />        
+        <antcall target="fixWorkflowsAndLayouts" />
+        <antcall target="fixLayout" />
+		<antcall target="fixProfile" />
+		<antcall target="fixSettings" />
+        <antcall target="moveChangedFilesToDeployroot" />
+    </target>
+    
+    
+    <target name="test">
+        <if>
+            <equals arg1="w" arg2="w"/>
+            <then>
+                <property name="foo" value="bar1"/>
+                <echo>${foo}</echo>
+            </then>
+        </if>
+        <if>
+            <equals arg1="w" arg2="w"/>
+            <then>
+                <property name="foo1" value="bar2"/>
+                <echo>${foo1}</echo>
+            </then>
+        </if>
+        
+        <echo>${foo1}</echo>
+        
+    </target>    
+    
+    
+</project>

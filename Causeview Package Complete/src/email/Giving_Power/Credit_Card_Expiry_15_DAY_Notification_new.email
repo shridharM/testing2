@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Causeview Receipt Email Template</title>
+</head>
+
+<body>
+
+<div  style="padding:0px 15px 15px 15px; border: #d4d4d4 solid 20px;  width:600px; font:10pt Arial, sans-serif;">
+<!-- Banner/Logo  -->
+<div style="float:right">
+	<img align="right" src="https://c.na11.content.force.com/servlet/servlet.ImageServer?id=015G0000007LEf3&oid=00DG0000000kpmr&lastMod=1399042907000" alt=""> <br>
+	<br> 
+</div>
+<div style="clear:both">
+
+
+<!-- Address Block -->
+<!--
+{!relatedTo.causeview__Receipt_Name__c}<br>
+{!relatedTo.Formatted_Date__c} <br>
+{!relatedTo.Receipt_Street__c}<br/>
+{!relatedTo.Receipt_City__c}, {!relatedTo.Receipt_State_Province__c} {!relatedTo.Receipt_Zip_Postal_Code__c}
+<br/><br/><br/> -->
+
+<!-- Greeting Block -->
+Dear {!Contact.FirstName},<br>
+<br/>
+<!-- Introduction Body Block -->
+<p> We appreciate your continued generosity to our organization.  Our records show that your credit card is due to expire: {!Recurring_Donation__c.Credit_Card_Expiry_Date__c}.</p>
+
+<!-- Main Body Block -->
+<p> Please click the link below to provide your new credit card information:<br><br>
+
+<a href="https://actionpage.causeview.com/ccupdate?{!Recurring_Donation__c.Update_URL_Parameters__c}">Update my credit card info now</a><br><br>
+
+We thank you for your support! </p>
+
+<!-- Signature Block -->
+<p>Sincerely,</p>
+<img src="https://c.na11.content.force.com/servlet/servlet.ImageServer?id=015G0000007LEf8&oid=00DG0000000kpmr&lastMod=1396988561000" alt=""><br>
+<p>John Smith, CEO<br>
+HN Foundation </p>
+
+<!-- Tax Statement -->
+<p align="center">HN Foundation is a 501(c)(3) nonprofit organization. If you have any questions, please email development@HNFoundation.org.</p>
+
+<!-- Social Media -->
+<div align="center" >
+	<a href=" http://www.facebook.com" target=_blank ><img src= "https://c.na7.content.force.com/servlet/servlet.ImageServer?id=015A0000003fFHn&oid=00DA0000000BsHb&lastMod=1396495501000"></a> <a href="http://twitter.com" target=_blank ><img src= "https://c.na7.content.force.com/servlet/servlet.ImageServer?id=015A0000003fFHs&oid=00DA0000000BsHb&lastMod=1396495573000"></a><a href="http://www.youtube.com" target=_blank ><img src="https://c.na7.content.force.com/servlet/servlet.ImageServer?id=015A0000003fFI7&oid=00DA0000000BsHb&lastMod=1396495629000"></a>
+	</div> 
+</div>
+ </div>
+<!-- Footer -->
+<div style="background-color:#D4D4D4; padding:0px 15px 15px 15px; width:640px;">
+	<table width="100%" style="font:8pt Arial;">
+		<tr>
+			<td align="center"> 355 Apple Creek Blvd Suite 200 Markham Ontario<Br>
+			Canada L3R 9X7 Phone: 905-752-1400<Br>
+			© HN Foundation All rights reserved<Br><Br></td>
+		</tr>
+
+		<tr align="center">
+			<td colspan=3> 	<a href="http://www.hnfoundation.org">Privacy</a> | 
+							<a href="mailto:development@HNFoundation.org">Contact Us</a> | 
+							<a href="http://www.hnfoundation.org">Visit the HN Foundation Website</a> 
+			</td></tr>
+	</table>
+	</div> 
+
+</body>
+</html>

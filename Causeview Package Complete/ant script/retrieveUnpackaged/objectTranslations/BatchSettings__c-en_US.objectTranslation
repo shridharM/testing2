@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Batch Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Batch Settings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Customer Batch Actionform Id.  Used by internal payment processing features. --></help>
+        <label><!-- Batch Form Id --></label>
+        <name>BatchFormID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch Report ID --></label>
+        <name>BatchReportId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bucket Account ID --></label>
+        <name>BucketAccountId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency Code --></label>
+        <name>CurrencyCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- For CauseView use only. DO NOT CHECK OR MODIFY. --></help>
+        <label><!-- Data Migration Mode --></label>
+        <name>Data_Migration_Mode__c</name>
+    </fields>
+    <fields>
+        <help><!-- URL used to connect to customer payment gateway via Causeview Actionengine. --></help>
+        <label><!-- Payment Gateway URL --></label>
+        <name>GatewayUrl__c</name>
+    </fields>
+    <fields>
+        <help><!-- If this box is checked, the Account with ID in BucketAccountId__c will be read-only, and undeletable. --></help>
+        <label><!-- Lock Bucket Account --></label>
+        <name>LockBucketAccount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Matching gift record type Id to be included in Gift related roll up for Individuals and Organizations. --></help>
+        <label><!-- Record Type Id for Giving Rollups --></label>
+        <name>Record_Type_Id_for_Rollups__c</name>
+    </fields>
+    <fields>
+        <help><!-- RecordType Id for Gift on the Transaction object. --></help>
+        <label><!-- Transaction Gift RecordType ID --></label>
+        <name>RegularGiftRecordTypeId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Record Id of Unknown Guest contact record.  Used with event registrations.  This field is deprecated post Causeview v1.936. --></help>
+        <label><!-- (deprecated) Unknown Guest Id --></label>
+        <name>Unknown_Guest_Id__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

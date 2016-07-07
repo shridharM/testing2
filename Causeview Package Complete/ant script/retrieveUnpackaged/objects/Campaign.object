@@ -1,0 +1,1872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AdvancedSetup</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Actionpage_Auto_Email_Acknowledgement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Actionpage Auto Email Acknowledgement</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Revenue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Actual Revenue</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Address_1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Address 1</label>
+        <length>60</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_2__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Address 2</label>
+        <length>60</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Appeal_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp; Appeal__r.Id, Appeal__r.Appeal_Name__c, &quot;_self&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Appeal Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Appeal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>No longer used by CauseView</description>
+        <externalId>false</externalId>
+        <label>(dep)</label>
+        <referenceTo>Appeal__c</referenceTo>
+        <relationshipLabel>DEPRECATED</relationshipLabel>
+        <relationshipName>Campaign</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Average_Gift_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Overall_Gift_Amount__c /  NumberSent</description>
+        <externalId>false</externalId>
+        <formula>IF (Overall_Gift_Count__c = 0, 0, Overall_Gift_Amount__c /  Overall_Gift_Count__c)</formula>
+        <inlineHelpText>The average $ amount of Gifts received</inlineHelpText>
+        <label>Average Gift Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CampaignMemberRecordTypeId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Capacity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Capacity</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sporting Event</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dinner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>75</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Code__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to code Campaigns/Appeals/Events</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Code for Campaign, Appeal or Event</inlineHelpText>
+        <label>Code</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Email__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event primary contact&apos;s email address - retreived from contact record.</description>
+        <externalId>false</externalId>
+        <formula>Event_Primary_Contact__r.Email</formula>
+        <label>Contact Email</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Phone__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event primary contact&apos;s phone number - retreived from contact record.</description>
+        <externalId>false</externalId>
+        <formula>Event_Primary_Contact__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contact Phone</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cost_Per_Response__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Overall_Gift_Count__c&gt; 0, ActualCost  /  Overall_Gift_Count__c, 
+IF(ISBLANK(Overall_Gift_Count__c), NULL, 0))</formula>
+        <label>Cost Per Response</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Per_Solicitation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Actual Cost / Number Sent</description>
+        <externalId>false</externalId>
+        <formula>IF (NumberSent &gt; 0, ActualCost  /  NumberSent, 
+IF(ISBLANK(NumberSent), NULL, 0))</formula>
+        <inlineHelpText>Actual Cost / Number Sent</inlineHelpText>
+        <label>Cost Per Solicitation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>75</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Fiscal_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Active revenue goal for fiscal year - roll up from Goals</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Active revenue goal for fiscal year - roll up from Goals</inlineHelpText>
+        <label>Current Fiscal Goal</label>
+        <summarizedField>Goal__c.Total_Fiscal_Goal__c</summarizedField>
+        <summaryFilterItems>
+            <field>Goal__c.Active__c</field>
+            <operation>equals</operation>
+            <value>true</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Goal__c.Campaign_Appeal__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Default_Gift_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Gift Amount</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Display_Calendar__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Display on Calendar</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Event_Email__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event email for publication purposes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Event email for publication purposes</inlineHelpText>
+        <label>Event Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event_End_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Event End Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event_Fee_Formated__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Event_Fee__c</formula>
+        <label>Event Fee Formated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event_Fee__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Fee per attendee</inlineHelpText>
+        <label>Event Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Event_Organizer__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Who is the even organizer for publication purposes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Who is the even organizer for publication purposes</inlineHelpText>
+        <label>Event Organizer</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event_Phone__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event phone for publication purposes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Event phone for publication purposes</inlineHelpText>
+        <label>Event Phone</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Event_Primary_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Primary content for the event.</description>
+        <externalId>false</externalId>
+        <label>Event Primary Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Events</relationshipLabel>
+        <relationshipName>Events</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Event_Start_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Event Start Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event_Website__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event website for publication purposes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Event website for publication purposes</inlineHelpText>
+        <label>Event Website</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Payment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Expected Payment Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>External_Campaign_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>External Campaign ID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Failure_URL__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Actionpage Failure URL</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Female__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Female</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Fiscal_Goal_Achieved_to_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Current_Fiscal_Goal__c &gt; 0, Overall_Gifts_for_Current_Fiscal__c /  Current_Fiscal_Goal__c,
+IF(ISBLANK(Current_Fiscal_Goal__c), NULL, 0))</formula>
+        <inlineHelpText>The percentage of the current fiscal goal that has been reached so far.</inlineHelpText>
+        <label>Fiscal Goal Achieved to Date (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Fund_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Displays name for Fund populated in Lookup field</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp;   Fund__r.Id  , Fund__r.Fund_Name__c, &quot;_self&quot; )</formula>
+        <label>Fund Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fund__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The designated Fund the Appeal is prompting for</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The designated Fund the Appeal is prompting for</inlineHelpText>
+        <label>Fund</label>
+        <referenceTo>Fund__c</referenceTo>
+        <relationshipLabel>Campaigns/Appeals</relationshipLabel>
+        <relationshipName>CampaignsAppeals</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Fundraising_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fundraising Goal</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gift_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of Gifts received NOT including child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of Gifts received NOT including child records</inlineHelpText>
+        <label>Gift Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gift_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of Gifts received NOT including child records</description>
+        <externalId>false</externalId>
+        <formula>One_Time_Gift_Count__c  +  Recurring_Gift_Count__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total number of Gifts received NOT including child records</inlineHelpText>
+        <label>Gift Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gifts_for_Current_Fiscal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total amount of Gifts received during current fiscal NOT including child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total amount of Gifts received during current fiscal NOT including child records</inlineHelpText>
+        <label>Gifts for Current Fiscal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gifts_for_Current_Quarter__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total amount of Gifts received during current quarter NOT including child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total amount of Gifts received during current quarter NOT including child records</inlineHelpText>
+        <label>Gifts for Current Quarter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Group__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>default</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Length_of_Presentation__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Length of Presentation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Letter__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Selected letter that will be sent to donors when donating to this appeal or event Actionpage</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Selected letter that will be sent to donors when donating to this appeal/event Actionpage</inlineHelpText>
+        <label>Letter</label>
+        <referenceTo>Letter__c</referenceTo>
+        <relationshipLabel>Appeals/Events</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lifetime_Goal_Achieved_to_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Lifetime_Goal__c &gt; 0, Overall_Gift_Amount__c /  Lifetime_Goal__c, 
+IF(ISBLANK(Lifetime_Goal__c), NULL, 0))</formula>
+        <label>Lifetime Goal Achieved to Date (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Lifetime_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Goal over the lifetime of the campaign or appeal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Goal over the lifetime of the campaign or appeal</inlineHelpText>
+        <label>Lifetime Goal</label>
+        <summarizedField>Goal__c.Total_Fiscal_Goal__c</summarizedField>
+        <summaryForeignKey>Goal__c.Campaign_Appeal__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Location_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of location for event.</description>
+        <externalId>false</externalId>
+        <label>Location Name</label>
+        <length>128</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Male__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Male</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Material_Requested__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Material Requested</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Banners, Guest Speaker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fundraising Toolkit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Media Press Release Sample</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Tips</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Organization Logo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Promotional Materials</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Number_Attended__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of individuals that attended the event</inlineHelpText>
+        <label>Number Attended</label>
+        <summaryFilterItems>
+            <field>Event_Registration__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Attended</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Event_Registration__c.Event__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_Available__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of tickets remaining for sale</description>
+        <externalId>false</externalId>
+        <formula>Number_of_Tickets_Planned__c  -   Number_of_Tickets_Sold__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Number of Tickets Planned - Number of Tickets Sold</inlineHelpText>
+        <label>Number of Tickets Available</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_Registered__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of individuals that have registered for the event</inlineHelpText>
+        <label>Number Registered</label>
+        <summaryFilterItems>
+            <field>Event_Registration__c.Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Event_Registration__c.Event__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_No_Shows__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Displays the number of registration records set to No Show</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of registration records set to No Show</inlineHelpText>
+        <label>Number of No Shows</label>
+        <summaryFilterItems>
+            <field>Event_Registration__c.Status__c</field>
+            <operation>equals</operation>
+            <value>No Show</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Event_Registration__c.Event__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Tickets_Planned__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Tickets Planned</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Tickets_Sold__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of tickets sold.  Roll up from Event Levels.</description>
+        <externalId>false</externalId>
+        <label>Number of Tickets Sold</label>
+        <summarizedField>Event_Level__c.Tickets_Sold__c</summarizedField>
+        <summaryForeignKey>Event_Level__c.Event__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>One_Time_Gift_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of One-Time Gifts received NOT including child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of One-Time Gifts received NOT including child records</inlineHelpText>
+        <label>One-Time Gift Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_or_Group__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Related organization or group to event</description>
+        <externalId>false</externalId>
+        <label>Organization or Group</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Events</relationshipLabel>
+        <relationshipName>Events</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Overall_Gift_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total amount of Gifts received including all child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total amount of Gifts received including all child records</inlineHelpText>
+        <label>Overall Lifetime Gift Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Overall_Gift_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of Gifts received including all child records</description>
+        <externalId>false</externalId>
+        <formula>Overall_One_Time_Gift_Count__c  +  Overall_Recurring_Gift_Count__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total number of Gifts received including all child records</inlineHelpText>
+        <label>Overall Lifetime Gift Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overall_Gifts_for_Current_Fiscal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total amount of Gifts received during current fiscal including all child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total amount of Gifts received during current fiscal including all child records</inlineHelpText>
+        <label>Overall Gifts for Current Fiscal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Overall_Gifts_for_Current_Quarter__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total amount of Gifts received during current quarter including all child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total amount of Gifts received during current quarter including all child records</inlineHelpText>
+        <label>Overall Gifts for Current Quarter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Overall_One_Time_Gift_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of One-Time Gifts received including all child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of One-Time Gifts received including all child records</inlineHelpText>
+        <label>Overall One-Time Gift Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overall_Recurring_Gift_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of Recurring Gifts received including all child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of Recurring Gifts received including all child records</inlineHelpText>
+        <label>Overall Recurring Gift Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Paid_Event__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies whether the event has a fee to attend.</inlineHelpText>
+        <label>Paid Event</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ParentAppeal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies if this Appeal is a parent</inlineHelpText>
+        <label>Parent Appeal</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Postal_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Zip/Postal Code</label>
+        <length>15</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Presentation_Date_Time__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Presentation Date &amp; Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Private__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Private</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Province__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>State/Province</label>
+        <length>75</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Publication_Additional_Details__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Additional information about event for publication purposes</description>
+        <externalId>false</externalId>
+        <label>Publication Additional Details</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Q1_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Active revenue goal for Q1 of current fiscal year (Roll-up from Goals)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Active revenue goal for Q1 of current fiscal year (Roll-up from Goals)</inlineHelpText>
+        <label>Current Fiscal Q1 Goal</label>
+        <summarizedField>Goal__c.Q1_Goal__c</summarizedField>
+        <summaryFilterItems>
+            <field>Goal__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Goal__c.Campaign_Appeal__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Q2_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Active revenue goal for Q2 of current fiscal year (Roll-up from Goals)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Active revenue goal for Q2 of current fiscal year (Roll-up from Goals)</inlineHelpText>
+        <label>Current Fiscal Q2 Goal</label>
+        <summarizedField>Goal__c.Q2_Goal__c</summarizedField>
+        <summaryFilterItems>
+            <field>Goal__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Goal__c.Campaign_Appeal__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Q3_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Active revenue goal for Q3 of current fiscal year (Roll-up from Goals)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Active revenue goal for Q3 of current fiscal year (Roll-up from Goals)</inlineHelpText>
+        <label>Current Fiscal Q3 Goal</label>
+        <summarizedField>Goal__c.Q3_Goal__c</summarizedField>
+        <summaryFilterItems>
+            <field>Goal__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Goal__c.Campaign_Appeal__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Q4_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Active revenue goal for Q4 of current fiscal year (Roll-up from Goals)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Active revenue goal for Q4 of current fiscal year (Roll-up from Goals)</inlineHelpText>
+        <label>Current Fiscal Q4 Goal</label>
+        <summarizedField>Goal__c.Q4_Goal__c</summarizedField>
+        <summaryFilterItems>
+            <field>Goal__c.Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Goal__c.Campaign_Appeal__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Recurring_Gift_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of Recurring Gifts received NOT including child records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of Recurring Gifts received NOT including child records</inlineHelpText>
+        <label>Recurring Gift Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Speaker_Requested__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Speaker Requested</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Swapped Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Success_URL__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Actionpage Success URL</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sys_Donation__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>MID(  Sys_FormIDs__c , 0, 15)</formula>
+        <label>(dep)</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sys_Event_URL__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(  Paid_Event__c , MID( Sys_FormIDs__c , 33, 15), MID( Sys_FormIDs__c , 49, 15))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(dep)</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sys_FormIDs__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>(dep)</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sys_Free_Event_Public__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>MID( Sys_FormIDs__c , 65, 15)</formula>
+        <label>(dep)</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sys_Free_Event__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>MID(  Sys_FormIDs__c , 49, 15)</formula>
+        <label>(dep)</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sys_Register_URL__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Paid_Event__c, Sys_Event_URL__c, Sys_Free_Event_Public__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>(dep)</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Topic__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Topic</label>
+        <length>32000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conference</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Silent Auction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Solicitation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>volunteer_Position__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>volunteer Position</label>
+        <referenceTo>Volunteer_Role__c</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <listViews>
+        <fullName>AllActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>Fund__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All Active Campaigns/Appeals</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Appeals</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.Appeal</value>
+        </filters>
+        <label>All Appeals</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>Overall_Gift_Count__c</columns>
+        <columns>Overall_Gift_Amount__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.CVCampaign</value>
+        </filters>
+        <label>All Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Events</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>Number_Registered__c</columns>
+        <columns>Number_Attended__c</columns>
+        <columns>Event_Start_Time__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.Event</value>
+        </filters>
+        <label>All Events</label>
+    </listViews>
+    <listViews>
+        <fullName>Demo_CampaignsRollup</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Demo CampaignsRollup</label>
+    </listViews>
+    <listViews>
+        <fullName>MyActiveCampaigns</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CAMPAIGN.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Active Campaigns</label>
+    </listViews>
+    <recordTypes>
+        <fullName>Appeal</fullName>
+        <active>true</active>
+        <description>A request for funds</description>
+        <label>Appeal</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swapped Out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silent Auction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solicitation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CVCampaign</fullName>
+        <active>true</active>
+        <description>Defines an organizational revenue stream.  Parent to Appeals</description>
+        <label>Campaign</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swapped Out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silent Auction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Solicitation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Event</fullName>
+        <active>true</active>
+        <description>A gathering of constituents for the purpose of fundraising or support</description>
+        <label>Event</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Swapped Out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CAMPAIGN.RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CAMPAIGN.START_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>CAMPAIGN.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CAMPAIGN.RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CAMPAIGN.STATUS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CAMPAIGN.ACTIVE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CAMPAIGN.NAME</lookupPhoneDialogsAdditionalFields>
+       <!--<lookupPhoneDialogsAdditionalFields>00NA0000009ge69</lookupPhoneDialogsAdditionalFields>-->
+        <searchResultsAdditionalFields>CAMPAIGN.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+    </searchLayouts>
+    <webLinks>
+        <fullName>Actionpage_Designer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Actionpage Designer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var win = window.open(&apos;{!$Setup.App_Settings__c.Actionpages_URL__c}?oid={!$Organization.Id}&amp;sid={!$Api.Session_ID}&amp;purl={!$Api.Partner_Server_URL_270}&amp;cid={!Campaign.Id}&amp;cname={!URLENCODE(Campaign.Name)}&amp;fid={!Campaign.FundId__c}&amp;lid={!Campaign.LetterId__c}&amp;donateFID={!$Setup.App_Settings__c.Appeal_Donate_Now_Form_Id__c}&amp;eventRegFID={!$Setup.App_Settings__c.Event_Registration_Form_Id__c}&amp;freeEventRegFID={!$Setup.App_Settings__c.Free_Event_Registration_Form_Id__c}&amp;uid={!$User.Id}&amp;rtid={!Campaign.RecordTypeId}&apos;);try {
+win.focus();
+} catch (e) { }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>CauseView_Online_Donation_Form</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>false</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>200</height>
+        <isResizable>false</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>(Deprecated)</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://api.causeview.com/Tools/CVSnippet.html?FID={!Campaign.Sys_Donation__c}&amp;CID={!Campaign.Id}&amp;FUID={!Campaign.FundId__c}</url>
+        <width>750</width>
+    </webLinks>
+    <webLinks>
+        <fullName>Causeview_Online_Event_Form</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>(Deprecated)</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://api.causeview.com/Tools/event_snip.html?FUID={!Campaign.FundId__c}&amp;FID={!Campaign.Sys_Register_URL__c}&amp;EventName={!URLENCODE(Campaign.Name)}&amp;CID={!Campaign.Id}&amp;Unit={!Campaign.Event_Fee_Formated__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Comp_Reg</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Complimentary Registration</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var win = window.open(&apos;{!$Setup.App_Settings__c.Form_URL__c}{!$Setup.App_Settings__c.Free_Event_Registration_Form_Id__c}?EventName={!URLENCODE(Campaign.Name)}&amp;CID={!Campaign.Id}&amp;UID={!$User.Id}&apos;, &apos;comp_reg&apos;, &apos;menubar=1,resizable=1,width=450,height=600&apos;);try {
+win.focus();
+} catch (e) { }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Complimentary_Registration</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>400</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>(Deprecated)</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://api.causeview.com/form/v1.6/{!Campaign.Sys_Free_Event__c}?EventName={!Campaign.Name}&amp;CID={!Campaign.Id}&amp;UID={!$User.Id}</url>
+        <width>400</width>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_An_Appeal_Actionpage</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create An Appeal Actionpage</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var win = window.open(&apos;{!$Setup.App_Settings__c.Actionpages_URL__c}SnippetGenerator.aspx?CID={!Campaign.Id}&amp;cname={!URLENCODE(Campaign.Name)}&amp;letter={!Campaign.LetterId__c}&amp;autoemail={!Campaign.Actionpage_Auto_Email_Acknowledgement__c}&amp;__fid={!$Setup.App_Settings__c.Appeal_Donate_Now_Form_Id__c}&amp;__orgId={!$Setup.App_Settings__c.CV_Account_Id__c}&amp;__furl={!URLENCODE(IF (NOT(Campaign.Failure_URL__c  = &quot;&quot;), IF( NOT( AND( (FIND(&quot;http://&quot;, Campaign.Failure_URL__c  ) = 0), FIND(&quot;https://&quot;, Campaign.Failure_URL__c ) = 0)), Campaign.Failure_URL__c  , &quot;http://&quot;&amp;Campaign.Failure_URL__c ), &quot;&quot;))}&amp;__surl={!URLENCODE(IF (NOT(Campaign.Success_URL__c  = &quot;&quot;),IF( NOT( AND( (FIND(&quot;http://&quot;, Campaign.Success_URL__c  ) = 0), FIND(&quot;https://&quot;, Campaign.Success_URL__c ) = 0)), Campaign.Success_URL__c  , &quot;http://&quot;&amp;Campaign.Success_URL__c ), &quot;&quot;))}&apos;,&apos;snipetgen&apos;,&apos;width=660,height=350,scrollbars=yes,status=yes,toolbar=no,menubar=no,location=no,resizable=yes&apos;);try { 
+win.focus(); 
+} catch (e) { }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_an_Event_Actionpage</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Create an Event Actionpage</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://api.causeview.com/Tools/event_snip.html?FUID={!Campaign.FundId__c}&amp;FID={!IF( Campaign.Paid_Event__c ,$Setup.App_Settings__c.Event_Registration_Form_Id__c, $Setup.App_Settings__c.Free_Event_Registration_Form_Id__c)}&amp;EventName={!URLENCODE(Campaign.Name)}&amp;CID={!Campaign.Id}&amp;Unit={!Campaign.Event_Fee_Formated__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Event_Attendee_List</fullName>
+        <availability>online</availability>
+        <description>Launches report of all registration records</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Event Attendee List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00OA0000005FD75?pv0={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Event_Revenue_Summary</fullName>
+        <availability>online</availability>
+        <description>Launches revenue summary report</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Event Revenue Summary</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00OA0000005FD7F?pv0={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Multi_Channel_Campaign</fullName>
+        <availability>online</availability>
+        <description>Launches interface to create a multi-channel campaign or appeal.</description>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>New Multi-Channel Appeals</masterLabel>
+        <openType>sidebar</openType>
+        <page>Multichannel</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Appeal</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Appeal</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/701/e?retURL={!Campaign.Id}&amp;RecordType={!$Setup.App_Settings__c.Appeal_RecordType_Id__c	}&amp;ent=Campaign&amp;Parent={!Campaign.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Child_Campaign</fullName>
+        <availability>online</availability>
+        <description>Create new child campaign (recordtype Campaign)</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Child Campaign</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/701/e?retURL={!Campaign.Id}&amp;RecordType={!$Setup.App_Settings__c.Campaign_RecordType_Id__c}&amp;ent=Campaign&amp;Parent={!Campaign.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Event</fullName>
+        <availability>online</availability>
+        <description>Create a new event (campaign of recordtype event)</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Event</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/701/e?retURL={!Campaign.Id}&amp;RecordType={!$Setup.App_Settings__c.Event_RecordType_Id__c }&amp;ent=Campaign&amp;Parent={!Campaign.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Multi_Channel_Child_Appeals</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>New Multi-Channel Child Appeals</masterLabel>
+        <openType>sidebar</openType>
+        <page>MultichannelAppeal</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>Reg_Now</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Register Now</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var win = window.open(&apos;{!$Setup.App_Settings__c.Form_URL__c}{!IF( Campaign.Paid_Event__c ,$Setup.App_Settings__c.Event_Registration_Form_Id__c,  $Setup.App_Settings__c.Free_Event_Registration_Form_Id__c)}?EventName={!URLENCODE(Campaign.Name)}&amp;CID={!Campaign.Id}&amp;Unit={!Campaign.Event_Fee_Formated__c}&apos;, &apos;comp_reg&apos;, &apos;menubar=1,resizable=1,width=450,height=700&apos;);try {
+win.focus();
+} catch (e) { }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Register_Now</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>(Deprecated)</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://api.causeview.com/form/v1.6/{!Campaign.Sys_Register_URL__c}?EventName={!Campaign.Name}&amp;CID={!Campaign.Id}&amp;Unit={!Campaign.Event_Fee_Formated__c}</url>
+        <width>400</width>
+    </webLinks>
+    <webLinks>
+        <fullName>Test</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Test</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var win = window.open(&apos;http://localhost:8080?oid={!$Organization.Id}&amp;sid={!$Api.Session_ID}&amp;purl={!$Api.Partner_Server_URL_270}&amp;cid={!Campaign.Id}&amp;cname={!Campaign.Name}&amp;fid={!Campaign.FundId__c}&amp;lid={!Campaign.LetterId__c}&amp;donateFID={!$Setup.App_Settings__c.Appeal_Donate_Now_Form_Id__c}&amp;eventRegFID={!$Setup.App_Settings__c.Event_Registration_Form_Id__c}&amp;freeEventRegFID={!$Setup.App_Settings__c.Free_Event_Registration_Form_Id__c}&amp;uid={!$User.Id}&amp;rtid={!Campaign.RecordTypeId}&apos;);try { 
+win.focus(); 
+} catch (e) { }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign_Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
+    </webLinks>
+</CustomObject>

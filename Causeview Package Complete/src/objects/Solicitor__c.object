@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Causeview - Captures credit given to individuals that participated in the solicitation of a gift.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Custom_Amount__c), Gift__r.Amount__c, Custom_Amount__c)</formula>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Custom_Amount__c</fullName>
+        <description>Custom amount field - if not equal to gift amount.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Input value if amount is not equal to transaction amount</inlineHelpText>
+        <label>Custom Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Description of soft credit record.</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Gift_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Gift__r.Gift_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The date we expect to receive payment</inlineHelpText>
+        <label>Gift Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Gift_Status__c</fullName>
+        <description>Status of related gift.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Gift__r.Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Gift Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gift__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Gift that soft credit is related to.</description>
+        <externalId>false</externalId>
+        <label>Gift</label>
+        <referenceTo>Gift__c</referenceTo>
+        <relationshipLabel>Soft Credits</relationshipLabel>
+        <relationshipName>Soft_Credits</relationshipName>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Individual_Donor__c</fullName>
+        <description>Name of individual gift donor</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp; Gift__r.Constituent__c ,  Gift__r.Constituent__r.FirstName &amp; &quot; &quot; &amp; Gift__r.Constituent__r.LastName ,&quot;_self&quot;)</formula>
+        <label>Individual Donor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Donor__c</fullName>
+        <description>Organizational gift donor</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot; &amp;  Gift__r.Organization__c ,  Gift__r.Organization__r.Name, &quot;_self&quot;)</formula>
+        <label>Organization Donor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_Solicitor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Organization involved in solicitation of gift</description>
+        <externalId>false</externalId>
+        <label>Organization Solicitor</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Soft Credits</relationshipLabel>
+        <relationshipName>Soft_Credits</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Solicitor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Gift__r.Primary_Solicitor__r.FirstName &amp; &quot; &quot; &amp; Gift__r.Primary_Solicitor__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Solicitor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Relationship__c</fullName>
+        <externalId>false</externalId>
+        <label>Relationship</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Role</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Board Solicitor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foundation Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Soft Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Solicitor</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Secondary Solicitor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volunteer Solicitor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Solicitor_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Solicitor__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Solicitor Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solicitor_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Solicitor__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Solicitor Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solicitor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Individual involved in soliciting gift</description>
+        <externalId>false</externalId>
+        <label>Individual Solicitor</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Soft Credits</relationshipLabel>
+        <relationshipName>Additional_Solicitations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Soft Credit</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>SC-{00000}</displayFormat>
+        <label>Soft Credit ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Soft Credits</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Amount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Gift__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Gift_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Solicitor__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Role__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Solicitor__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Amount__c</searchFilterFields>
+        <searchFilterFields>Gift__c</searchFilterFields>
+        <searchFilterFields>Gift_Date__c</searchFilterFields>
+        <searchFilterFields>Primary_Solicitor__c</searchFilterFields>
+        <searchFilterFields>Role__c</searchFilterFields>
+        <searchFilterFields>Solicitor__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>IndividualOrOrg</fullName>
+        <active>true</active>
+        <description>Validates that an soft credit is only linked to an individual or an organization, but not both.</description>
+        <errorConditionFormula>NOT(ISBLANK( Solicitor__c )) &amp;&amp; NOT(ISBLANK(  Organization_Solicitor__c ))</errorConditionFormula>
+        <errorMessage>Each soft credit record can only be credited to either an individual or an organization, but not both.  Delete your organization input and create an additional soft credit record for the organization after saving.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SoftCreditAmount</fullName>
+        <active>false</active>
+        <description>Validates soft credit amount is not less than 0 and greater than transaction amount.</description>
+        <errorConditionFormula>OR( Custom_Amount__c  &lt; 0, Custom_Amount__c &gt;  Gift__r.Amount__c)</errorConditionFormula>
+        <errorDisplayField>Custom_Amount__c</errorDisplayField>
+        <errorMessage>The soft credit amount cannot be less than 0 or exceed the Transaction approved amount.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SoftCreditAssignement</fullName>
+        <active>false</active>
+        <description>Validates organization and individual are not both blank.</description>
+        <errorConditionFormula>AND(ISBLANK( Solicitor__c), ISBLANK( Organization_Solicitor__c ))</errorConditionFormula>
+        <errorMessage>Both Organization Solicitor and Individual Solicitor cannot be blank.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,86 @@
+<apex:page controller="CustomEventLookupController"
+  title="Search" 
+  showHeader="false" 
+  sideBar="false" 
+  tabStyle="Fund__c" 
+  id="pg">
+<script type='text/javascript'>
+    
+     
+     
+</script>
+
+  <apex:form style="font-size:12px">
+  <apex:outputPanel id="page" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
+    <apex:tabPanel switchType="client" selectedTab="name1" id="tabbedPanel" >
+ 
+      <!-- SEARCH TAB -->
+      <apex:tab label="Search" name="tab1" id="tabOne" style="font-size:12px">         
+        <apex:facet name="label">
+            <apex:outputPanel style="font-weight:bold;">Search</apex:outputPanel>
+          </apex:facet>
+         <apex:actionFunction name="Search" action="{!Search}" />
+        <apex:actionRegion >  
+
+         <!-------Event LookUp-----> 
+        <apex:pageBlock id="eventsSearchResults" title="Event Lookup" rendered="{!if(objName=='Event',true,false)}"> 
+          <apex:outputPanel id="top" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
+            <apex:outputLabel value="Search" style="font-weight:Bold;font-size:12px;padding-right:10px;" for="txtSearch"/>
+            <apex:inputText id="txtSearch" value="{!searchString}" onkeypress="return searchFund(event);"/>
+              <span style="padding-left:5px"><apex:commandButton id="btnGo" value="Go" action="{!Search}" rerender="eventsSearchResults"></apex:commandButton></span>
+          </apex:outputPanel>
+ 
+          <apex:outputPanel id="pnlSearchResults" style="margin:10px;height:350px;overflow-Y:auto;" layout="block">
+              <apex:pageBlockTable value="{!events}" var="a" id="tblResults">
+                <apex:column >
+                  <apex:facet name="header">
+                    <apex:outputPanel >Event Name</apex:outputPanel>
+                  </apex:facet>
+                   <apex:outputLink value="javascript:top.window.opener.lookupPick2('{!FormTag}','{!TextBox}_lkid','{!TextBox}','{!a.Id}','{!a.Name}', false)" rendered="{!NOT(ISNULL(a.Id))}">{!a.Name}</apex:outputLink>     
+                </apex:column>
+                <apex:column >
+                  <apex:facet name="header">
+                    <apex:outputPanel >Event type</apex:outputPanel>
+                  </apex:facet>
+                   <apex:outputField value="{!a.RecordType.Name }"/>
+                </apex:column>
+                
+              </apex:pageBlockTable>
+          </apex:outputPanel>
+        </apex:pageBlock> 
+            
+		<!-------Promotion Code LookUp-----> 
+            <apex:pageBlock id="PromotionCodesSearchResults" title="Promotion Code Lookup" rendered="{!if(objName=='Promotion Code',true,false)}"> 
+          <apex:outputPanel id="top" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
+            <apex:outputLabel value="Search" style="font-weight:Bold;font-size:12px;padding-right:10px;" for="txtSearch"/>
+            <apex:inputText id="txtSearch" value="{!searchString}" onkeypress="return searchFund(event);"/>
+              <span style="padding-left:5px"><apex:commandButton id="btnGo" value="Go" action="{!Search}" rerender="PromotionCodesSearchResults"></apex:commandButton></span>
+          </apex:outputPanel>
+ 
+          <apex:outputPanel id="PromotionCodespnlSearchResults" style="margin:10px;height:350px;overflow-Y:auto;" layout="block">
+              <apex:pageBlockTable value="{!PromotionCodes}" var="a" id="tblResults">
+                <apex:column >
+                  <apex:facet name="header">
+                    <apex:outputPanel >Promotion Code Name</apex:outputPanel>
+                  </apex:facet>
+                   <apex:outputLink value="javascript:top.window.opener.lookupPick2('{!FormTag}','{!TextBox}_lkid','{!TextBox}','{!a.Id}','{!a.Description__c}', false)" rendered="{!NOT(ISNULL(a.Id))}">{!a.Name}</apex:outputLink>     
+                </apex:column>
+                <apex:column >
+                  <apex:facet name="header">
+                    <apex:outputPanel >Event Name</apex:outputPanel>
+                  </apex:facet>
+                   <apex:outputField value="{!a.cv_pkg_dev_I__Event__r .Name  }"/>
+                </apex:column>
+                
+              </apex:pageBlockTable>
+          </apex:outputPanel>
+        </apex:pageBlock> 
+          
+        </apex:actionRegion>
+      </apex:tab>
+ 
+   
+    </apex:tabPanel>
+  </apex:outputPanel>
+  </apex:form>
+</apex:page>

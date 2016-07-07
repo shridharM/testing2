@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Gift Batch</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Gift Batches</value>
+    </caseValues>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Batch_Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- # of Cash Gifts --></label>
+        <name>Cash_Gifts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cash $ --></label>
+        <name>Cash__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Check Gifts --></label>
+        <name>Cheque_Gifts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Check $ --></label>
+        <name>Cheque__c</name>
+    </fields>
+    <fields>
+        <label><!-- Close Date --></label>
+        <name>Close_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Credit Card Gifts --></label>
+        <name>Credit_Card_Gifts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card $ --></label>
+        <name>Credit_Card__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Direct Deposit Gifts --></label>
+        <name>Direct_Deposit_Gifts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Direct Deposit $ --></label>
+        <name>Direct_Deposit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Date --></label>
+        <name>Open_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Other Gifts --></label>
+        <name>Other_Gifts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other $ --></label>
+        <name>Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Recurring Gifts --></label>
+        <name>Shareplan_Gifts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring $ --></label>
+        <name>Shareplan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Template Name --></label>
+        <name>Template_Name__c</name>
+        <relationshipLabel><!-- Gift Batches --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Total ACH/PAD $ --></label>
+        <name>Total_ACH_PAD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gift Amount $ --></label>
+        <name>Total_Gift_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gift # --></label>
+        <name>Total_Gift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total In Kind $ --></label>
+        <name>Total_In_Kind__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Stock $ --></label>
+        <name>Total_Stock__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of ACH/PAD payments --></label>
+        <name>of_ACH_PAD_payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of In Kind Payments --></label>
+        <name>of_In_Kind_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Stock Payments --></label>
+        <name>of_Stock_Payments__c</name>
+    </fields>
+    <layouts>
+        <layout>Gift Batch Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Gift Summary --></label>
+            <section>Gift Summary</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- My_Batch_Presets --></label>
+        <name>My_Batch_Presets</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Batch_Preset --></label>
+        <name>New_Batch_Preset</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Receipts --></label>
+        <name>Print_Receipts</name>
+    </webLinks>
+</CustomObjectTranslation>

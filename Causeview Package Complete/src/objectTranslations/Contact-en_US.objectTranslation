@@ -1,0 +1,1576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Individual</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Individuals</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Access</value>
+        </caseValues>
+        <name>contact_access</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Access Level</value>
+        </caseValues>
+        <name>contact_access_level</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Account</value>
+        </caseValues>
+        <name>contact_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Currency</value>
+        </caseValues>
+        <name>contact_currency</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Description</value>
+        </caseValues>
+        <name>contact_description</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Division</value>
+        </caseValues>
+        <name>contact_division</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Edit</value>
+        </caseValues>
+        <name>contact_edit</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Email</value>
+        </caseValues>
+        <name>contact_email</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Fax</value>
+        </caseValues>
+        <name>contact_fax</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Field</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Individual Fields</value>
+        </caseValues>
+        <name>contact_field</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual History</value>
+        </caseValues>
+        <name>contact_history</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual History Report</value>
+        </caseValues>
+        <name>contact_history_report</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual ID</value>
+        </caseValues>
+        <name>contact_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Information</value>
+        </caseValues>
+        <name>contact_information</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Mobile</value>
+        </caseValues>
+        <name>contact_mobile</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Name</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Individual Names</value>
+        </caseValues>
+        <name>contact_name</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Note</value>
+        </caseValues>
+        <name>contact_note</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Number</value>
+        </caseValues>
+        <name>contact_number</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Owner</value>
+        </caseValues>
+        <name>contact_owner</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Owner Alias</value>
+        </caseValues>
+        <name>contact_owner_alias</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Phone</value>
+        </caseValues>
+        <name>contact_phone</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Record Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Individual Record Types</value>
+        </caseValues>
+        <name>contact_record_type</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Reports To Individual</value>
+        </caseValues>
+        <name>contact_reports_to</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Role</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Individual Roles</value>
+        </caseValues>
+        <name>contact_role</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Role ID</value>
+        </caseValues>
+        <name>contact_role_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Role Report</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Individual Role Reports</value>
+        </caseValues>
+        <name>contact_role_report</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Stage ID</value>
+        </caseValues>
+        <name>contact_stage_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Status</value>
+        </caseValues>
+        <name>contact_status</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Individual Types</value>
+        </caseValues>
+        <name>contact_type</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Individual View</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Individual Views</value>
+        </caseValues>
+        <name>contact_view</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <help><!-- Checked if constituent is involved in advocacy --></help>
+        <label><!-- Advocate --></label>
+        <name>Advocate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alumni --></label>
+        <name>Alumni__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual Report --></label>
+        <name>Annual_Report__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if individual would like to remain anonymous. --></help>
+        <label><!-- Anonymous --></label>
+        <name>Anonymous__c</name>
+    </fields>
+    <fields>
+        <label><!-- Appeal Recovery Gift Date --></label>
+        <name>Appeal_Recovery_Gift_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apt Unit --></label>
+        <name>Apt_Unit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Average gift amount excluding largest and smallest gift --></help>
+        <label><!-- Average Gift --></label>
+        <name>Average_Gift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Board Member --></label>
+        <name>Board_Member__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consecutive Years of Giving --></label>
+        <name>Consecutive_Years_of_Giving__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consecutive Years of Transactions --></label>
+        <name>Consecutive_Years_of_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Constituent Codes --></label>
+        <name>Constituent_Codes__c</name>
+        <picklistValues>
+            <masterLabel>Placeholder</masterLabel>
+            <translation><!-- Placeholder --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Constituent Count --></label>
+        <name>Constituent_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- When in the batch entry interface - you can use this field to search on First Name, Last Name or Postal Code --></help>
+        <label><!-- Constituent ID --></label>
+        <name>Constituent_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currently Employed --></label>
+        <name>Currently_Employed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retired</masterLabel>
+            <translation><!-- Retired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Employed</masterLabel>
+            <translation><!-- Self-Employed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Date of First Gift --></label>
+        <name>Date_of_First_Gift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of First Transaction --></label>
+        <name>Date_of_First_Transaction__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Date of the last event this individual has attended. --></help>
+        <label><!-- Date of Last Event Attended --></label>
+        <name>Date_of_Last_Event_Attended__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Last Exit --></label>
+        <name>Date_of_Last_Exit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Last Gift --></label>
+        <name>Date_of_Last_Gift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Last Transaction --></label>
+        <name>Date_of_Last_Transaction__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of days since constituent&apos;s last gift --></help>
+        <label><!-- Days Since Last Gift --></label>
+        <name>Days_Since_Last_Gift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deceased Date --></label>
+        <name>Deceased_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deceased --></label>
+        <name>Deceased__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description of Work --></label>
+        <name>Description_of_Work__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if this individual should receive direct mail. --></help>
+        <label><!-- Direct Mail Recipient --></label>
+        <name>Direct_Mail_Recipient__c</name>
+    </fields>
+    <fields>
+        <label><!-- Programs Offered by Employer --></label>
+        <name>Does_Your_Employer_Offer__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Gift Matching</masterLabel>
+            <translation><!-- Corporate Gift Matching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Directed Grants</masterLabel>
+            <translation><!-- Employee Directed Grants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Kind Donation Program</masterLabel>
+            <translation><!-- In-Kind Donation Program --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Donor Level --></label>
+        <name>Donor_Level__c</name>
+        <picklistValues>
+            <masterLabel>Frequent Donor</masterLabel>
+            <translation><!-- Frequent Donor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major/Planned Donor</masterLabel>
+            <translation><!-- Major/Planned Donor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Occasional Donor</masterLabel>
+            <translation><!-- Occasional Donor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect/Supporter</masterLabel>
+            <translation><!-- Prospect/Supporter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Donor Recognition Level --></label>
+        <name>Donor_Recognition_Level__c</name>
+    </fields>
+    <fields>
+        <help><!-- Donor status for moves management --></help>
+        <label><!-- Donor Status --></label>
+        <name>Donor_Status__c</name>
+        <picklistValues>
+            <masterLabel>Cultivation</masterLabel>
+            <translation><!-- Cultivation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Identification</masterLabel>
+            <translation><!-- Identification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect</masterLabel>
+            <translation><!-- Prospect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualification</masterLabel>
+            <translation><!-- Qualification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solicitation</masterLabel>
+            <translation><!-- Solicitation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stewardship</masterLabel>
+            <translation><!-- Stewardship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspect</masterLabel>
+            <translation><!-- Suspect --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Checked if constituent has given a gift in past two fiscal years --></help>
+        <label><!-- Donor --></label>
+        <name>Donor__c</name>
+    </fields>
+    <fields>
+        <help><!-- The highest level of education achieved --></help>
+        <label><!-- Education Level --></label>
+        <name>Education_Level__c</name>
+        <picklistValues>
+            <masterLabel>Associate Degree</masterLabel>
+            <translation><!-- Associate Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bachelors Degree</masterLabel>
+            <translation><!-- Bachelors Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Doctoral Degree</masterLabel>
+            <translation><!-- Doctoral Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High School/GED</masterLabel>
+            <translation><!-- High School/GED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Masters Degree</masterLabel>
+            <translation><!-- Masters Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Some College</masterLabel>
+            <translation><!-- Some College --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade/Vocational School</masterLabel>
+            <translation><!-- Trade/Vocational School --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Educational Program Name --></label>
+        <name>Educational_Program_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Phone Number --></label>
+        <name>Emergency_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship --></label>
+        <name>Emergency_Contact_Relationship__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact --></label>
+        <name>Emergency_Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flagged if the individual has been to an Event. --></help>
+        <label><!-- Event Attendee --></label>
+        <name>Event_Attended__c</name>
+    </fields>
+    <fields>
+        <help><!-- Individual created as a guest attendee of the primary registrant --></help>
+        <label><!-- Event Guest Attendee --></label>
+        <name>Event_Guest_Attendee__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defines the external solicitation relationship --></help>
+        <label><!-- External Solicitor --></label>
+        <name>External_Solicitor__c</name>
+        <relationshipLabel><!-- Assigned Prospects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- First Time Donor --></label>
+        <name>First_Time_Donor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender --></label>
+        <name>Gender__c</name>
+        <picklistValues>
+            <masterLabel>Female</masterLabel>
+            <translation><!-- Female --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Male</masterLabel>
+            <translation><!-- Male --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Giving % of Income --></label>
+        <name>Giving_of_Income__c</name>
+    </fields>
+    <fields>
+        <help><!-- Household primary contact.  This individual automatically assumes the Household salutation, addressee, mailing address and phone number. --></help>
+        <label><!-- Head of Household --></label>
+        <name>Household_Primary_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Household Role --></label>
+        <name>Household_Role__c</name>
+        <picklistValues>
+            <masterLabel>Aunt</masterLabel>
+            <translation><!-- Aunt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation><!-- Child --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Father</masterLabel>
+            <translation><!-- Father --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grandfather</masterLabel>
+            <translation><!-- Grandfather --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grandmother</masterLabel>
+            <translation><!-- Grandmother --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mother</masterLabel>
+            <translation><!-- Mother --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tenant</masterLabel>
+            <translation><!-- Tenant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uncle</masterLabel>
+            <translation><!-- Uncle --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Household --></label>
+        <name>Household__c</name>
+        <relationshipLabel><!-- Household Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- How Did You Hear About Us --></label>
+        <name>How_Did_You_Hear_About_Us__c</name>
+        <picklistValues>
+            <masterLabel>Advertisement</masterLabel>
+            <translation><!-- Advertisement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Church/Synagogue/Mosque</masterLabel>
+            <translation><!-- Church/Synagogue/Mosque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Event</masterLabel>
+            <translation><!-- External Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Event</masterLabel>
+            <translation><!-- Internal Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Place of Employment</masterLabel>
+            <translation><!-- Place of Employment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral</masterLabel>
+            <translation><!-- Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>School/College/University</masterLabel>
+            <translation><!-- School/College/University --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation><!-- Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Word of Mouth</masterLabel>
+            <translation><!-- Word of Mouth --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Annual Income --></label>
+        <name>Income__c</name>
+    </fields>
+    <fields>
+        <label><!-- Integration ID --></label>
+        <name>Integration_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defines employee that owns solicitation relationship --></help>
+        <label><!-- Internal Solicitor --></label>
+        <name>Internal_Solicitor__c</name>
+        <relationshipLabel><!-- Individuals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Languages --></label>
+        <name>Languages__c</name>
+    </fields>
+    <fields>
+        <help><!-- Amount of largest gift to date --></help>
+        <label><!-- Largest Gift --></label>
+        <name>Largest_Gift__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Gift Amount --></label>
+        <name>Last_Gift_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Role Exited --></label>
+        <name>Last_Role_Exited__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Last Volunteer Profile Updated --></label>
+        <name>Last_Volunteer_Profile_Updated__c</name>
+    </fields>
+    <fields>
+        <name>LeadSource</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner Referral</masterLabel>
+            <translation><!-- Partner Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone Inquiry</masterLabel>
+            <translation><!-- Phone Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased List</masterLabel>
+            <translation><!-- Purchased List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lifetime Appeal Amount --></label>
+        <name>Lifetime_Appeal_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Major Gift Donor --></label>
+        <name>Major_Gift_Donor__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checked if constituent is a current member --></help>
+        <label><!-- Member --></label>
+        <name>Member__c</name>
+    </fields>
+    <fields>
+        <label><!-- Middle Name --></label>
+        <name>Middle_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Miles Willing to Travel (One Way) --></label>
+        <name>Miles_Willing_to_Travel_One_Way__c</name>
+        <picklistValues>
+            <masterLabel>10 miles</masterLabel>
+            <translation><!-- 10 miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20 miles</masterLabel>
+            <translation><!-- 20 miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 miles</masterLabel>
+            <translation><!-- 30 miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wherever there is a need</masterLabel>
+            <translation><!-- Wherever there is a need --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The name of the educational institution that the volunteer attended. --></help>
+        <label><!-- Name of Educational Institution --></label>
+        <name>Name_of_Educational_Institution__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Name of the last event this individual has attended. --></help>
+        <label><!-- Name of Last Event Attended --></label>
+        <name>Name_of_Last_Event_Attended__c</name>
+    </fields>
+    <fields>
+        <label><!-- Newsletter --></label>
+        <name>Newsletter_Subscriber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nickname --></label>
+        <name>Nickname__c</name>
+    </fields>
+    <fields>
+        <label><!-- Place of Employment --></label>
+        <name>Place_of_Employment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Determines if the contact as access to Causeview Portal --></help>
+        <label><!-- Portal User --></label>
+        <name>PortalUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Locale(s) --></label>
+        <name>Preferred_Locales__c</name>
+        <picklistValues>
+            <masterLabel>To be defined by organization</masterLabel>
+            <translation><!-- To be defined by organization --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Program 1 --></label>
+        <name>Preferred_Program_1__c</name>
+        <picklistValues>
+            <masterLabel>To be defined by organization</masterLabel>
+            <translation><!-- To be defined by organization --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Program 2 --></label>
+        <name>Preferred_Program_2__c</name>
+        <picklistValues>
+            <masterLabel>To be defined by organization</masterLabel>
+            <translation><!-- To be defined by organization --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Addressee --></label>
+        <name>Primary_Addressee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Salutation --></label>
+        <name>Primary_Salutation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Professional Skills --></label>
+        <name>Professional_Skills__c</name>
+        <picklistValues>
+            <masterLabel>Ability to Lift Heavy Objects</masterLabel>
+            <translation><!-- Ability to Lift Heavy Objects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting/Finance</masterLabel>
+            <translation><!-- Accounting/Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Skills</masterLabel>
+            <translation><!-- Administrative Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adult Educator</masterLabel>
+            <translation><!-- Adult Educator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advertising/PR</masterLabel>
+            <translation><!-- Advertising/PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advocacy Skills</masterLabel>
+            <translation><!-- Advocacy Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Art/Graphic Design</masterLabel>
+            <translation><!-- Art/Graphic Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Career Counselor</masterLabel>
+            <translation><!-- Career Counselor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communication Skills</masterLabel>
+            <translation><!-- Communication Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Data Entry and Email</masterLabel>
+            <translation><!-- Computer Skill: Data Entry and Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Expert MS Office</masterLabel>
+            <translation><!-- Computer Skill: Expert MS Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Intermediate MS Office</masterLabel>
+            <translation><!-- Computer Skill: Intermediate MS Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Social Media</masterLabel>
+            <translation><!-- Computer Skill: Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction</masterLabel>
+            <translation><!-- Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Creative</masterLabel>
+            <translation><!-- Creative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Culinary Arts/Chef</masterLabel>
+            <translation><!-- Culinary Arts/Chef --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dependable</masterLabel>
+            <translation><!-- Dependable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design Software Skills</masterLabel>
+            <translation><!-- Design Software Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Detail Oriented</masterLabel>
+            <translation><!-- Detail Oriented --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ESL English as Second Language Teacher</masterLabel>
+            <translation><!-- ESL English as Second Language Teacher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Childhood Development</masterLabel>
+            <translation><!-- Early Childhood Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electrical</masterLabel>
+            <translation><!-- Electrical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planner</masterLabel>
+            <translation><!-- Event Planner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation><!-- Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Contractor</masterLabel>
+            <translation><!-- General Contractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Professional</masterLabel>
+            <translation><!-- Health Professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospitality</masterLabel>
+            <translation><!-- Hospitality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interpersonal Skills</masterLabel>
+            <translation><!-- Interpersonal Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landscaping</masterLabel>
+            <translation><!-- Landscaping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leadership Skills</masterLabel>
+            <translation><!-- Leadership Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Life Skills</masterLabel>
+            <translation><!-- Life Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing/Sales</masterLabel>
+            <translation><!-- Marketing/Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mechanic</masterLabel>
+            <translation><!-- Mechanic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations/Facilities</masterLabel>
+            <translation><!-- Operations/Facilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organizational Skills</masterLabel>
+            <translation><!-- Organizational Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Painting</masterLabel>
+            <translation><!-- Painting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Photographer</masterLabel>
+            <translation><!-- Photographer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plumbing</masterLabel>
+            <translation><!-- Plumbing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presentation Skills</masterLabel>
+            <translation><!-- Presentation Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Development</masterLabel>
+            <translation><!-- Product Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Appearance</masterLabel>
+            <translation><!-- Professional Appearance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Social Worker/Counselor</masterLabel>
+            <translation><!-- Professional Social Worker/Counselor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Keeping</masterLabel>
+            <translation><!-- Record Keeping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered Nurse, Licensed</masterLabel>
+            <translation><!-- Registered Nurse, Licensed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resume Preparation</masterLabel>
+            <translation><!-- Resume Preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail – Cash Register</masterLabel>
+            <translation><!-- Retail – Cash Register --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shopping/Couponing</masterLabel>
+            <translation><!-- Shopping/Couponing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taking Direction</masterLabel>
+            <translation><!-- Taking Direction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tax Preparation</masterLabel>
+            <translation><!-- Tax Preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teacher/Assistant Teacher/Tutor</masterLabel>
+            <translation><!-- Teacher/Assistant Teacher/Tutor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Team Player</masterLabel>
+            <translation><!-- Team Player --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Time Management</masterLabel>
+            <translation><!-- Time Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volunteer Management</masterLabel>
+            <translation><!-- Volunteer Management --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Captures the specific volunteer program the volunteer has been placed in. --></help>
+        <label><!-- Program Placed Into --></label>
+        <name>Program_Placed_Into__c</name>
+        <picklistValues>
+            <masterLabel>To be defined by organization</masterLabel>
+            <translation><!-- To be defined by organization --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reason for Last Exit --></label>
+        <name>Reason_for_Last_Exit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reasons For Volunteering --></label>
+        <name>Reasons_For_Volunteering__c</name>
+        <picklistValues>
+            <masterLabel>Care about the mission</masterLabel>
+            <translation><!-- Care about the mission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Develop Skills</masterLabel>
+            <translation><!-- Develop Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Establish Work Record</masterLabel>
+            <translation><!-- Establish Work Record --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Head Start Parent</masterLabel>
+            <translation><!-- Head Start Parent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in Community Involvement</masterLabel>
+            <translation><!-- Interested in Community Involvement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meet People and Network</masterLabel>
+            <translation><!-- Meet People and Network --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Receipt Preference --></label>
+        <name>Receipt_Preference__c</name>
+        <picklistValues>
+            <masterLabel>Consolidated</masterLabel>
+            <translation><!-- Consolidated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Receipt</masterLabel>
+            <translation><!-- No Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Receipt</masterLabel>
+            <translation><!-- Single Receipt --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Name to be used for recognition in annual reports, honor rolls, etc. --></help>
+        <label><!-- Recognition Name --></label>
+        <name>Recognition_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Placeholder</masterLabel>
+            <translation><!-- Placeholder --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Check if you would like to use the household mailing address and phone number.
+
+Automatically checked for Head of Household. --></help>
+        <label><!-- Use Household Address &amp; Phone Number --></label>
+        <name>Same_as_Household__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Addressee --></label>
+        <name>Secondary_Addressee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Salutation --></label>
+        <name>Secondary_Salutation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Solicit Codes --></label>
+        <name>Solicit_Codes__c</name>
+        <picklistValues>
+            <masterLabel>1 Mailing Per Year</masterLabel>
+            <translation><!-- 1 Mailing Per Year --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>All Direct Mail</masterLabel>
+            <translation><!-- All Direct Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>All E-Communication</masterLabel>
+            <translation><!-- All E-Communication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Only, No Solicitation</masterLabel>
+            <translation><!-- Information Only, No Solicitation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Communication of Any Kind</masterLabel>
+            <translation><!-- No Communication of Any Kind --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Direct Mail</masterLabel>
+            <translation><!-- No Direct Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No E-Communication</masterLabel>
+            <translation><!-- No E-Communication --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Special Ask</masterLabel>
+            <translation><!-- No Special Ask --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Acknowledgement Letter --></label>
+        <name>Steward_Acknowledgement_Letter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emails --></label>
+        <name>Steward_Emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Face to Face Meetings --></label>
+        <name>Steward_Face_to_Face_Meetings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Personal Emails --></label>
+        <name>Steward_Personal_Emails__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Calls --></label>
+        <name>Steward_Phone_Calls__c</name>
+    </fields>
+    <fields>
+        <label><!-- Student --></label>
+        <name>Student__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suffix --></label>
+        <name>Suffix__c</name>
+        <picklistValues>
+            <masterLabel>C.P.A.</masterLabel>
+            <translation><!-- C.P.A. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ed.D.</masterLabel>
+            <translation><!-- Ed.D. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Esq.</masterLabel>
+            <translation><!-- Esq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>II</masterLabel>
+            <translation><!-- II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>III</masterLabel>
+            <translation><!-- III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IV</masterLabel>
+            <translation><!-- IV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jr.</masterLabel>
+            <translation><!-- Jr. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L.L.M.</masterLabel>
+            <translation><!-- L.L.M. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.B.A.</masterLabel>
+            <translation><!-- M.B.A. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.D.</masterLabel>
+            <translation><!-- M.D. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.S.</masterLabel>
+            <translation><!-- M.S. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ph.D.</masterLabel>
+            <translation><!-- Ph.D. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R.N.</masterLabel>
+            <translation><!-- R.N. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sr.</masterLabel>
+            <translation><!-- Sr. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>V</masterLabel>
+            <translation><!-- V --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- _Sys:Donor Segmentation --></label>
+        <name>Sys_Donor_Segmentation__c</name>
+        <picklistValues>
+            <masterLabel>First Time</masterLabel>
+            <translation><!-- First Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returning</masterLabel>
+            <translation><!-- Returning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sys No Availability --></label>
+        <name>Sys_No_Availability__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Fiscal Fundraising --></label>
+        <name>Total_Fiscal_Fundraising__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of gifts by constituent within current fiscal year --></help>
+        <label><!-- Quantity of Fiscal Gifts --></label>
+        <name>Total_Fiscal_Gifts__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total dollar value of transactions by constituent within current fiscal year --></help>
+        <label><!-- Total Fiscal Transaction Amount --></label>
+        <name>Total_Fiscal_Transaction_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of transactions by constituent within current fiscal year --></help>
+        <label><!-- Quantity of Fiscal Transactions --></label>
+        <name>Total_Fiscal_Transactions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total dollar value of gifts by constituent within current fiscal year --></help>
+        <label><!-- Total Fiscal Year Giving --></label>
+        <name>Total_Fiscal_Year_Giving__c</name>
+    </fields>
+    <fields>
+        <help><!-- Determines the total fiscal YTD in-kind value of the volunteer service hours at a specific rate. --></help>
+        <label><!-- Total Fiscal Year In-Kind Value --></label>
+        <name>Total_Fiscal_Year_In_Kind_Value__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total amount of giving last year --></help>
+        <label><!-- Total Giving Last Year --></label>
+        <name>Total_Giving_Last_Year__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total amount of giving from two years ago --></help>
+        <label><!-- Total Giving Two Years Ago --></label>
+        <name>Total_Giving_Two_Years_Ago__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total lifetime fundraising by constituent.  Includes all giving, primary solicitations and soft credits --></help>
+        <label><!-- Total Lifetime Fundraising --></label>
+        <name>Total_Lifetime_Fundraising__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of gifts by constituent within lifetime --></help>
+        <label><!-- Quantity of Lifetime Gifts --></label>
+        <name>Total_Lifetime_Gifts__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total dollar value of gifts by constituent within lifetime --></help>
+        <label><!-- Total Lifetime Giving --></label>
+        <name>Total_Lifetime_Giving__c</name>
+    </fields>
+    <fields>
+        <help><!-- Determines the total lifetime In-Kind value of the volunteer service hours at a specific rate. --></help>
+        <label><!-- Total Lifetime In-Kind Value --></label>
+        <name>Total_Lifetime_In_Kind_Value__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total dollar value of transactions by constituent within lifetime --></help>
+        <label><!-- Total Lifetime Transaction Amount --></label>
+        <name>Total_Lifetime_Transaction_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of transactions by constituent within lifetime --></help>
+        <label><!-- Quantity of Lifetime Transactions --></label>
+        <name>Total_Lifetime_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Fiscal Year Miles Traveled --></label>
+        <name>Total_Miles_Traveled_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Lifetime Miles Traveled --></label>
+        <name>Total_Miles_Traveled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Fiscal Year Service Hours Complete --></label>
+        <name>Total_Service_Hours_Completed_This_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Lifetime Service Hours Complete --></label>
+        <name>Total_Service_Hours_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Stewardship --></label>
+        <name>Total_Stewardship__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trade Status --></label>
+        <name>Trade_Status__c</name>
+        <picklistValues>
+            <masterLabel>No Trade</masterLabel>
+            <translation><!-- No Trade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade</masterLabel>
+            <translation><!-- Trade --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Copies the household salutation and addressee to the primary fields.
+
+Automatically checked for Head of Household. --></help>
+        <label><!-- Use Household Salutation &amp; Addressee --></label>
+        <name>Use_Household_Salutation_Addressee__c</name>
+    </fields>
+    <fields>
+        <help><!-- Captures when volunteer is available for service --></help>
+        <label><!-- Volunteer Availability --></label>
+        <name>Volunteer_Availability__c</name>
+        <picklistValues>
+            <masterLabel>Friday Afternoon</masterLabel>
+            <translation><!-- Friday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friday Evening</masterLabel>
+            <translation><!-- Friday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friday Morning</masterLabel>
+            <translation><!-- Friday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday Afternoon</masterLabel>
+            <translation><!-- Monday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday Evening</masterLabel>
+            <translation><!-- Monday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday Morning</masterLabel>
+            <translation><!-- Monday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday Afternoon</masterLabel>
+            <translation><!-- Saturday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday Evening</masterLabel>
+            <translation><!-- Saturday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday Morning</masterLabel>
+            <translation><!-- Saturday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday Afternoon</masterLabel>
+            <translation><!-- Sunday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday Evening</masterLabel>
+            <translation><!-- Sunday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday Morning</masterLabel>
+            <translation><!-- Sunday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday Afternoon</masterLabel>
+            <translation><!-- Thursday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday Evening</masterLabel>
+            <translation><!-- Thursday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday Morning</masterLabel>
+            <translation><!-- Thursday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday Afternoon</masterLabel>
+            <translation><!-- Tuesday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday Evening</masterLabel>
+            <translation><!-- Tuesday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday Morning</masterLabel>
+            <translation><!-- Tuesday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday Afternoon</masterLabel>
+            <translation><!-- Wednesday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday Evening</masterLabel>
+            <translation><!-- Wednesday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday Morning</masterLabel>
+            <translation><!-- Wednesday Morning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Status --></label>
+        <name>Volunteer_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Applicant</masterLabel>
+            <translation><!-- Applicant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Screening</masterLabel>
+            <translation><!-- In Screening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Training</masterLabel>
+            <translation><!-- In Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Checked if constituent is a current volunteer --></help>
+        <label><!-- Volunteer --></label>
+        <name>Volunteer__c</name>
+    </fields>
+    <layouts>
+        <layout>Contact Layout 1.62</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Communication Profile --></label>
+            <section>Communication Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Donor Profile --></label>
+            <section>Donor Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Engagement Profile --></label>
+            <section>Engagement Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Household --></label>
+            <section>Household</section>
+        </sections>
+        <sections>
+            <label><!-- Stewardship Profile for Current Year --></label>
+            <section>Stewardship Profile for Current Year</section>
+        </sections>
+        <sections>
+            <label><!-- Volunteer Profile --></label>
+            <section>Volunteer Profile</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- A Household must be selected in order to use the following checkboxes:
+&apos;Use Household Salutation &amp; Addressee&apos;  - - 
+&apos;Use Household Address &amp; Phone Number&apos; - - 
+&apos;Head of Household&apos; --></errorMessage>
+        <name>Household_Required</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Donate_Now --></label>
+        <name>Donate_Now</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Find_Me_A_Position --></label>
+        <name>Find_Me_A_Position</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewPaidEventRegistration --></label>
+        <name>NewPaidEventRegistration</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Relationships_Viewer --></label>
+        <name>npe4__Relationships_Viewer</name>
+    </webLinks>
+</CustomObjectTranslation>

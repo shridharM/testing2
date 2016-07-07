@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>confirm_cc_update</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>confirm cc update</shortDescription>
+        <value>Are you sure you would like to update this credit card information?</value>
+    </labels>
+    <labels>
+        <fullName>confirm_payment_refund</fullName>
+        <categories>causeview refund</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>confirm payment refund</shortDescription>
+        <value>Are you sure you would like to process this refund?</value>
+    </labels>
+    <labels>
+        <fullName>payment_can_not_refunded</fullName>
+        <categories>causeview refund</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>payment can not refunded</shortDescription>
+        <value>The payment record cannot be refunded. It  may be already refunded or the payment status does not allow this operation.</value>
+    </labels>
+    <labels>
+        <fullName>payment_refund_title</fullName>
+        <categories>causeview refund</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>payment refund title</shortDescription>
+        <value>Refund Payment</value>
+    </labels>
+</CustomLabels>

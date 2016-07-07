@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>In memory donation eCard</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Memorial eCard</name>
+    <style>none</style>
+    <subject>A donation has been made in memory of {!Gift__c.Tribute_Honoree_Name__c}</subject>
+    <textOnly>Memorial Donation eCard
+
+TO: {!Gift__c.Tribute_Person_To_Notify__c}
+
+A generous donation has been made in the memory of
+
+{!Gift__c.Tribute_Honoree_Name__c}
+
+has been made to {!Organization.Name}.
+
+FROM: {!Gift__c.Constituent__c}{!Gift__c.Organization__c}
+
+Personal Message:
+
+{!Gift__c.Tribute_Message__c}
+
+
+To learn more about {!Organization.Name},  call {!Organization.Phone}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

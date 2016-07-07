@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{!relatedTo.causeview__Org_Name__c}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+</head>
+<body style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; height: 100% !important; margin: 0; padding: 0; width: 100% !important">
+<style type="text/css">
+.ReadMsgBody {
+width: 100%;
+}
+.ExternalClass {
+width: 100%;
+}
+.ExternalClass {
+line-height: 100%;
+}
+body {
+-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;
+}
+img {
+-ms-interpolation-mode: bicubic;
+}
+body {
+margin: 0; padding: 0;
+}
+img {
+border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none;
+}
+body {
+height: 100% !important; margin: 0; padding: 0; width: 100% !important;
+}
+@media screen and (max-width: 525px) {
+  table[class="wrapper"] {
+    width: 100% !important;
+  }
+  td[class="logo"] {
+    text-align: left; padding: 20px 0 20px 0 !important;
+  }
+  td[class="logo"] img {
+    margin: 0 auto !important;
+  }
+  td[class="mobile-hide"] {
+    display: none;
+  }
+  img[class="mobile-hide"] {
+    display: none !important;
+  }
+  img[class="img-max"] {
+    max-width: 100% !important; height: auto !important;
+  }
+  table[class="responsive-table"] {
+    width: 100% !important;
+  }
+  td[class="padding"] {
+    padding: 10px 5% 15px 5% !important;
+  }
+  td[class="padding-copy"] {
+    padding: 10px 5% 10px 5% !important; text-align: center;
+  }
+  td[class="padding-meta"] {
+    padding: 30px 5% 0px 5% !important; text-align: center;
+  }
+  td[class="no-pad"] {
+    padding: 0 0 20px 0 !important;
+  }
+  td[class="no-padding"] {
+    padding: 0 !important;
+  }
+  td[class="section-padding"] {
+    padding: 50px 15px 50px 15px !important;
+  }
+  td[class="section-padding-bottom-image"] {
+    padding: 50px 15px 0 15px !important;
+  }
+  td[class="mobile-wrapper"] {
+    padding: 10px 5% 15px 5% !important;
+  }
+  table[class="mobile-button-container"] {
+    margin: 0 auto; width: 100% !important;
+  }
+  a[class="mobile-button"] {
+    width: 80% !important; padding: 15px !important; border: 0 !important; font-size: 14px !important;
+  }
+}
+</style>
+
+<!-- HEADER -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="10px" class="responsive-table" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+    <tr>
+        <td align="right" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; background: #cccccc; color: #cccccc; font-family: Arial, sans-serif; font-size: 9px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0 0 5px; text-decoration: none" bgcolor="#cccccc">
+            <span style="text-decoration: none"></span>
+        </td>
+    </tr>
+</table>
+
+<!-- BANNER/LOGO -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+    <tr>
+        <td bgcolor="#ffffff" align="center" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 10px 15px 20px" class="section-padding">
+            <table border="0" cellpadding="0" cellspacing="0" width="600" class="responsive-table" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                <tr>
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                            <tr>
+                                <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                                        <tbody>
+                                        <tr>
+                                            <td class="padding-copy" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                                                    <tr>
+                                                        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                                                            <!--<a href="#" target="_blank">-->
+                                                            <img src="http://causeview.com/img/stock/logo_placeholder_w400.png" width="400" border="0" alt="{!Organization.Name}" style="-ms-interpolation-mode: bicubic; border: 0; color: #666666; display: block; float: none; font-family: Helvetica, arial, sans-serif; font-size: 16px; height: auto; line-height: 100%; margin: 0 auto; max-width: 400px; outline: none; padding: 0; text-decoration: none" class="img-max" align="none">
+                                                            <!--</a>-->
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+    <tr>
+        <td bgcolor="#f8f8f8" align="center" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 15px 40px" class="section-padding">
+            <table border="0" cellpadding="0" cellspacing="0" width="600" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0 0 20px" class="responsive-table">
+
+                <!-- DUPLICATE LINE -->
+
+                <!-- MAIN CONTENT -->
+                <tr>
+                    <td align="left" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #666666; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 10px 0 15px 25px" class="padding-copy">
+                        <p>Dear {!Contact.Name},</p>
+<p>Thank you for registering to {!Event_Registration__c.Event__c}. We are very excited you have registered and are looking forward to seeing you.</p>
+<b>Registration Summary</b>
+<table style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; color: #666666; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; mso-table-lspace: 0pt; mso-table-rspace: 0pt" class="no-padding">
+    <tr>
+        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; white-space: nowrap" nowrap>Event</td>
+        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; text-indent: 5px">{!Event_Registration__c.Event__c}</td>
+    </tr>
+<tr>
+        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; white-space: nowrap" nowrap>Registration Date</td>
+        <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; text-indent: 5px">{!Event_Registration__c.Registration_Date__c}</td>
+    </tr>
+</table>
+                                
+
+                        <img style="-ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; max-width: 200px; outline: none; text-decoration: none" src="http://causeview.com/img/stock/signature_placeholder_w200.png">
+<p class="no-padding">
+    [Your Name Here]
+    <br>
+    [Your Title Here]
+    <br>
+    {!Organization.Name}
+</p>
+<br>
+                                
+
+                        <!-- TAX STATEMENT -->
+
+                                                        
+
+                        <!-- EVENT DETAILS -->
+
+                        <!-- REGISTRATION SUMMARY -->
+
+                        <!-- CONSOLIDATED -->
+
+                        <!-- DONATION SUMMARY -->
+
+                        <!-- SOCIAL MEDIA -->
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+    <tr>
+        <td bgcolor="#ffffff" align="center" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                <tr>
+                    <td style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 0px">
+                        <!-- COPY -->
+                        <table width="500" border="0" cellspacing="0" cellpadding="0" align="center" class="responsive-table" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                            <tr>
+                                <td align="center" valign="middle" style="-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; color: #666666; font-family: Helvetica, Arial, sans-serif; font-size: 12px; line-height: 18px; mso-table-lspace: 0pt; mso-table-rspace: 0pt">
+                                    <span class="appleFooter" style="color: #666666"><!-- LETTER_FOOTER --></span>
+                                    <span class="appleFooter" style="color: #666666">© {!relatedTo.causeview__Org_Name__c}. All Rights Reserved.
+                                </span>
+                                    <br>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
