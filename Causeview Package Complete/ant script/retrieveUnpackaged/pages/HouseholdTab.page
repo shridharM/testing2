@@ -1,3 +1,0 @@
-<apex:page >
-    <apex:enhancedList type="Account" height="800"/> 
-</apex:page>

@@ -1,6 +1,0 @@
-Dear {!Contact.Name},
-
-{!Recurring_Donation__c.Name} recurring gift status has been changed to {!Recurring_Donation__c.Status__c}.
-
-Thanks,
-{!User.Name}

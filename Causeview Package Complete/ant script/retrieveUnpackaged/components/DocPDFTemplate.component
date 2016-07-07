@@ -1,9 +1,0 @@
-<apex:component access="global" controller="DocPDFTemplateController">
-  <apex:attribute name="_recipientType" type="String" assignTo="{!recipientType}" description="The Salesforce.com object receiving the email." />
-  <apex:attribute name="_relatedToType" type="String" assignTo="{!relatedToType}" description="The Salesforce.com object from which the template retrieves merge field data. Valid objects: objects that have a standard controller, including custom objects Visualforce supports."/>
-  <apex:attribute name="_recipientId" type="String" assignTo="{!recipientId}" description=""/>
-  <apex:attribute name="_relatedToId" type="String" assignTo="{!relatedToId}" description=""/>
-  <apex:attribute name="dupe" type="String" assignTo="{!isDupe}" description=""/>
-    
-  <apex:outputText escape="false" value="{!content}"></apex:outputText>
-</apex:component>

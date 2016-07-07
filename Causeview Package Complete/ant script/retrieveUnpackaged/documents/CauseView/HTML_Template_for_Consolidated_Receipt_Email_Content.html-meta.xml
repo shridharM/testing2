@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Document xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Standard Causeview email template for consolidated receipts - original copy.</description>
-    <internalUseOnly>false</internalUseOnly>
-    <name>HTML Template for Consolidated Receipt Email Content</name>
-    <public>false</public>
-</Document>
