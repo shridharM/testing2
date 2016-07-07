@@ -1,0 +1,34 @@
+global class RDPaymentCountBatch implements Database.Batchable<sObject> {
+  
+  //global Set<Id> AIDs = new Set<Id>();
+  public string query;
+  global Database.Querylocator start(Database.BatchableContext BC)
+  {
+    //(Select New_Campaign__c FROM Gift_Detail__c WHERE New_Campaign__c!=null AND Allocated_Date__c !=null AND LastModifiedDate > :previousRunTime )
+    //string query = 'Select a.Id From Campaign a WHERE Id = \'701M00000005EjKIAU\''; 
+    //string query = 'Select a.Id From Campaign a';
+        
+    //if (!System.Test.isRunningTest())
+    { query = 'SELECT cv_pkg_dev_I__Donation__c,cv_pkg_dev_I__StatusComment__c,cv_pkg_dev_I__Status__c,Id FROM cv_pkg_dev_I__Payment__c  WHERE LastModifiedDate = yesterday ALL ROWS'; }  
+    
+    return Database.getQueryLocator(query);
+  }
+  
+  global void execute(Database.BatchableContext BC, List<sObject> scope)
+  {
+     Map<ID, cv_pkg_dev_I__Payment__c> scopeMap = new Map<ID, cv_pkg_dev_I__Payment__c>((List<cv_pkg_dev_I__Payment__c>)scope);
+     Map<Id, cv_pkg_dev_I__Payment__c> map_GiftId_Payment = new Map<Id,cv_pkg_dev_I__Payment__c>();
+     for(cv_pkg_dev_I__Payment__c payment : scopeMap.values())
+     {
+        if((payment.cv_pkg_dev_I__Status__c == 'Approved' || payment.cv_pkg_dev_I__Status__c == 'Declined') && !map_GiftId_Payment.containsKey(payment.cv_pkg_dev_I__Donation__c))
+        {    
+            map_GiftId_Payment.put(payment.cv_pkg_dev_I__Donation__c,payment);   
+        }
+     }
+     recurringGiftFieldUpdateTriggerclass.recurringGiftFieldUpdate(map_GiftId_Payment.keySet());
+  }
+  
+  global void finish(Database.BatchableContext BC)
+  {
+  }
+}

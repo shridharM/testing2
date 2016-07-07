@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <fields>
+        <fullName>Account_Rollup_Batch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account Rollup Batch</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>AppealUtilRollBatch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>AppealUtilRollBatch</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Appeal_Rollup_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Appeal Rollup 1</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Appeal_Rollup_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Appeal Rollup 2</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Appeal_Rollup_3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Appeal Rollup 3</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CampaignRollupBatch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CampaignRollupBatch</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_RollUp_Batch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Contact RollUp Batch</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Workflows_for_Sending_Receipts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Disable Workflows for Sending Receipts</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Enhanced_Batch_Interface_Waive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field keeps the waive value of Enable Enhanced Batch Interface.</description>
+        <externalId>false</externalId>
+        <label>Enable Enhanced Batch Interface</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Enhanced_Fund_Accounting_Waive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Enhanced Fund Accounting</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enable_Pledge_Installment_Model_Waive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Enable Pledge Installment Model</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Org_Wide_Email_Address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Org Wide Email Address</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Organisation_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Organization Name</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Organization_Address__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Organization Address</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Organization_Phone__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Organization Phone</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PackageRollupBatch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>PackageRollupBatch</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Rollup_Batch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Payment Rollup Batch</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Send_Event_Registration_Receipt__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Send Event Registration Receipt</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Send_Gift_Receipt__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Send Gift Receipt</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>UpdatePaymentRT_RefundACH__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>UpdatePaymentRT RefundACH</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>CVAdmin</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>CVAdmin Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>CVAdmins</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

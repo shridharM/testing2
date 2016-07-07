@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Gift__c.Constituent__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c.Organization__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Gift__c.Amount__c</field>
+    </columns>
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>Payment__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c.Gift_Date__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c.GiftBatch__c</field>
+    </columns>
+    <description>Summary of Batch - used by &apos;Report&apos; button in Gift Batches</description>
+    <filter>
+        <criteriaItems>
+            <column>Gift__c.Gift_Batch_ID__c</column>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Payment__c.Payment_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Gift Batch Summary Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Gift__c$Payment__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Gift__c.Gift_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

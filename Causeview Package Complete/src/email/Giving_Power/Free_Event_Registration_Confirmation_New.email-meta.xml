@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Registration confirmation for free events</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Free Event Registration Confirmation</name>
+    <style>none</style>
+    <subject>Thank You for Registering to {!Event_Registration__c.Event__c}</subject>
+    <textOnly>{!relatedTo.causeview__Org_Name__c}
+
+Dear {!Contact.Name},
+
+Thank you for registering to {!Event_Registration__c.Event__c}. We are very excited you have registered and are looking forward to seeing you.
+
+Registration Summary
+
+Event  {!Event_Registration__c.Event__c}
+Registration Date  {!Event_Registration__c.Registration_Date__c}
+
+[Your Name Here]
+[Your Title Here]
+{!Organization.Name}
+
+
+© {!relatedTo.causeview__Org_Name__c}. All Rights Reserved.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

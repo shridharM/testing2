@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Transaction</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Transactions</value>
+    </caseValues>
+    <fields>
+        <help><!-- Email address acknowledgements are sent to. --></help>
+        <label><!-- Acknowledgement Recipient Email --></label>
+        <name>Acknowledgement_Recipient_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Initial Gift made by this contact on behalf of the Organization --></help>
+        <label><!-- Affiliated Contact --></label>
+        <name>Affiliated_Contact__c</name>
+        <relationshipLabel><!-- Transactions (Affiliated Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Allocation Count --></label>
+        <name>Allocation_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sum of all payments with status (Approved, Deposited, Refunded) --></help>
+        <label><!-- Approved Amount --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anonymous --></label>
+        <name>Anonymous__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of attendee names still pending --></help>
+        <label><!-- Attendee Names Pending --></label>
+        <name>Attendee_Names_Pending__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of attendee names received --></help>
+        <label><!-- Attendee Names Received --></label>
+        <name>Attendee_Names_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Authorization # (dep) --></label>
+        <name>Authorization__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch Status --></label>
+        <name>Batch_Status__c</name>
+        <picklistValues>
+            <masterLabel>Committed</masterLabel>
+            <translation><!-- Committed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Receipted</masterLabel>
+            <translation><!-- Receipted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Channel --></label>
+        <name>Channel__c</name>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation><!-- Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Consolidated Receipt --></label>
+        <name>Consolidated_Rcpt__c</name>
+        <relationshipLabel><!-- Gifts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Whether a new Constituent is created for this Gift record or Constituent was already existed. --></help>
+        <label><!-- Constituent Type --></label>
+        <name>ConstituentType__c</name>
+        <picklistValues>
+            <masterLabel>Existing</masterLabel>
+            <translation><!-- Existing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Constituent Address --></label>
+        <name>Constituent_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Constituent FirstName --></label>
+        <name>Constituent_FirstName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used for merging with acknowledgement templates --></help>
+        <label><!-- Constituent Name --></label>
+        <name>Constituent_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Individual --></label>
+        <name>Constituent__c</name>
+        <relationshipLabel><!-- Transactions (Constituent) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Masked credit card number --></help>
+        <label><!-- Credit Card Number --></label>
+        <name>Credit_Card_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Payment credit card type --></help>
+        <label><!-- Credit Card Type --></label>
+        <name>Credit_Card_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discounted Price --></label>
+        <name>Discounted_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event ID --></label>
+        <name>Event_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Name (dep) --></label>
+        <name>Event_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event (dep) --></label>
+        <name>Event__c</name>
+        <relationshipLabel><!-- Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Expected amount for transaction, this is not based on the payments received. --></help>
+        <label><!-- Expected Amount --></label>
+        <name>Expected_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exported --></label>
+        <name>Exported__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Transaction ID --></label>
+        <name>External_Trans_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Deprecated - all soft credits are managed via Soft Credit object --></help>
+        <label><!-- Foundation Credit --></label>
+        <name>Foundation_Credit__c</name>
+        <relationshipLabel><!-- Transactions (Foundation Credit) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Gateway --></label>
+        <name>Gateway__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Batch --></label>
+        <name>GiftBatch__c</name>
+        <relationshipLabel><!-- Gifts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Gift Batch ID --></label>
+        <name>Gift_Batch_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Count --></label>
+        <name>Gift_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction Date --></label>
+        <name>Gift_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gift Type --></label>
+        <name>Gift_Type__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Sponsorship</masterLabel>
+            <translation><!-- Corporate Sponsorship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Registration</masterLabel>
+            <translation><!-- Event Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grant</masterLabel>
+            <translation><!-- Grant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Time Gift</masterLabel>
+            <translation><!-- One Time Gift --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pledge</masterLabel>
+            <translation><!-- Pledge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Sale</masterLabel>
+            <translation><!-- Product Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recurring</masterLabel>
+            <translation><!-- Recurring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sponsorship</masterLabel>
+            <translation><!-- Sponsorship --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- HouseholdId --></label>
+        <name>HouseholdId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Household the individual belongs to --></help>
+        <label><!-- Household --></label>
+        <name>Household__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal Solicitor --></label>
+        <name>Internal_Solicitor__c</name>
+        <relationshipLabel><!-- Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Key Contact --></label>
+        <name>Key_Contact__c</name>
+        <relationshipLabel><!-- Memberships (Key Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Last Payment Date --></label>
+        <name>Last_Payment_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date of last pledge payment --></help>
+        <label><!-- Last Pledge Payment --></label>
+        <name>Last_Pledge_Payment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Letter --></label>
+        <name>Letter__c</name>
+        <relationshipLabel><!-- Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Reference to matched gift from employee --></help>
+        <label><!-- Matched Gift --></label>
+        <name>Matched_Gift__c</name>
+        <relationshipLabel><!-- Matched Gifts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Next Payment Date --></label>
+        <name>Next_Payment_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the next payment date expected from this pledge --></help>
+        <label><!-- Next Payment Due --></label>
+        <name>Next_Payment_Due__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of expected payments for pledge --></help>
+        <label><!-- # of Expected Payments --></label>
+        <name>No_of_Expected_Payments__c</name>
+    </fields>
+    <fields>
+        <help><!-- # of Expected Payments - (# of Received Payments + # Written Off Payments)
+
+If Outstanding Amount = $0, then Outstanding Payments set to 0 --></help>
+        <label><!-- # of Outstanding Payments --></label>
+        <name>No_of_Outstanding_Payments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of written off payments --></help>
+        <label><!-- # of Written Off Payments --></label>
+        <name>No_of_Written_Off_Payments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number of payment records --></help>
+        <label><!-- # of Received Payments --></label>
+        <name>Number_of_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization --></label>
+        <name>Organization__c</name>
+        <relationshipLabel><!-- Transactions (Organization) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Expected Amount - (Approved Amount + Write Off Amount) --></help>
+        <label><!-- Outstanding Amount --></label>
+        <name>Outstanding_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Package Name --></label>
+        <name>Package_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Package --></label>
+        <name>Package__c</name>
+        <relationshipLabel><!-- Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payment Count --></label>
+        <name>Payment_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- Recurring Gift - day of each month payment will be automatically processed --></help>
+        <label><!-- Payment Withdrawal Day --></label>
+        <name>Payment_Withdrawal_Day__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defines fixed amount of each pledge payment --></help>
+        <label><!-- Per Payment Amount --></label>
+        <name>Per_Payment_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defines the frequency of pledge payment --></help>
+        <label><!-- Pledge Payment Frequency --></label>
+        <name>Pledge_Payment_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bi-Weekly</masterLabel>
+            <translation><!-- Bi-Weekly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Pledge payment start date --></help>
+        <label><!-- Pledge Start Date --></label>
+        <name>Pledge_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Deprecated - all soft credits are managed via Soft Credit object --></help>
+        <label><!-- Primary Solicitor --></label>
+        <name>Primary_Solicitor__c</name>
+        <relationshipLabel><!-- Transactions (Primary Solicitor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Promotion Code --></label>
+        <name>Promotion_Code__c</name>
+        <relationshipLabel><!-- Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Proposal --></label>
+        <name>Proposal__c</name>
+        <relationshipLabel><!-- Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Receipt will not be created if checked.  Receipt to be created at a later date. --></help>
+        <label><!-- Receipt Later --></label>
+        <name>Receipt_Later__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receipt Type --></label>
+        <name>Receipt_Type__c</name>
+        <picklistValues>
+            <masterLabel>Consolidated</masterLabel>
+            <translation><!-- Consolidated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Receipt</masterLabel>
+            <translation><!-- No Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Receipt</masterLabel>
+            <translation><!-- Single Receipt --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recurring Gift --></label>
+        <name>Recurring_Donation__c</name>
+        <relationshipLabel><!-- Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recurring Frequency --></label>
+        <name>Recurring_Frequency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Start Date --></label>
+        <name>Recurring_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Recurring payment Id --></help>
+        <label><!-- Reference # --></label>
+        <name>Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remaining Payments --></label>
+        <name>Remaining_Payments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Search Key --></label>
+        <name>Search_Key__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defines originating source of transaction --></help>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+        <picklistValues>
+            <masterLabel>CDS</masterLabel>
+            <translation><!-- CDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundly</masterLabel>
+            <translation><!-- Fundly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Karma411</masterLabel>
+            <translation><!-- Karma411 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Offline Entry</masterLabel>
+            <translation><!-- Offline Entry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Actionpage</masterLabel>
+            <translation><!-- Online Actionpage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNX Vision</masterLabel>
+            <translation><!-- UNX Vision --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Defines amount of transaction that is related to sponsorships (not eligible for tax receipt) --></help>
+        <label><!-- Sponsorship/Benefit Amount --></label>
+        <name>Sponsorship_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Acknowledged</masterLabel>
+            <translation><!-- Acknowledged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entered</masterLabel>
+            <translation><!-- Entered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Pending</masterLabel>
+            <translation><!-- Payment Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Received</masterLabel>
+            <translation><!-- Payment Received --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date stock was converted to Cash --></help>
+        <label><!-- Stock Sale Date --></label>
+        <name>Stock_Sale_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Dollar value of stock at time received --></help>
+        <label><!-- Stock Value --></label>
+        <name>Stock_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- _Sys:Clone Transaction --></label>
+        <name>Sys_Clone_Transaction__c</name>
+        <relationshipLabel><!-- Clone Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Sum of included event attendees based on event levels purchased --></help>
+        <label><!-- Total Attendees --></label>
+        <name>Total_Attendees_Purchased__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Gift Amount --></label>
+        <name>Total_Gift_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sum of all payments (includes Approved and Committed payments) --></help>
+        <label><!-- Total Payment Amount --></label>
+        <name>Total_Payment_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribute Honoree Name --></label>
+        <name>Tribute_Honoree_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribute Message --></label>
+        <name>Tribute_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Street --></label>
+        <name>Tribute_Notification_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification City --></label>
+        <name>Tribute_Notification_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Country --></label>
+        <name>Tribute_Notification_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribute Notification Date --></label>
+        <name>Tribute_Notification_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Email --></label>
+        <name>Tribute_Notification_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribute Notification Method --></label>
+        <name>Tribute_Notification_Method__c</name>
+        <picklistValues>
+            <masterLabel>Direct Mail</masterLabel>
+            <translation><!-- Direct Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notification State/Province --></label>
+        <name>Tribute_Notification_State_Province__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Zip/Postal Code --></label>
+        <name>Tribute_Notification_Zip_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribute Person To Notify --></label>
+        <name>Tribute_Person_To_Notify__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tribute Type --></label>
+        <name>Tribute_Type__c</name>
+        <picklistValues>
+            <masterLabel>Honorarium</masterLabel>
+            <translation><!-- Honorarium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memorial</masterLabel>
+            <translation><!-- Memorial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Withdrawl Day --></label>
+        <name>Withdrawl_Day__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total amount of written off payments --></help>
+        <label><!-- Write Off Amount --></label>
+        <name>Write_Off_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- _sysLastAllocationUpdate --></label>
+        <name>sysLastAllocationUpdate__c</name>
+    </fields>
+    <fields>
+        <label><!-- _sysLastPaymentUpdate --></label>
+        <name>sysLastPaymentUpdate__c</name>
+    </fields>
+    <layouts>
+        <layout>Event Registration Layout 1.63</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Related To --></label>
+            <section>Related To</section>
+        </sections>
+        <sections>
+            <label><!-- Sponsorship and Promotions --></label>
+            <section>Sponsorship and Promotions</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Gift Layout 1.63</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Memorial/Honorarium Detail --></label>
+            <section>Memorial/Honorarium Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Pledge Details --></label>
+            <section>Pledge Details</section>
+        </sections>
+        <sections>
+            <label><!-- Recurring Gift --></label>
+            <section>Recurring Gift</section>
+        </sections>
+        <sections>
+            <label><!-- Related To --></label>
+            <section>Related To</section>
+        </sections>
+        <sections>
+            <label><!-- Sponsorship --></label>
+            <section>Sponsorship</section>
+        </sections>
+        <sections>
+            <label><!-- Tribute Message --></label>
+            <section>Tribute Message</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Grant Page Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- Related To --></label>
+            <section>Related To</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Matching Gift Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Related To --></label>
+            <section>Related To</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Product Purchase Layout 1.63</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Related To --></label>
+            <section>Related To</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Event Registration --></label>
+        <name>Event_Registration</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Grant --></label>
+        <name>Grant</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Matching Gift --></label>
+        <name>Matching_Gift</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Product Purchase --></label>
+        <name>Product_Purchase</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Gift --></label>
+        <name>Regular</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- A gift cannot be associated to both an Individual and an Organization.  Only one of the fields can be populated per gift. --></errorMessage>
+        <name>IndividualOrOrg</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must hard credit the transaction to either an Individual or an Organizations --></errorMessage>
+        <name>IndividualOrOrgRequired</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Matching_Gift --></label>
+        <name>New_Matching_Gift</name>
+    </webLinks>
+    <workflowTasks>
+        <description><!-- An automated email acknowledgement has been sent to the donor for their recurring gift. --></description>
+        <name>Automated_Recurring_Gift_Acknowledgement_Sent</name>
+        <subject><!-- Automated Recurring Gift Acknowledgement Sent --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- The automated tribute e-card has been sent. --></description>
+        <name>Automated_Tribute_eCard_Sent</name>
+        <subject><!-- Automated Tribute eCard Sent --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Pending_Gift_Acknowledgement_Sent</name>
+        <subject><!-- Pending Gift Acknowledgement Sent --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

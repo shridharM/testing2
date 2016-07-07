@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Automated email acknowledgment for recurring gifts</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Recurring Gift Acknowledgement</name>
+    <style>none</style>
+    <subject>Thank you for supporting {!Organization.Name}</subject>
+    <textOnly>Dear {!Gift__c.Constituent_Name__c},
+
+Your {!cv_pkg_dev_I__Gift__c.Recurring_Frequency_lowercase__c} recurring gift of {!Gift__c.Expected_Amount__c} to HN Foundation has been received - thank you!
+
+Please accept our thanks for your support of HN Foundation. The collective power of giving has a tremendous impact on our ability to develop financial products and services that support women and girls from poor and low income families to improve the quality of their lives.
+
+PS - Please ask your Human Resources team if your organization or company offers a Matching Gifts Program which could double your impact and support.
+
+Sincerely,
+
+
+John Smith, CEO
+HN Foundation
+
+HN Foundation is a 501(c)(3) nonprofit organization. If you have any questions, please email development@HNFoundation.org.
+
+355 Apple Creek Blvd Suite 200 Markham Ontario
+Canada L3R 9X7 Phone: 905-752-1400
+© HN Foundation All rights reserved
+
+Privacy | Contact Us | Visit the HN Foundation Website</textOnly>
+    <type>custom</type>
+</EmailTemplate>

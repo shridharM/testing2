@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>No longer used by Causeview.  Deprecated post Causeview v1.919</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BE_Account_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Id for this clients Account record in BE Database.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Id for this clients Account record in BE Database.</inlineHelpText>
+        <label>(dep) BE Account ID</label>
+        <length>120</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Moved to Causeview App Settings</inlineHelpText>
+        <label>(dep) Contact</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Donation__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Moved to Causeview App Settings</inlineHelpText>
+        <label>(dep) Donation</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GetStockFormUrl__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>The URL used for retrieving form ids suitable for performing operations such as CC update, Refund, etc.</inlineHelpText>
+        <label>(dep) Get Stock Form Url</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Free_Public__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Moved to Causeview App Settings</inlineHelpText>
+        <label>(dep) RSVP Free Public</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RSVP_Free__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Moved to Causeview App Settings</inlineHelpText>
+        <label>(dep) RSVP Free</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RSVP__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Moved to Causeview App Settings</inlineHelpText>
+        <label>(dep) RSVP</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>(dep) Causeview Form Settings</label>
+</CustomObject>

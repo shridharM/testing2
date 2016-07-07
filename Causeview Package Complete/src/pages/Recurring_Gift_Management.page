@@ -1,0 +1,858 @@
+<apex:page standardcontroller="Recurring_Donation__c" extensions="RecurringGiftManagementExtension" id="recurringGiftMgmt" action="{!redirect}"
+           showheader="true" standardstylesheets="false" sidebar="true" applyhtmltag="true" applybodytag="false" doctype="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <head>
+        <title>Recurring Gift Management</title>    
+
+        <!-- SweetAlert:http://t4t5.github.io/sweetalert/ -->
+        <apex:includescript value="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" />
+
+        <!-- jQuery Validation -->
+        <apex:includescript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+
+        <!-- https://github.com/hsnayd/validetta/ -->
+        <apex:includescript value="{!URLFOR($Resource.validetta)}" />
+
+        <!-- Recurring Gift Management Scripts -->
+        <apex:includescript value="{!URLFOR($Resource.recurringGiftManagementScripts)}" />
+
+        <!-- jQuery UI -->
+        <apex:includescript value="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js" 
+            html-integrity="sha256-WyjlLy3rvVSitHOXMctYkMCOU6GAletPg+qniNKLCQM=" html-crossorigin="anonymous"/>
+
+        <!-- jQuery Credit Card Validator -->
+        <apex:includescript value="https://api.causeview.com/ActionPages/Hosted/jquery/jquery.creditCardValidator.js" />
+
+        <!-- Lightning Design System -->
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS0122, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+        
+        <!-- Recurring Gift Management -->
+        <apex:stylesheet value="{!URLFOR($Resource.recurringGiftManagementStyle)}" />
+
+        <!-- SweetAlert:http://t4t5.github.io/sweetalert/ -->
+        <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+
+        <!-- jQuery UI -->
+        <apex:stylesheet value="https://code.jquery.com/ui/1.12.0-beta.1/themes/smoothness/jquery-ui.css" />
+
+        <script type="text/javascript">
+            j$ = jQuery.noConflict();
+            
+            var submitClicked = false;
+
+            j$(document).ready(function() {
+                var paymentType = '{!paymentType}';
+                var ukCancelled = '{!UkCancelled}';
+                var success = '{!Success}';
+                var originalStatus = '{!status}';
+                var originalScheduleDate = '{!scheduleDate}';
+                var isReferenceNumberIats = '{!IsReferenceNumberIats}';
+                var frequency = '{!frequency}';
+                var status = '{!status}';
+
+                hideSection("ukDirectDebitPayment");
+                hideSection("achPayment");
+                hideSection("creditCardPayment");
+                hideCancellationReason();
+
+                if (paymentType == 'UK Direct Debit') {
+                    setProperty("{!$Component.recurringGiftMgmt.updateForm.scheduleDate}", "disabled", true);
+                    setProperty("{!$Component.recurringGiftMgmt.updateForm.selectFrequency}", "disabled", true);
+
+                    setCss("paymentInfoHelperUk", "display", "block");
+                    setHtml("stateLabel", "County");
+                    setProperty("{!$Component.recurringGiftMgmt.updateForm.province}", "placeholder", "County");
+
+                    showSection("ukDirectDebitPayment");
+                } else if (paymentType == 'Credit Card') {
+                    showSection("creditCardPayment");
+                    hideUkDirectDebitInfoHelpers();
+                } else if (paymentType == 'ACH/PAD' || paymentType == 'ACH/EFT') {
+                    showSection("achPayment");
+                    setHtml("routingNumberLabel", "{!RoutingNumberTitle}");
+                    hideUkDirectDebitInfoHelpers();
+                }
+
+                if (isReferenceNumberIats == 'false') {
+                    swal({
+                        title: "Note",
+                        text: "This functionality is only available with iATS Payments" +
+                        "<br /><br /><a href='https://help.causeview.com/501C0000000pmnnIAA' target='_blank'>Updating Recurring Gifts Help Article</a>" + 
+                        "<br /><br />Click OK to return to the recurring gift.",
+                        html: true,
+                        imageUrl: 'http://www.causeview.com/-/media/60x60.jpg'
+                    },
+                    function () {
+                        window.location.href = GetRecurringGiftUrl();
+                    });
+                } else {
+                    if (ukCancelled == 'true') {
+                        swal({
+                            title: "Error:",
+                            text: "You cannot update a cancelled recurring gift. \n\nClick OK to return to the recurring gift.",
+                            type: "error"
+                        },
+                        function () {
+                            window.location.href = GetRecurringGiftUrl();
+                        });
+                    }
+
+                    if (originalStatus == "On Hold") {
+                        disableSchedleDate();
+                    } else if (originalStatus == "Cancelled") {
+                        showCancellationReason();
+                    }
+
+                    if (frequency != "Monthly" && frequency != "Weekly") {
+                        disableSchedleDate();
+                    } else if (frequency == "Weekly") {
+                        enableWeeklyScheduleDate();
+                    }
+
+                    if (success == 'false') {
+                        processErrors();
+                    } else {
+                        swal({
+                            title: "Success!",
+                            text: "Click OK to go back to the Recurring Gift.",
+                            type: "success"
+                        },
+                        function () {
+                            window.location.href = GetRecurringGiftUrl();
+                        });
+                    }
+                    if (status == 'Cancelled') {
+                    	j$(".accountNumber").each(function() {
+						    j$(this).attr("data-validetta", j$(this).attr("data-validetta").replace("required", ""));
+						});
+                    } else {
+                    	j$(".accountNumber").each(function() {
+                       		if(j$(this).attr("data-validetta").includes("required") == false) {
+								j$(this).attr("data-validetta", j$(this).attr("data-validetta") + ",required");
+							}
+						});
+                    }
+                }
+
+                j$(".updateForm").validetta({
+                    showErrorMessages: true,
+                    realTime: true,
+                    display: 'inline',
+                    errorTemplateClass: 'slds-form-element__help',
+                    errorClass: 'slds-has-error',
+                    onValid: function (event) {
+                        if (submitClicked) {
+                            event.preventDefault();
+                            swal({
+                                title: "Confirm Recurring Gift Update",
+                                text: "Are you sure you want to update this recurring gift?",
+                                type: "warning",
+                                confirmButtonColor: '#66ff33',
+                                confirmButtonText: "Confirm",
+                                showLoaderOnConfirm: true,
+                                showCancelButton: true,
+                                closeOnConfirm: false,
+                                closeOnCancel: true
+                            },
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    j$('.sweet-alert p').text('Processing... please wait.');
+                                    updateRecurringGift();
+                                    setTimeout(function () {
+                                        swal({
+                                            title: "Error:",
+                                            text: "The request has timed out, please contact your system administrator...",
+                                            type: "error"
+                                        });
+                                    }, 120000)
+                                } else {
+                                    submitClicked = false;
+                                }
+                            })
+                        }
+                    },
+                    validators: {
+                        callback: {
+                            min: {
+                                callback: function (el, value) {
+                                    if (value > 0) {
+                                        return true;
+                                    }
+                                    return false;
+                                },
+                                errorMessage: "Please enter a number greater than 0 (Exclude any currency symbols)."
+                            },
+                            accountNumber: {
+                                callback: function (el, value) {
+                                    if (j$.isNumeric(value)) {
+                                        return true;
+                                    } else if (value.indexOf("*") != -1) {
+                                        return true;
+                                    }
+
+                                    return false;
+                                },
+                                errorMessage: "Only numbers or asterix (*) allowed."
+                            },
+                            expiry: {
+                                callback: function (el, value) {
+                                    var validFormat = /[0-9]{2}\/[0-9]{2}/.test(value);
+                                    if (validFormat) {
+                                        var values = value.split("/");
+                                        var month = parseFloat(values[0]);
+                                        var year = parseFloat(values[1]);
+                                        year += 2000;
+
+                                        var today = new Date();
+                                        var currentYear = today.getFullYear();
+                                        var currentMonth = today.getMonth() + 1;
+
+                                        if (year < currentYear) {
+                                            return false;
+                                        } else if (year == currentYear) {
+                                            if (month < currentMonth) {
+                                                return false;
+                                            } else {
+                                                return true;
+                                            }
+                                        } else {
+                                            return true;
+                                        }
+                                    } else {
+                                        return false;
+                                    }
+                                },
+                                errorMessage: "Please enter the following format: MM/YY</br>Expiry date must be greater than or equal to this month and year"
+                            },
+                            beginDate: {
+                                callback: function (el, value) {
+                                    value = value.replace(/-/, '/').replace(/-/, '/');
+
+                                    var status = j$(".selectStatus").find(":selected").text();
+                                    var inputDate = new Date(value);
+                                    var today = new Date();
+                                    today.setHours(0, 0, 0, 0);
+
+                                    if ((originalStatus == 'On Hold' || originalStatus == "Cancelled") && status == 'Active' && inputDate <= today) {
+                                        return false;
+                                    }
+                                    return true;
+                                },
+                                errorMessage: "Date must be greater than today"
+                            },
+                            allocation: {
+                                callback: function (el, value) {
+                                    var amount = document.getElementById("{!$Component.recurringGiftMgmt.updateForm.recurringAmount}").value;
+                                    var allocationTotal = 0;
+
+                                    j$(".allocation").each(function (i, obj) {
+                                        allocationTotal += parseFloat(obj.value);
+                                    });
+
+                                    return (amount == allocationTotal);
+                                },
+                                errorMessage: "Total allocation amount must equal amount"
+                            },
+                            creditCard: {
+                                callback: function (el, value) {
+                                    var ccNumber = document.getElementById("{!$Component.recurringGiftMgmt.updateForm.ccAccountNumber}");
+
+                                    var result = j$(ccNumber).validateCreditCard({
+                                        accept: ['visa', 'mastercard', 'amex', 'discover']
+                                    });
+
+                                    if (!result.valid) {
+                                        return (value.indexOf("*") != -1);
+                                    } else {
+                                        updateCreditCardType(result.card_type.name);
+                                        return true;
+                                    }
+                                },
+                                errorMessage: "Credit Card is not valid"
+                            }
+                        }
+                    }
+                },
+                {
+                    required: 'This field is required.',
+                    number: 'You can enter only numbers in this field.',
+                    maxLength: 'Maximum {count} characters allowed.',
+                    minLength: 'Minimum {count} characters allowed.'
+                });
+
+                j$("#routingInfoTabs").tabs();
+
+                j$("#routingInfoContainer").dialog({
+                    autoOpen: false,
+                    title: "What is this?",
+                    minWidth: 450,
+                    height: 'auto',
+                    buttons: {
+                        Ok: function () {
+                            j$(this).dialog("close");
+                        }
+                    }
+                });
+
+                j$(".frequency").change(function() {
+                    if (this.value != "Monthly" && this.value != "Weekly") {   
+                        disableWeeklyScheduleDate();
+                        disableSchedleDate();
+                    } else if (this.value == "Monthly") {
+                        if (j$(".selectStatus").val() == 'Active') {      
+                            setScheduleDate(originalScheduleDate);
+                            disableWeeklyScheduleDate();
+                            enableSchedleDate();
+                        }
+                    } else if (this.value == "Weekly") {   
+                        if (j$(".selectStatus").val() == 'Active') {
+                            enableWeeklyScheduleDate();
+                            enableSchedleDate();
+                        }
+                    }
+                });
+
+                j$(".selectStatus").change(function () {
+                    if (this.value == "Active") {
+                        if (originalStatus != "Active") {
+                            setProperty("{!$Component.recurringGiftMgmt.updateForm.beginDate}", "readonly", "");
+                        }
+
+                        if (j$(".hiddenFrequency").val() == "Monthly") {
+                            disableWeeklyScheduleDate();
+                            enableSchedleDate();
+                        } else if (j$(".hiddenFrequency").val() == "Weekly") {
+                            enableWeeklyScheduleDate();
+                            disableSchedleDate();
+                        }
+                        j$(".accountNumber").each(function() {
+                       		if(j$(this).attr("data-validetta").includes("required") == false) {
+								j$(this).attr("data-validetta", j$(this).attr("data-validetta") + ",required");
+							}
+						});
+                        
+                        hideCancellationReason();
+                    } else {
+                        setReadonly("{!$Component.recurringGiftMgmt.updateForm.beginDate}");
+                        disableWeeklyScheduleDate();
+                        disableSchedleDate();
+
+                        if (this.value == "Cancelled") {
+                        	j$(".accountNumber").each(function() {
+							    j$(this).attr("data-validetta", j$(this).attr("data-validetta").replace("required", ""));
+							});
+                            showCancellationReason();                           
+                        } else {
+                        	j$(".accountNumber").each(function() {
+                        		if(j$(this).attr("data-validetta").includes("required") == false) {
+									j$(this).attr("data-validetta", j$(this).attr("data-validetta") + ",required");
+								}
+							});
+                            hideCancellationReason();
+                        }
+                    }
+                });
+            });
+
+            function disableSchedleDate() {
+                setProperty("{!$Component.recurringGiftMgmt.updateForm.scheduleDate}", "disabled", true);
+            }
+
+            function enableSchedleDate() {
+                setProperty("{!$Component.recurringGiftMgmt.updateForm.scheduleDate}", "disabled", false);
+            }
+
+            function enableWeeklyScheduleDate() {
+                disableSchedleDate();
+                setCss("{!$Component.recurringGiftMgmt.updateForm.scheduleDate}", "display", "none");
+
+                setProperty("{!$Component.recurringGiftMgmt.updateForm.scheduleDateWeekly}", "disabled", false);
+                setCss("{!$Component.recurringGiftMgmt.updateForm.scheduleDateWeekly}", "display", "block");
+            }
+
+            function disableWeeklyScheduleDate() {
+                enableSchedleDate();
+                setCss("{!$Component.recurringGiftMgmt.updateForm.scheduleDate}", "display", "block");
+
+                setProperty("{!$Component.recurringGiftMgmt.updateForm.scheduleDateWeekly}", "disabled", true);
+                setCss("{!$Component.recurringGiftMgmt.updateForm.scheduleDateWeekly}", "display", "none");
+            }
+
+            function setScheduleDate(value) {
+                document.getElementById("{!$Component.recurringGiftMgmt.updateForm.scheduleDate}").value = value;
+            }
+
+            function processErrors() {
+                var errors = new Array();
+                var validationErrors = new Array();
+                <apex:repeat value="{!errors}" var="error">
+                    errors.push("{!error}");
+                </apex:repeat>
+
+                <apex:repeat value="{!validationErrors}" var="validationError">
+                    validationErrors.push("{!validationError}");
+                </apex:repeat>
+
+                var message = "";
+
+                if (validationErrors != null && validationErrors.length > 0) {
+                    for (var index = 0; index < validationErrors.length; index++) {
+                        message += validationErrors[index] + "\n";
+                    };
+                    swal({
+                        title: "Validation Error:",
+                        text: message,
+                        type: "error"
+                    },
+                        function() {
+                            window.location.href = GetRecurringGiftUrl();
+                        });
+                } else if (errors != null && errors.length > 0) {
+                    for (var index = 0; index < errors.length; index++) {
+                        message += errors[index] + "\n";
+                    };
+                    swal("Error:", message, "error");
+                }
+            }
+
+            function updateCreditCardType(cardType) {
+                var convertedCardType = "";
+
+                if (cardType == "visa") {
+                    convertedCardType = "VISA"; 
+                } else if (cardType == "mastercard") {
+                    convertedCardType = "MC"; 
+                } else if (cardType == "amex") {
+                    convertedCardType = "AMX"; 
+                } else if (cardType == "discover") {
+                    convertedCardType = "DSC"; 
+                }
+
+                document.getElementById("{!$Component.recurringGiftMgmt.updateForm.ccCardType}").value = convertedCardType;
+            }
+
+            function GetRecurringGiftUrl() {
+                return '/' + '{!recurringGiftId}';
+            }
+
+        </script>
+    </head>
+    <body ng-app="myApp" ng-controller="MainCtrl as main">
+        <!-- REQUIRED SLDS WRAPPER -->
+        <div class="slds">
+            <!-- PRIMARY CONTENT WRAPPER -->
+            <div class="myapp">
+                <h2 class="slds-section-title--divider" >
+                    <div class="slds-text-heading--medium" >Recurring Gift Management</div>
+                    <div class="slds-text-body--small" >
+                        <a href="/{!recurringGiftId}">Go back to {!recurringGiftName}</a>
+                    </div>
+                </h2>
+                <div class="slds-container--center slds-container--small" >
+                    <apex:form id="updateForm" styleclass="slds-form--stacked slds-grid slds-wrap updateForm" html-novalidate="novalidate">
+                        <apex:actionFunction action="{!updateProfile}" name="updateRecurringGift" />
+
+                        <div class="slds-col--padded slds-size--1-of-1 center headerContainer" >
+                            <div class="slds-text-heading--medium">Payer Information</div>
+                            <div class="slds-text-body--small" >
+                                    Any update to the payer information will reflect in<br />
+                                    the related contact.
+                            </div>
+                        </div>
+                        <br /><br /><br /><br />
+                        <!-- left col -->
+                        <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+
+                            <!-- firstName -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small" for="firstName">First Name</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="firstName" styleclass="slds-input" html-placeholder="First Name" value="{!firstName}" html-data-validetta="required,minLength[0],maxLength[100]" maxlength="100" html-readonly="true" />
+                                </div>
+                            </div>
+
+                            <!-- lastName -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small" >Last Name</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="lastName" styleclass="slds-input" html-placeholder="Last Name" value="{!lastName}" html-data-validetta="required,minLength[0],maxLength[100]" maxlength="100" html-readonly="true" />
+                                </div>
+                            </div>
+
+                            <!-- address -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small">Address</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="address" styleclass="slds-input" html-placeholder="Address" value="{!address}" html-data-validetta="required,maxLength[100]" maxlength="100" />
+                                </div>
+                            </div>
+
+                            <!-- city -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small" >City</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="city" styleclass="slds-input" html-placeholder="City" value="{!city}" html-data-validetta="required,maxLength[40]" maxlength="40" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- right col -->  
+                        <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+
+                            <!-- country -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small" >Country</label>
+                                <div class="slds-form-element__control">
+                                    <apex:selectList id="country" styleclass="slds-input" value="{!SelectedCountry}" size="1">
+                                        <apex:selectOptions value="{!CountriesList}" />
+                                    </apex:selectList>
+                                </div>
+                            </div>  
+
+                            <!-- state/province -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small" id="stateLabel">State / Province</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="province" styleclass="slds-input" value="{!state}" html-data-validetta="maxLength[40]" maxlength="40" html-placeholder="State / Province" />
+                                </div>
+                            </div>
+
+                            <!-- postal/zip code -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small" >Postal / Zip Code</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="postalCode" styleclass="slds-input" html-placeholder="Postal/Zip Code" value="{!postalCode}" html-data-validetta="required,maxLength[40]" maxlength="40" />
+                                </div>
+                            </div>
+                        </div> 
+
+                        <!-- Profile Information -->
+                        <div class="slds-col--padded slds-size--1-of-1 headerContainer center">
+                            <div class="slds-text-heading--medium">
+                                Profile Information
+                            </div>
+                        </div>
+
+                        <!-- left col profile information -->
+                        <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                            
+                            <!-- status -->
+                            <div class="slds-form-element slds-is-required">
+                                <label class="slds-text-heading--small" for="selectStatus">Status</label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:selectList id="selectStatus" value="{!status}" size="1" styleclass="slds-select selectStatus" multiselect="false" onchange="changeStatus(this)">
+                                            <apex:selectOptions value="{!StatusOptions}" />
+                                        </apex:selectList>
+                                        <apex:inputHidden id="hiddenStatus" value="{!status}" html-class="hiddenStatus" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- postal/zip code -->
+                            <div id="cancellationReasonContainer" class="slds-form-element">
+                                <label class="slds-text-heading--small" >Cancellation Reason</label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="cancellationReason" styleclass="slds-input" value="{!cancellationReason}" html-data-validetta="maxLength[255]" maxlength="255" />
+                                </div>
+                            </div>
+
+                            <!-- begin date -->
+                            <div class="slds-form-element slds-is-required">
+                                <label class="slds-text-heading--small" for="beginDate">
+                                    Begin Date
+                                    <svg aria-hidden="true" class="slds-button__icon" id="beginDateInfoIcon"
+                                            onmouseover="hoverdiv(event, 'beginDateInfoContainer')" onmouseout="hoverdiv(event, 'beginDateInfoContainer')">
+                                        <use xlink:href="{!URLFOR($Resource.SLDS0122, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                    </svg>
+                                </label>
+                                <div class="slds-form-element__control">
+                                    <apex:input id="beginDate" styleclass="slds-input" value="{!beginDate}" type="auto" html-data-validetta="required,callback[beginDate]" html-readonly="readonly" />
+                                </div>
+                                <div id="beginDateInfoContainer" class="hover">
+                                    <div class="slds-text-body--small hoverContent" id="beginDateInfo">
+                                        Update not recommended. <br />
+                                        Instead exisiting schedule should be cancelled<br />
+                                        and a new one set up.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- schedule date -->
+                            <div class="slds-form-element slds-is-required">
+                                <label class="slds-text-heading--small">
+                                    Schedule Day
+                                    <svg aria-hidden="true" class="slds-button__icon" id="scheduleDateInfoIcon"
+                                            onmouseover="hoverdiv(event, 'scheduleDateInfoContainer')" onmouseout="hoverdiv(event, 'scheduleDateInfoContainer')">
+                                        <use xlink:href="{!URLFOR($Resource.SLDS0122, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                    </svg>
+                                </label>
+                                <div class="slds-form-element__control">
+                                    <apex:selectList id="scheduleDate" styleclass="slds-input" value="{!scheduleDate}" size="1" onchange="changeScheduleDate(this)">
+                                        <apex:selectOptions value="{!ScheduleDateOptions}" />
+                                    </apex:selectList>
+                                    <apex:selectList id="scheduleDateWeekly" styleclass="slds-input" value="{!scheduleDate}" size="1" onchange="changeScheduleDate(this)" disabled="true" style="display:none">
+                                        <apex:selectOption itemValue="1" itemLabel="Sunday" />
+                                        <apex:selectOption itemValue="2" itemLabel="Monday" />
+                                        <apex:selectOption itemValue="3" itemLabel="Tuesday" />
+                                        <apex:selectOption itemValue="4" itemLabel="Wednesday" />
+                                        <apex:selectOption itemValue="5" itemLabel="Thursday" />
+                                        <apex:selectOption itemValue="6" itemLabel="Friday" />
+                                        <apex:selectOption itemValue="7" itemLabel="Saturday" />
+                                    </apex:selectList>
+                                    <apex:inputHidden id="hiddenScheduleDate" value="{!scheduleDate}" html-class="hiddenScheduleDate" />
+                                </div>
+                                <div id="scheduleDateInfoContainer" class="hover">
+                                    <div class="slds-text-body--small hoverContent" id="scheduleDateInfo">
+                                        Update not recommended. <br />
+                                        Instead exisiting schedule should be cancelled<br />
+                                        and a new one set up.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <!-- left col profile information -->
+                        <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                            <!-- frequency -->
+                            <div class="slds-form-element slds-is-required">
+                                <label class="slds-text-heading--small" for="frequency">
+                                    Frequency
+                                    <svg aria-hidden="true" class="slds-button__icon" id="frequencyInfoIcon"
+                                         onmouseover="hoverdiv(event, 'frequencyInfoContainer')" onmouseout="hoverdiv(event, 'frequencyInfoContainer')">
+                                        <use xlink:href="{!URLFOR($Resource.SLDS0122, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                    </svg>
+                                </label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:selectList id="selectFrequency" value="{!frequency}" multiselect="false" styleclass="slds-select frequency" size="1" onchange="changeFrequency(this)">
+                                            <apex:selectOptions value="{!FrequencyOptions}" />
+                                        </apex:selectList>
+                                        <apex:inputHidden id="hiddenFrequency" value="{!frequency}" html-class="hiddenFrequency" />
+                                    </div>
+                                </div>
+                                <div id="frequencyInfoContainer" class="hover">
+                                    <div class="slds-text-body--small hoverContent"  id="frequencyInfo">
+                                        Update not recommended. <br />
+                                        Instead exisiting schedule should be cancelled<br />
+                                        and a new one set up.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- amount -->
+                            <div class="slds-form-element">
+                                <label class="slds-text-heading--small">
+                                    Amount
+                                    <svg aria-hidden="true" class="slds-button__icon" id="amountInfoIcon"
+                                         onmouseover="hoverdiv(event, 'amountInfoContainer')" onmouseout="hoverdiv(event, 'amountInfoContainer')">
+                                        <use xlink:href="{!URLFOR($Resource.SLDS0122, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                    </svg>
+                                </label>
+                                <div class="slds-form-element__control">
+                                    <apex:inputText id="recurringAmount" styleclass="slds-input" html-placeholder="Amount" value="{!amount}" html-min="3" html-data-validetta="required,callback[min]" tabindex="-1" /> <!-- html-readonly="readonly" -->
+                                </div>
+                                <div id="amountInfoContainer" class="hover">
+                                    <div class="slds-text-body--small hoverContent" id="amountInfo">
+                                        Must be sent at least 6 days in advance of next debit.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- recurring gift allocations -->
+                            <div id="allocationsContainer" class="slds-form-element">
+                                <apex:outputLabel styleclass="slds-text-heading--small" value="{!AllocationTitle}"></apex:outputLabel>
+                                <div class="slds-form-element__control">
+                                    <apex:repeat value="{!Allocations}" var="allocation">
+                                        <apex:inputText styleclass="slds-input allocation" html-data-validetta="required,callback[min],callback[allocation]" value="{!allocation.Amount__c}" />
+                                        <a href="/{!allocation.Id}" target="_blank" tabindex="-1" class="allocationLabel"
+                                           onmouseover="hoverdiv(event, 'allocationHover{!allocation.Id}')"
+                                           onmouseout="hoverdiv(event, 'allocationHover{!allocation.Id}')">
+                                            <apex:outputLabel value="{!allocation.causeview__New_Campaign__r.Name}"></apex:outputLabel>
+                                        </a>
+                                        <div id="allocationHover{!allocation.Id}" class="hover">
+                                            <apex:outputLabel styleclass="slds-text-body--small" value="Name: {!allocation.Name}"></apex:outputLabel><br />
+                                            <apex:outputLabel styleclass="slds-text-body--small" value="Amount: {!allocation.Amount__c}"></apex:outputLabel><br />
+                                            <apex:outputLabel styleclass="slds-text-body--small" value="Appeal: {!allocation.causeview__New_Campaign__r.Name}"></apex:outputLabel><br />
+                                            <apex:outputLabel styleclass="slds-text-body--small" value="Fund: {!allocation.causeview__Fund__r.Name}"></apex:outputLabel>
+                                        </div>
+                                    </apex:repeat>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <div class="slds-col--padded slds-size--1-of-1 headerContainer center">
+                            <div class="slds-text-heading--medium">
+                                Payment Information
+                            </div>
+                            <div class="slds-text-body--small hidden" id="paymentInfoHelperUk">
+                                Should only be updated for record keeping purposes.<br />
+                                Data not pushed to smart debit as all donors must update their <br />
+                                account details via their bank directly.
+                            </div>
+                            <br />
+                            <div class="slds-text-body--small" id="paymentInfoHelper">
+                                If you do not wish to update the account information<br />
+                                please leave it as is.
+                            </div>
+                        </div>
+
+                        <!-- ukDirectDebitPayment info -->
+                        <div id="ukDirectDebitPayment" class="slds-grid slds-wrap paymentContainer">
+
+                            <!-- left col -->
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                                <div class="slds-form-element slds-is-required">
+                                    <label class="slds-text-heading--small" for="ukAccountNumber">Account Number</label>
+                                    <div class="slds-form-element__control">
+                                        <apex:inputText id="ukAccountNumber" styleclass="slds-input accountNumber" html-placeholder="Account Number" value="{!accountNumber}" html-data-validetta="required,callback[accountNumber],maxLength[16]" maxlength="16" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- right col -->
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                                <div class="slds-form-element slds-is-required">
+                                    <label class="slds-text-heading--small">Sort Code</label>
+                                    <div id="sortCodeContainer" class="slds-grid slds-form-element__control" style="width: 60%;">
+                                        <apex:inputText id="sortCode1" styleclass="slds-input sortCode accountNumber" html-placeholder="##"
+                                                        html-data-validetta="required,callback[accountNumber],maxLength[2]" maxlength="2" html-data-vd-parent-up="2" value="{!sortCode1}" />
+                                        <apex:inputText id="sortCode2" styleclass="slds-input sortCode accountNumber" html-placeholder="##"
+                                                        html-data-validetta="required,callback[accountNumber],maxLength[2]" maxlength="2" html-data-vd-parent-up="2" value="{!sortCode2}" />
+                                        <apex:inputText id="sortCode3" styleclass="slds-input sortCode accountNumber" html-placeholder="##"
+                                                        html-data-validetta="required,callback[accountNumber],maxLength[2]" maxlength="2" html-data-vd-parent-up="2" value="{!sortCode3}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- creditCardPayment info -->
+                        <div id="creditCardPayment" class="slds-grid slds-wrap paymentContainer">
+
+                            <!-- left col -->
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                                <!--<div class="slds-form-element slds-is-required" >
+                                    <label class="slds-text-heading--small" for="ccCardType">Card Type</label>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-select_container">
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <div class="slds-form-element slds-is-required">
+                                    <label class="slds-text-heading--small" for="ccAccountNumber">Credit Card Number</label>
+                                    <div class="slds-form-element__control">
+                                        <apex:inputText id="ccAccountNumber" styleclass="slds-input accountNumber" value="{!accountNumber}"
+                                                        html-data-validetta="required,minLength[15],maxLength[16],callback[creditCard]" maxlength="16" />
+                                        <svg aria-hidden="true" class="slds-button__icon"
+                                                onmouseover="hoverdiv(event, 'creditCardInfoContainer')" onmouseout="hoverdiv(event, 'creditCardInfoContainer')">
+                                            <use xlink:href="{!URLFOR($Resource.SLDS0122, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                        </svg>
+                                        <div id="creditCardInfoContainer" class="hover">
+                                            <div class="slds-text-body--small hoverContent">
+                                                Credit Card type is automatically detected.
+                                            </div>
+                                        </div>
+                                        <apex:selectList id="ccCardType" value="{!ccAccountType}" size="1" styleclass="slds-select hidden" multiselect="false">
+                                            <apex:selectOption itemValue="VISA" itemLabel="Visa" />
+                                            <apex:selectOption itemValue="MC" itemLabel="Master Card" />
+                                            <apex:selectOption itemValue="AMX" itemLabel="American Express" />
+                                            <apex:selectOption itemValue="DSC" itemLabel="Discover" />
+                                        </apex:selectList>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- right col -->
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                                <div class="slds-form-element slds-is-required">
+                                    <label class="slds-text-heading--small" for="ccExpiryDate">Expiration Date</label>
+                                    <div class="slds-form-element__control">
+                                        <apex:inputText id="ccExpiryDate" styleclass="slds-input" html-placeholder="MM/YY" value="{!expirationDate}" html-data-validetta="callback[expiry],maxLength[5]" maxlength="5" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- achPayment info -->
+                        <div id="achPayment" class="slds-grid slds-wrap paymentContainer">
+
+                            <!-- left col -->
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+
+                            <!--<label class="slds-text-heading--small" for="achAccountType">Account Type</label>
+                                <div class="slds-form-element__control">
+                                    <div class="slds-select_container">
+                                        <apex:selectList id="achAccountType" value="{!achAccountType}" size="1" styleclass="slds-select" multiselect="false" >
+                                            <apex:selectOption itemValue="PC" itemLabel="Personal Checking" />
+                                            <apex:selectOption itemValue="PS" itemLabel="Personal Saving" />
+                                            <apex:selectOption itemValue="BC" itemLabel="Business Checking" />
+                                            <apex:selectOption itemValue="BS" itemLabel="Business Saving" />
+                                        </apex:selectList>
+                                    </div>
+                                </div>-->
+
+                                <div class="slds-form-element slds-is-required">
+                                    <label class="slds-text-heading--small" for="achAccountNumber">Account Number</label>
+                                    <div class="slds-form-element__control">
+                                        <apex:inputText id="achAccountNumber" styleclass="slds-input accountNumber" html-placeholder="Account Number" value="{!accountNumber}"
+                                            maxlength="16" html-data-validetta="required,callback[accountNumber],maxLength[16]" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- right col -->
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-2">
+                                <!-- routing number -->
+                                <div class="slds-form-element slds-is-required">
+                                    <label class="slds-text-heading--small" for="routingNumber" id="routingNumberLabel">Routing Number</label>
+                                    <svg aria-hidden="true" class="slds-button__icon routingInfoIcon" onclick="showRoutingInfo();">
+                                        <use xlink:href="{!URLFOR($Resource.SLDS0122, '/assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                    </svg>
+                                    <div class="slds-form-element__control">
+                                        <apex:inputText id="routingNumber" styleclass="slds-input accountNumber" html-placeholder="Routing Number" value="{!routingNumber}"
+                                            maxlength="16" html-data-validetta="required,callback[accountNumber],maxLength[16]" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col--padded buttonContainer" >
+                            <div class="slds-col--padded slds-size--1-of-1 center">
+                                <apex:commandbutton action="{!cancel}" value="Cancel" id="cancelButton" styleclass="slds-button slds-button--neutral slds-button--small slds-button--brand" />
+                                <apex:commandbutton action="{!updateProfile}" value="Update Recurring Profile" id="submitButton" onClick="onSubmitClicked();" styleclass="slds-button slds-button--neutral slds-button--small slds-button--brand" />
+                            </div>
+                        </div>
+
+                        <div id="routingInfoContainer">
+                            <div id="routingInfoTabs">
+                                <ul>
+                                    <li><a href="#usdCheck">USD</a></li>
+                                    <li><a href="#cadCheck">CAD</a></li>
+                                    <li><a href="#audCheck">AUD</a></li>
+                                </ul>
+                                <div id="usdCheck">
+                                    <img src="https://api.causeview.com/form/v2.1/Contents/Images/usd_check.gif"></img>
+                                    <br />
+                                    For USD accounts, this is the 9-digit routing number of the customer’s bank.
+                                </div>
+                                <div id="cadCheck">
+                                    <img src="https://api.causeview.com/form/v2.1/Contents/Images/cad_check.jpg"></img>
+                                    <br />
+                                    For CAD accounts, this is a combination of the 3-digit institution ID followed by the 5-digit transit number of the customer’s bank branch. They must be entered in this order.
+                                </div>
+                                <div id="audCheck">
+                                    <img src="https://api.causeview.com/form/v2.1/Contents/Images/aud_check.gif"></img>
+                                    <br />
+                                    For AUD accounts, BSB numbers are used by Australian banks to identify an account's Bank, State and Branch. This is a 6-digit number.
+                                </div>
+                            </div>
+                        </div>
+                    </apex:form>
+                </div>
+            </div>
+            <!-- / PRIMARY CONTENT WRAPPER -->
+        </div>
+        <!-- / REQUIRED SLDS WRAPPER -->
+    </body>
+</html>
+</apex:page>

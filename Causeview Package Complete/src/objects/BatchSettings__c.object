@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Causeview batch processing settings.</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BatchFormID__c</fullName>
+        <description>Customer Batch Actionform Id.  Used by internal payment processing features.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Customer Batch Actionform Id.  Used by internal payment processing features.</inlineHelpText>
+        <label>Batch Form Id</label>
+        <length>32</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BatchReportId__c</fullName>
+        <externalId>false</externalId>
+        <label>Batch Report ID</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BucketAccountId__c</fullName>
+        <externalId>false</externalId>
+        <label>Bucket Account ID</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrencyCode__c</fullName>
+        <externalId>false</externalId>
+        <label>Currency Code</label>
+        <length>3</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Migration_Mode__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This checkbox determines how the system behaves, much like a DEBUG mode.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For CauseView use only. DO NOT CHECK OR MODIFY.</inlineHelpText>
+        <label>Data Migration Mode</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>GatewayUrl__c</fullName>
+        <defaultValue>&quot;https://api.causeview.com/v2.1/Gateway.asmx&quot;</defaultValue>
+        <description>URL used to connect to customer payment gateway via Causeview Actionengine.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>URL used to connect to customer payment gateway via Causeview Actionengine.</inlineHelpText>
+        <label>Payment Gateway URL</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>LockBucketAccount__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>If this box is checked, the Account with ID in BucketAccountId__c will be read-only, and undeletable.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, the Account with ID in BucketAccountId__c will be read-only, and undeletable.</inlineHelpText>
+        <label>Lock Bucket Account</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Record_Type_Id_for_Rollups__c</fullName>
+        <description>Matching gift record type Id to be included in Gift related roll up for Individuals and Organizations.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Matching gift record type Id to be included in Gift related roll up for Individuals and Organizations.</inlineHelpText>
+        <label>Record Type Id for Giving Rollups</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RegularGiftRecordTypeId__c</fullName>
+        <description>RecordType Id for Gift on the Transaction object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RecordType Id for Gift on the Transaction object.</inlineHelpText>
+        <label>Transaction Gift RecordType ID</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unknown_Guest_Id__c</fullName>
+        <defaultValue>&quot;NA&quot;</defaultValue>
+        <description>Record Id of Unknown Guest contact record.  Used with event registrations.  This field is deprecated post Causeview v1.936.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Record Id of Unknown Guest contact record.  Used with event registrations.  This field is deprecated post Causeview v1.936.</inlineHelpText>
+        <label>(deprecated) Unknown Guest Id</label>
+        <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Batch Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

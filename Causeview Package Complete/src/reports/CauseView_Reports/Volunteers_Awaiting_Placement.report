@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Application__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Application__c.Volunteer__c</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Application__c.Volunteer_Role__c</field>
+    </columns>
+    <columns>
+        <field>Volunteer_Application__c.Volunteer_Opportunity_Name__c</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <description>List of all approved volunteers awaiting placement.</description>
+    <filter>
+        <criteriaItems>
+            <column>Volunteer_Application__c.Status__c</column>
+            <operator>equals</operator>
+            <value>Screening Complete,Approved</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Volunteers - Awaiting Placement</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Volunteer_Application__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

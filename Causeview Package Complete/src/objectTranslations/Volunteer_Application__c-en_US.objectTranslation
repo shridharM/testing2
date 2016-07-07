@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Volunteer Application</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Volunteer Applications</value>
+    </caseValues>
+    <fields>
+        <label><!-- Agree to Volunteer Liability Release --></label>
+        <name>Agree2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agree to Terms and Conditions --></label>
+        <name>Agree__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alternate Phone --></label>
+        <name>Alternate_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Background Check Notes --></label>
+        <name>Background_Check_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Background Check --></label>
+        <name>Background_Visual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currently Employed --></label>
+        <name>Currently_Employed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retired</masterLabel>
+            <translation><!-- Retired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Employed</masterLabel>
+            <translation><!-- Self-Employed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The date the background check was completed --></help>
+        <label><!-- Date of Background Check --></label>
+        <name>Date_of_Background_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Program Specific Training --></label>
+        <name>Date_of_Program_Specific_Training__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date the reference check was completed. --></help>
+        <label><!-- Date of Reference Check --></label>
+        <name>Date_of_Reference_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description of Work --></label>
+        <name>Description_of_Work__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do you have a Criminal Record --></label>
+        <name>Do_you_have_a_criminal_record__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Does Your Organization Offer --></label>
+        <name>Does_your_Organization_Offer_any_of_the__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Gift Matching</masterLabel>
+            <translation><!-- Corporate Gift Matching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Directed Grants</masterLabel>
+            <translation><!-- Employee Directed Grants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Kind Donation for Volunteer Services</masterLabel>
+            <translation><!-- In-Kind Donation for Volunteer Services --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The highest level of education achieved --></help>
+        <label><!-- Education Level --></label>
+        <name>Education_Level__c</name>
+        <picklistValues>
+            <masterLabel>Associate Degree</masterLabel>
+            <translation><!-- Associate Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bachelors Degree</masterLabel>
+            <translation><!-- Bachelors Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Doctoral Degree</masterLabel>
+            <translation><!-- Doctoral Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High School/GED</masterLabel>
+            <translation><!-- High School/GED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Masters Degree</masterLabel>
+            <translation><!-- Masters Degree --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Some College</masterLabel>
+            <translation><!-- Some College --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade/Vocational School</masterLabel>
+            <translation><!-- Trade/Vocational School --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Educational Program Name --></label>
+        <name>Education_Program__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Phone --></label>
+        <name>Emergency_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship --></label>
+        <name>Emergency_Contact_Relationship__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact --></label>
+        <name>Emergency_Contact__c</name>
+    </fields>
+    <fields>
+        <label><!-- (Dep) Application Screening Status --></label>
+        <name>High_Level_Background_Check_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- How Did You Hear About Us --></label>
+        <name>How_Did_You_Hear_About_Us__c</name>
+        <picklistValues>
+            <masterLabel>Advertisement</masterLabel>
+            <translation><!-- Advertisement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Church/Synagogue/Mosque</masterLabel>
+            <translation><!-- Church/Synagogue/Mosque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Event</masterLabel>
+            <translation><!-- External Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Event</masterLabel>
+            <translation><!-- Internal Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Place of Employment</masterLabel>
+            <translation><!-- Place of Employment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral</masterLabel>
+            <translation><!-- Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>School/College/University</masterLabel>
+            <translation><!-- School/College/University --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation><!-- Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Word of Mouth</masterLabel>
+            <translation><!-- Word of Mouth --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Languages --></label>
+        <name>Languages__c</name>
+        <picklistValues>
+            <masterLabel>ASL American Sign Language</masterLabel>
+            <translation><!-- ASL American Sign Language --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arabic</masterLabel>
+            <translation><!-- Arabic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burmese</masterLabel>
+            <translation><!-- Burmese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese</masterLabel>
+            <translation><!-- Chinese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation><!-- Italian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korean</masterLabel>
+            <translation><!-- Korean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Navajo</masterLabel>
+            <translation><!-- Navajo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nepali</masterLabel>
+            <translation><!-- Nepali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somali</masterLabel>
+            <translation><!-- Somali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swahili</masterLabel>
+            <translation><!-- Swahili --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Miles Willing to Travel (One Way) --></label>
+        <name>Miles_Willing_to_Travel_One_Way__c</name>
+        <picklistValues>
+            <masterLabel>10 miles</masterLabel>
+            <translation><!-- 10 miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20 miles</masterLabel>
+            <translation><!-- 20 miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 miles</masterLabel>
+            <translation><!-- 30 miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wherever there is a need</masterLabel>
+            <translation><!-- Wherever there is a need --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The name of the educational institution you attended --></help>
+        <label><!-- Name of  Educational Institution --></label>
+        <name>Name_of_Educational_Institution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Roles --></label>
+        <name>Number_of_Roles__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Service Hours Involved --></label>
+        <name>Number_of_Service_Hours_Involved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity End Date --></label>
+        <name>Opportunity_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Name --></label>
+        <name>Opportunity_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Start Date --></label>
+        <name>Opportunity_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- (Dep) Application Training Status --></label>
+        <name>Overall_Training_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Parent Application for the Group Opportunity --></help>
+        <label><!-- Parent Volunteer Application --></label>
+        <name>Parent_Volunteer_Application__c</name>
+        <relationshipLabel><!-- Volunteer Applications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Place of Employment --></label>
+        <name>Place_of_Employment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preferred Area(s) for Volunteer Opportunities --></help>
+        <label><!-- Preferred Locale(s) --></label>
+        <name>Prefered_Locales__c</name>
+        <picklistValues>
+            <masterLabel>To be defined by organization</masterLabel>
+            <translation><!-- To be defined by organization --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Professional Skills --></label>
+        <name>Professional_Skills__c</name>
+        <picklistValues>
+            <masterLabel>Ability to Lift Heavy Objects</masterLabel>
+            <translation><!-- Ability to Lift Heavy Objects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting/Finance</masterLabel>
+            <translation><!-- Accounting/Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative Skills</masterLabel>
+            <translation><!-- Administrative Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adult Educator</masterLabel>
+            <translation><!-- Adult Educator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advertising/PR</masterLabel>
+            <translation><!-- Advertising/PR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advocacy Skills</masterLabel>
+            <translation><!-- Advocacy Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Art/Graphic Design</masterLabel>
+            <translation><!-- Art/Graphic Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Career Counselor</masterLabel>
+            <translation><!-- Career Counselor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communication Skills</masterLabel>
+            <translation><!-- Communication Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Data Entry and Email</masterLabel>
+            <translation><!-- Computer Skill: Data Entry and Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Expert MS Office</masterLabel>
+            <translation><!-- Computer Skill: Expert MS Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Intermediate MS Office</masterLabel>
+            <translation><!-- Computer Skill: Intermediate MS Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Skill: Social Media</masterLabel>
+            <translation><!-- Computer Skill: Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction</masterLabel>
+            <translation><!-- Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Creative</masterLabel>
+            <translation><!-- Creative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Culinary Arts/Chef</masterLabel>
+            <translation><!-- Culinary Arts/Chef --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dependable</masterLabel>
+            <translation><!-- Dependable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Design Software Skills</masterLabel>
+            <translation><!-- Design Software Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Detail Oriented</masterLabel>
+            <translation><!-- Detail Oriented --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ESL English as Second Language Teacher</masterLabel>
+            <translation><!-- ESL English as Second Language Teacher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Early Childhood Development</masterLabel>
+            <translation><!-- Early Childhood Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electrical</masterLabel>
+            <translation><!-- Electrical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planning</masterLabel>
+            <translation><!-- Event Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraising</masterLabel>
+            <translation><!-- Fundraising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Contractor</masterLabel>
+            <translation><!-- General Contractor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Professional</masterLabel>
+            <translation><!-- Health Professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospitality</masterLabel>
+            <translation><!-- Hospitality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interpersonal Skills</masterLabel>
+            <translation><!-- Interpersonal Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Landscaping</masterLabel>
+            <translation><!-- Landscaping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leadership Skills</masterLabel>
+            <translation><!-- Leadership Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Life Skills</masterLabel>
+            <translation><!-- Life Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing/Sales</masterLabel>
+            <translation><!-- Marketing/Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mechanic</masterLabel>
+            <translation><!-- Mechanic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations/Facilities</masterLabel>
+            <translation><!-- Operations/Facilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organizational Skills</masterLabel>
+            <translation><!-- Organizational Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Painting</masterLabel>
+            <translation><!-- Painting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Photographer</masterLabel>
+            <translation><!-- Photographer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plumbing</masterLabel>
+            <translation><!-- Plumbing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presentation Skills</masterLabel>
+            <translation><!-- Presentation Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Development</masterLabel>
+            <translation><!-- Product Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Appearance</masterLabel>
+            <translation><!-- Professional Appearance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Social Worker/Counselor</masterLabel>
+            <translation><!-- Professional Social Worker/Counselor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Record Keeping</masterLabel>
+            <translation><!-- Record Keeping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered Nurse, Licensed</masterLabel>
+            <translation><!-- Registered Nurse, Licensed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resume Preparation</masterLabel>
+            <translation><!-- Resume Preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail – Cash Register</masterLabel>
+            <translation><!-- Retail – Cash Register --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shopping/Couponing</masterLabel>
+            <translation><!-- Shopping/Couponing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taking Direction</masterLabel>
+            <translation><!-- Taking Direction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tax Preparation</masterLabel>
+            <translation><!-- Tax Preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Teacher/Assistant Teacher/Tutor</masterLabel>
+            <translation><!-- Teacher/Assistant Teacher/Tutor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Team Player</masterLabel>
+            <translation><!-- Team Player --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Time Management</masterLabel>
+            <translation><!-- Time Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volunteer Management</masterLabel>
+            <translation><!-- Volunteer Management --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program Specific Training Status --></label>
+        <name>Program_Specific_Training_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Required</masterLabel>
+            <translation><!-- Not Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To Be Done</masterLabel>
+            <translation><!-- To Be Done --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program Specific Training --></label>
+        <name>Program_Specific_Training_Visual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Programs Offered by Employer --></label>
+        <name>Programs_Offered_by_Employer__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Gift Matching</masterLabel>
+            <translation><!-- Corporate Gift Matching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Directed Grants</masterLabel>
+            <translation><!-- Employee Directed Grants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Kind Donation Program</masterLabel>
+            <translation><!-- In-Kind Donation Program --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reason for Decline --></label>
+        <name>Reason_for_Decline__c</name>
+        <picklistValues>
+            <masterLabel>Background Check</masterLabel>
+            <translation><!-- Background Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>By Applicant</masterLabel>
+            <translation><!-- By Applicant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interview</masterLabel>
+            <translation><!-- Interview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference Check</masterLabel>
+            <translation><!-- Reference Check --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reason for Exit --></label>
+        <name>Reason_for_Exit__c</name>
+        <picklistValues>
+            <masterLabel>Going to a different program</masterLabel>
+            <translation><!-- Going to a different program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lack of Transportation</masterLabel>
+            <translation><!-- Lack of Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leaving Catholic Charities</masterLabel>
+            <translation><!-- Leaving Catholic Charities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Life Change (Back to school, family or personal illness, etc)</masterLabel>
+            <translation><!-- Life Change (Back to school, family or personal illness, etc) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moving</masterLabel>
+            <translation><!-- Moving --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Response</masterLabel>
+            <translation><!-- No Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schedule Conflict</masterLabel>
+            <translation><!-- Schedule Conflict --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reasons for Volunteering --></label>
+        <name>Reasons_for_Volunteering__c</name>
+        <picklistValues>
+            <masterLabel>Care About the Cause</masterLabel>
+            <translation><!-- Care About the Cause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Develop Skills</masterLabel>
+            <translation><!-- Develop Skills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Establish Work Record</masterLabel>
+            <translation><!-- Establish Work Record --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in Community Involvement</masterLabel>
+            <translation><!-- Interested in Community Involvement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meet People and Network</masterLabel>
+            <translation><!-- Meet People and Network --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Program Requirement</masterLabel>
+            <translation><!-- Program Requirement --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reference 1 Email --></label>
+        <name>Ref_Email_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 2 Email --></label>
+        <name>Ref_Email_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 3 Email --></label>
+        <name>Ref_Email_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 1 Phone --></label>
+        <name>Ref_Phone_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 2 Phone --></label>
+        <name>Ref_Phone_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 3 Phone --></label>
+        <name>Ref_Phone_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 1 --></label>
+        <name>Reference_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 2 --></label>
+        <name>Reference_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference 3 --></label>
+        <name>Reference_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Check Notes --></label>
+        <name>Reference_Check_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- (Dep) Application Reference Status --></label>
+        <name>Reference_Check_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Type --></label>
+        <name>Reference_Type1__c</name>
+        <picklistValues>
+            <masterLabel>Co-worker or professional colleague</masterLabel>
+            <translation><!-- Co-worker or professional colleague --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member of an Educational Institution</masterLabel>
+            <translation><!-- Member of an Educational Institution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pastor / Faith Leader</masterLabel>
+            <translation><!-- Pastor / Faith Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Present or Former Employer / Agency</masterLabel>
+            <translation><!-- Present or Former Employer / Agency --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reference Type --></label>
+        <name>Reference_Type2__c</name>
+        <picklistValues>
+            <masterLabel>Co-worker or professional colleague</masterLabel>
+            <translation><!-- Co-worker or professional colleague --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member of an Educational Institution</masterLabel>
+            <translation><!-- Member of an Educational Institution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pastor / Faith Leader</masterLabel>
+            <translation><!-- Pastor / Faith Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Present or Former Employer / Agency</masterLabel>
+            <translation><!-- Present or Former Employer / Agency --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reference Type --></label>
+        <name>Reference_Type3__c</name>
+        <picklistValues>
+            <masterLabel>Co-worker or professional colleague</masterLabel>
+            <translation><!-- Co-worker or professional colleague --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Member of an Educational Institution</masterLabel>
+            <translation><!-- Member of an Educational Institution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pastor / Faith Leader</masterLabel>
+            <translation><!-- Pastor / Faith Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Present or Former Employer / Agency</masterLabel>
+            <translation><!-- Present or Former Employer / Agency --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- References --></label>
+        <name>Reference_Visual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role Location(s) --></label>
+        <name>Role_Location__c</name>
+        <picklistValues>
+            <masterLabel>To be defined by organization</masterLabel>
+            <translation><!-- To be defined by organization --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Role Name --></label>
+        <name>Role_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Exit Date --></label>
+        <name>Service_Exit_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+        <picklistValues>
+            <masterLabel>Data Migration</masterLabel>
+            <translation><!-- Data Migration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Actionform</masterLabel>
+            <translation><!-- Online Actionform --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third-Party</masterLabel>
+            <translation><!-- Third-Party --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Background Check Status --></label>
+        <name>Status_Background__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed - Issue</masterLabel>
+            <translation><!-- Completed - Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Required</masterLabel>
+            <translation><!-- Not Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To Be Done</masterLabel>
+            <translation><!-- To Be Done --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reference Check Status --></label>
+        <name>Status_Reference__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed - Issue</masterLabel>
+            <translation><!-- Completed - Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Required</masterLabel>
+            <translation><!-- Not Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To Be Done</masterLabel>
+            <translation><!-- To Be Done --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exited</masterLabel>
+            <translation><!-- Exited --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Placed</masterLabel>
+            <translation><!-- Placed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Screening Complete</masterLabel>
+            <translation><!-- Screening Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted / In-Screening</masterLabel>
+            <translation><!-- Submitted / In-Screening --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Training Provided --></label>
+        <name>Training_Provided__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>New Applicant</masterLabel>
+            <translation><!-- New Applicant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Program</masterLabel>
+            <translation><!-- New Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Screening Level</masterLabel>
+            <translation><!-- New Screening Level --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Screening Level / New Program</masterLabel>
+            <translation><!-- New Screening Level / New Program --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Availability --></label>
+        <name>Volunteer_Availability__c</name>
+        <picklistValues>
+            <masterLabel>Friday Afternoon</masterLabel>
+            <translation><!-- Friday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friday Evening</masterLabel>
+            <translation><!-- Friday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friday Morning</masterLabel>
+            <translation><!-- Friday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday Afternoon</masterLabel>
+            <translation><!-- Monday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday Evening</masterLabel>
+            <translation><!-- Monday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday Morning</masterLabel>
+            <translation><!-- Monday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday Afternoon</masterLabel>
+            <translation><!-- Saturday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday Evening</masterLabel>
+            <translation><!-- Saturday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday Morning</masterLabel>
+            <translation><!-- Saturday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday Afternoon</masterLabel>
+            <translation><!-- Sunday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday Evening</masterLabel>
+            <translation><!-- Sunday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday Morning</masterLabel>
+            <translation><!-- Sunday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday Afternoon</masterLabel>
+            <translation><!-- Thursday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday Evening</masterLabel>
+            <translation><!-- Thursday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday Morning</masterLabel>
+            <translation><!-- Thursday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday Afternoon</masterLabel>
+            <translation><!-- Tuesday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday Evening</masterLabel>
+            <translation><!-- Tuesday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday Morning</masterLabel>
+            <translation><!-- Tuesday Morning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday Afternoon</masterLabel>
+            <translation><!-- Wednesday Afternoon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday Evening</masterLabel>
+            <translation><!-- Wednesday Evening --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday Morning</masterLabel>
+            <translation><!-- Wednesday Morning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Volunteer Opportunity Name --></label>
+        <name>Volunteer_Opportunity_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to populate MyGroups --></help>
+        <label><!-- (Dep) Volunteer Opportunity --></label>
+        <name>Volunteer_Opportunity__c</name>
+        <relationshipLabel><!-- Volunteer Applications --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Volunteer Role that the Application is matched with --></help>
+        <label><!-- Volunteer Role --></label>
+        <name>Volunteer_Role__c</name>
+        <relationshipLabel><!-- Volunteer Applications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Volunteer --></label>
+        <name>Volunteer__c</name>
+        <relationshipLabel><!-- Volunteer Applications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Will Submit to a Criminal Records Check --></label>
+        <name>Will_you_submit_criminal_records_check__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Application Layout</layout>
+        <sections>
+            <label><!-- Applicant Profile Questions --></label>
+            <section>Applicant Profile Questions</section>
+        </sections>
+        <sections>
+            <label><!-- Application Exit Details --></label>
+            <section>Application Exit Details</section>
+        </sections>
+        <sections>
+            <label><!-- Background Check Details --></label>
+            <section>Background Check Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Emergency Contact --></label>
+            <section>Emergency Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Employment Details --></label>
+            <section>Employment Details</section>
+        </sections>
+        <sections>
+            <label><!-- References (two are required) --></label>
+            <section>References (two are required)</section>
+        </sections>
+        <sections>
+            <label><!-- Terms and Conditions --></label>
+            <section>Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Training Details --></label>
+            <section>Training Details</section>
+        </sections>
+        <sections>
+            <label><!-- Volunteer Interests and Skills --></label>
+            <section>Volunteer Interests and Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Individual, No Background</layout>
+        <sections>
+            <label><!-- Applicant Profile Questions --></label>
+            <section>Applicant Profile Questions</section>
+        </sections>
+        <sections>
+            <label><!-- Application Exit Details --></label>
+            <section>Application Exit Details</section>
+        </sections>
+        <sections>
+            <label><!-- Background Check Details --></label>
+            <section>Background Check Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Emergency Contact --></label>
+            <section>Emergency Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Employment Details --></label>
+            <section>Employment Details</section>
+        </sections>
+        <sections>
+            <label><!-- References (two are required) --></label>
+            <section>References (two are required)</section>
+        </sections>
+        <sections>
+            <label><!-- Terms and Conditions --></label>
+            <section>Terms and Conditions</section>
+        </sections>
+        <sections>
+            <label><!-- Training Details --></label>
+            <section>Training Details</section>
+        </sections>
+        <sections>
+            <label><!-- Volunteer Interests and Skills --></label>
+            <section>Volunteer Interests and Skills</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sign Up</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Individual Application --></label>
+        <name>Individual_Application</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Sign Up --></label>
+        <name>Sign_Up</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Screening requirements for this application have not yet been met. --></errorMessage>
+        <name>OnlyAcceptBackgroundCheckedApps</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Place_Applicant --></label>
+        <name>Place_Applicant</name>
+    </webLinks>
+    <workflowTasks>
+        <description><!-- The system has sent the automated acknowledgement email. --></description>
+        <name>Automated_Email_Acknowledement_Sent</name>
+        <subject><!-- Automated Email Acknowledement Sent --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

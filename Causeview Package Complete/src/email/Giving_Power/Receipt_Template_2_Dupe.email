@@ -1,0 +1,17 @@
+<messaging:emailTemplate subject="Your Donation Tax Receipt - Replacement Copy" recipientType="Contact" relatedToType="Receipt__c">
+    <messaging:htmlEmailBody >
+          <c:DocEmailTemplate _recipientType="Contact" _relatedToType="Receipt__c" 
+               _recipientId="{!recipient.Id}" _relatedToId="{!relatedTo.Id}" dupe="True" />  
+    </messaging:htmlEmailBody>
+    
+    <messaging:plainTextEmailBody >
+
+    </messaging:plainTextEmailBody>
+    
+      
+    <messaging:attachment filename="TaxReceipt-ReplacementCopy.pdf" renderAs="PDF">
+         <c:DocPDFTemplate _recipientType="Contact" _relatedToType="Receipt__c" 
+            _recipientId="{!recipient.Id}" _relatedToId="{!relatedTo.Id}" dupe="True" />
+    </messaging:attachment>
+    
+</messaging:emailTemplate>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>(dep) Causeview Form Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CauseView Form Settings</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Id for this clients Account record in BE Database. --></help>
+        <label><!-- (dep) BE Account ID --></label>
+        <name>BE_Account_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Moved to Causeview App Settings --></help>
+        <label><!-- (dep) Contact --></label>
+        <name>Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Moved to Causeview App Settings --></help>
+        <label><!-- (dep) Donation --></label>
+        <name>Donation__c</name>
+    </fields>
+    <fields>
+        <help><!-- The URL used for retrieving form ids suitable for performing operations such as CC update, Refund, etc. --></help>
+        <label><!-- (dep) Get Stock Form Url --></label>
+        <name>GetStockFormUrl__c</name>
+    </fields>
+    <fields>
+        <help><!-- Moved to Causeview App Settings --></help>
+        <label><!-- (dep) RSVP Free Public --></label>
+        <name>RSVP_Free_Public__c</name>
+    </fields>
+    <fields>
+        <help><!-- Moved to Causeview App Settings --></help>
+        <label><!-- (dep) RSVP Free --></label>
+        <name>RSVP_Free__c</name>
+    </fields>
+    <fields>
+        <help><!-- Moved to Causeview App Settings --></help>
+        <label><!-- (dep) RSVP --></label>
+        <name>RSVP__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

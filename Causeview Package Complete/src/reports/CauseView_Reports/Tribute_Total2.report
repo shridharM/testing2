@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Gift__c$Name</field>
+    </columns>
+    <columns>
+        <field>Gift__c.Gift_Allocations__r$Name</field>
+    </columns>
+    <columns>
+        <field>Gift__c.Gift_Allocations__r$Allocation_Date__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Gift__c.Gift_Allocations__r$Amount__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c$Constituent__c</field>
+    </columns>
+    <columns>
+        <field>Gift__c$Organization__c</field>
+    </columns>
+    <description>Total number gifts for Tribute.</description>
+    <filter>
+        <criteriaItems>
+            <column>Gift__c.Gift_Allocations__r$Tribute__c</column>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Gift__c.Gift_Allocations__r$Tribute__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Tribute Total</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Transactions_with_Allocations__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Gift__c$Gift_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

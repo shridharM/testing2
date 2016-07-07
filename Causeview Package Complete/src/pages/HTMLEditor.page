@@ -1,0 +1,75 @@
+<apex:page sidebar="false" controller="HTMLEditorController" showheader="false" id="htmleditorid">
+  <!-- Include the Jquery Script files -->   
+  <apex:includescript value="{!URLFOR($Resource.ckeditor, 'ckeditor/ckeditor.js')}"/>  
+  <link rel="stylesheet" href="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.treeview.css')}"/>    
+  <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.js')}" type="text/javascript"></script>     
+  <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.cookie.js')}" type="text/javascript"></script>     
+  <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.treeview.js')}" type="text/javascript"></script>
+  <!-- End of Javascript files --> 
+  
+  <style type="text/css">
+     #sidetreecontrol{
+         float : left;
+         width : 19%;
+         border:2px solid;
+     } 
+     #ckeditordiv{
+         float : right;
+         width : 80%;
+     }
+  </style>
+  
+  <script type="text/javascript">         
+  $(function() 
+  {             
+  $("#tree").treeview({                 
+  collapsed: false,                 
+  animated: "medium",                 
+  control:"#sidetreecontrol",                 
+  persist: "location"            
+  });          })
+  
+  $('.fid').click(function(){
+      var fvalue = $(this).value;
+    function InsertText() {
+    // Get the editor instance that we want to interact with.
+    var editor = CKEDITOR.instances.editor1;
+    //var value = document.getElementById( '' ).value;
+    var value = fvalue;
+    // Check the active editing mode.
+    if ( editor.mode == 'wysiwyg' )
+    {
+        // Insert as plain text.
+        // http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-insertText
+        editor.insertText( value );
+    }
+    else
+        alert( 'You must be in WYSIWYG mode!' );
+    }
+  });
+  </script>  <br/> <br/> <br/> 
+  <!-- Tree --> 
+  <apex:form id="formid">
+  <div class="treeheader" style="height:0px;">&nbsp;</div>
+   
+  <div id="sidetreecontrol">
+  <a href="?#"><font style="color:blue;">Collapse All</font></a> | <a href="?#"><font style="color:blue;">Expand All</font></a>
+      <ul id="tree">     
+          <apex:repeat value="{!mainnodes}" var="parent">         
+              <li><strong><apex:outputtext style="color:blue;" escape="false" value="{!parent.objectName}" id="objectoutputtext" styleClass="oid"/></strong>              
+                  <ul>             
+                      <apex:repeat value="{!parent.fieldName}" var="child">                     
+                          <li><span class="formattextcon"><apex:outputtext style="color:green;" escape="false" value="{!child}" styleClass="fid"/></span>                                                    
+                          </li>                  
+                      </apex:repeat>                
+                  </ul>           
+              </li>     
+          </apex:repeat> 
+      </ul> 
+  </div>
+  <div id="ckeditordiv">
+        <apex:inputtextarea id="editor1" richtext="false" styleclass="ckeditor"/>
+    </div>
+    </apex:form>
+  <!-- End of Tree -->        
+  </apex:page>

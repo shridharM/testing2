@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Auto Number Counts</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Auto Number Counts</value>
+    </caseValues>
+    <fields>
+        <label><!-- ContactCount(DEP) --></label>
+        <name>ContactCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- ContactLength --></label>
+        <name>ContactLength__c</name>
+    </fields>
+    <fields>
+        <label><!-- ContactPrefix --></label>
+        <name>ContactPrefix__c</name>
+    </fields>
+    <fields>
+        <label><!-- OrgCount --></label>
+        <name>OrgCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- OrgLength --></label>
+        <name>OrgLength__c</name>
+    </fields>
+    <fields>
+        <label><!-- OrgPrefix --></label>
+        <name>OrgPrefix__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,102 @@
+<apex:page standardController="Gift_Batch__c" extensions="GiftBatch_Controller_moc">
+<style type="text/css">
+        .col1 { width:5%; padding:3px 3px 3px 3px; }
+        .col2 { width:13%; text-align:right; vertical-align:middle; padding:3px 3px 3px 3px; min-width:120px;}
+        .col3 { width:32%; text-align:left; vertical-align:middle; padding:3px 3px 3px 3px; min-width:350px;}
+        .col4 { width:9%; text-align:left;vertical-align:middle; padding:3px 3px 3px 3px; min-width:80px;}
+        .col5 { width:9%; text-align:left;vertical-align:middle; padding:3px 3px 3px 3px; min-width:80px;}
+        .col6 { width:32%; padding:3px 3px 3px 3px;}
+        
+        .row {}
+        .row:hover { background-color:#ebebeb; border:solid 1px #dcdcdc; }
+        .headerLabel {
+            color:#800000;
+            font-size:1em;
+            font-weight:bold;
+            padding:5px 2px 4px 5px
+            border-bottom:solid 1px #dcdcdc;
+        }
+        .rich-tabhdr-side-border {  width:0px; padding:0px; border:0px; }
+        .rich-tabhdr-side-border img {  width:0px; padding:0px; border:0px; }
+    </style>
+     <apex:form >
+     <apex:pageBlock title="GiftBatch">
+       <apex:pageBlockButtons >
+          <apex:commandButton value="Save" action="{!save}"/>
+       
+       </apex:pageBlockButtons>
+       <apex:pageBlockSection title="Information">
+          <apex:inputField value="{!gb.Name__c}" required="true"/>
+          <apex:inputField value="{!gb.Open_Date__c}"/>
+          <apex:inputField value="{!gb.Description__c}"/>
+          <apex:outputField value="{!gb.Close_Date__c}"/>
+       </apex:pageBlockSection>
+       <apex:pageBlockSection title="gift">
+          <apex:inputField value="{!gb.Cash_Gifts__c}"/>
+          <apex:inputField value="{!gb.Cash__c}"/>
+          <apex:pageBlockSectionItem >
+              <apex:outputLabel value="# of Check Gifts" />
+              <apex:inputField value="{!gb.Cheque_Gifts__c}"/>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+              <apex:outputLabel value="Check $" />
+          <apex:inputField value="{!gb.Cheque__c}"/>
+          </apex:pageBlockSectionItem>
+          <apex:inputField value="{!gb.Credit_Card_Gifts__c}"/>
+          <apex:inputField value="{!gb.Credit_Card__c}"/>
+          <apex:inputField value="{!gb.Direct_Deposit_Gifts__c}"/>
+          <apex:inputField value="{!gb.Direct_Deposit__c}"/>
+          <apex:inputField value="{!gb.Other_Gifts__c}"/>
+          <apex:inputField value="{!gb.Other__c}"/>
+          
+       </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    
+    <apex:sectionHeader title="Gift Batch"/>
+   
+        <apex:pageBlock title="Gift Batch Detail">
+         <apex:pageBlockSection title="Gift Batch Summary">
+             <apex:outputField value="{!gb.Name}"/>
+             <apex:outputField value="{!gb.Open_Date__c}"/>
+             <apex:outputField value="{!gb.Name__c}"/>
+             <apex:outputField value="{!gb.Close_Date__c}"/>
+             <apex:outputField value="{!gb.Description__c}"/>
+             <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+             <apex:outputField value="{!gb.Cash_Gifts__c}"/>
+             <apex:outputField value="{!gb.Cash__c}"/>
+             <apex:outputField value="{!gb.Cheque_Gifts__c}"/>
+             <apex:pageBlockSectionItem >
+           <apex:outputLabel >Check $</apex:outputLabel>
+           <apex:outputField value="{!gb.Cheque__c}"/>
+      </apex:pageBlockSectionItem>
+       <apex:outputField value="{!gb.Credit_Card_Gifts__c}"/>
+       <apex:outputField value="{!gb.Credit_Card__c}"/>
+       <apex:outputField value="{!gb.Direct_Deposit_Gifts__c}"/>
+       <apex:outputField value="{!gb.Direct_Deposit__c}"/>
+       <apex:outputField value="{!gb.Other_Gifts__c}"/>
+       <apex:outputField value="{!gb.Other__c}"/>
+       <apex:outputField value="{!gb.Total_Gift__c}"/>
+       <apex:outputField value="{!gb.Total_Gift_Amount__c}"/>
+       
+     </apex:pageBlockSection> 
+     <apex:pageBlockSection title="summary">
+         <table width="90%" border="0" align="center">
+             <tr height="5">
+                 <td width="35%">
+                    
+                     <apex:repeat var="val" value="{!fieldlabellist}">
+                         <apex:outputText value="{!val}">
+                         </apex:outputText>
+                      </apex:repeat>
+                  </td>
+              </tr>
+          </table>
+      
+       
+      </apex:pageBlockSection>
+     </apex:pageBlock>
+         
+
+    </apex:form>
+</apex:page>

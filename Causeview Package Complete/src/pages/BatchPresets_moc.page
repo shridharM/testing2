@@ -1,0 +1,94 @@
+<apex:page standardController="Batch_Template__c" extensions="BatchPresetController_moc" >
+  <apex:form >
+    <apex:outputPanel rendered="{!isSelectPreset}">
+        <apex:sectionHeader title="Batch Template" subtitle="Select Batch Template Type"/>
+        <apex:outputText >Select a template type for the Batch Template.</apex:outputText><br/><br/>
+        <apex:pageBlock title="Select Batch Template Type">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!temp.Type__c}" required="true"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Continue" action="{!showTemplate}"/>
+                <apex:commandButton value="Cancel"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:outputPanel>
+     
+    <apex:outputPanel rendered="{!isShowPreset}">
+        <apex:sectionHeader title="Gift Batch Template" subtitle="{!temp.Type__c} Batch Template"/>
+        <apex:outputLabel for="bpPickVal"><b>Template Type: </b></apex:outputLabel>
+        <apex:inputField id="bpPickVal" value="{!temp.Type__c}"/>
+        <apex:commandButton value="Go!" action="{!showTemplate}"/><br/><br/>
+       
+        <span style="float: right;">
+           <apex:repeat value="{!AlphaList}" var="a">
+                  <apex:commandLink value="{!a}"  rerender="outputpanelid"
+                     styleClass="alpha-link{!if(AlphaFilter=a,' alpha-select','')}" action="{!BuildQuery}">
+                     <apex:param name="AlphaFilter" value="{!a}" assignTo="{!AlphaFilter}" />
+                  </apex:commandLink>
+                  &nbsp;&nbsp;
+               </apex:repeat>
+           </span>
+        
+        
+        <apex:pageBlock >
+          <apex:pageBlockButtons location="top">
+              <apex:commandButton value="New Batch Template" action="{!CreateNewPresetTemplate}"/>
+          </apex:pageBlockButtons>
+          <apex:outputPanel id="outputpanelid">
+         <apex:pageBlockTable value="{!tempRecord}" var="vp">
+              <apex:column headerValue="Template Name">
+                  <apex:commandLink value="{!vp.Name}" action="{!editAPresetTemplate}">
+                       <apex:param name="templateId" value="{!vp.Id}"/>
+                  </apex:commandLink>
+              </apex:column>
+              <apex:column headerValue="Template Type" value="{!vp.Type__c}"/>
+          </apex:pageBlockTable>
+            </apex:outputPanel>
+         
+          
+        </apex:pageBlock>
+        
+        
+      </apex:outputPanel>
+  </apex:form>
+  
+  <!--
+  <apex:form >
+        <apex:sectionHeader title="Batch Preset Template" subtitle="{!template.Type__c} Preset Template"/>
+        <apex:pageBlock title="Batch Preset">
+          <apex:pageBlockButtons location="top">
+              <apex:commandButton value="New Batch Preset" action="{!newPresetTemplate}"/>
+          </apex:pageBlockButtons>
+          <apex:tabPanel id="ss_shifted" switchType="client" headerSpacing="0" activeTabClass="activeTab" inactiveTabClass="inactiveTab" contentClass="tabContent">
+              <apex:tab label="Donation Template" name="Donation" id="tab1">
+                  <apex:pageBlockTable value="{!ViewPresets}" var="vp">
+                      <apex:column headerValue="Template Name">
+                          <apex:commandLink value="{!vp.Name}" action="{!editPresetTemplate}">
+                               <apex:param name="templateId" value="{!vp.Id}"/>
+                          </apex:commandLink>
+                      </apex:column>
+                      <apex:column headerValue="Template Type" value="{!vp.Type__c}"/>
+                  </apex:pageBlockTable>
+              </apex:tab>
+          </apex:tabPanel>
+          
+        </apex:pageBlock>
+  </apex:form>
+  <style>
+  .rich-tabhdr-side-border {
+            width: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+        
+        .rich-tabhdr-side-border img {
+            width: 0px;
+            padding: 0px;
+            border: 0px;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="/sCSS/20.0/sprites/1288206287000/Theme3/default/versioning.css" />
+    -->
+</apex:page>

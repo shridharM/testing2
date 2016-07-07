@@ -1,0 +1,22 @@
+<apex:page >
+<style type="text/css">
+    .displayed{
+       font-family: Times New Roman;
+       text-align: center;
+       font-size: 18px;
+    }    
+    
+</style>
+  <apex:form >  
+  <apex:pageblock title="Causeview assistance Extension Download" > 
+    <div class="displayed">      
+      <p>  We’ve noticed that you haven’t gotten started yet with the new, fully integrated Causeview Help Widget. This new feature offers on demand assistance with any of the workflows you may perform in Causeview.</p><br /> 
+      <p> Watch the video below to learn how it works:</p><br />       
+      <apex:iframe width="350" height="250" src="https://www.youtube.com/embed/yruukwtLDBs" frameborder="1" title="Video in custom page"/><br /><br />
+      
+      <p>To utilize this great new feature, please click below to download the browser extension from our partners at WalkMe.</p><br />
+      <a style="font-size: 20px;font-weight: bold; text-decoration: none;" target="_blank" href="https://account.walkme.com/ExtensionDownload/downloadPage.html?guid=19914650e8d6403ab2b726da99f1665b&customer=Causeview&profile=default">---- Click here to download ----</a>         
+    </div>
+  </apex:pageblock>
+  </apex:form>
+</apex:page>

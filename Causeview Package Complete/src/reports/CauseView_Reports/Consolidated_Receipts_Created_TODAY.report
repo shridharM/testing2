@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>Receipt__c.Constituent__c</field>
+    </columns>
+    <columns>
+        <field>Receipt__c.Receipt_Date__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Receipt__c.Receipt_Amount__c</field>
+    </columns>
+    <columns>
+        <field>Receipt__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>CHILD_CREATED_DATE</field>
+    </columns>
+    <description>Summary of all consolidated receipts created TODAY - used for year end reconciliation of consolidated receipts</description>
+    <filter>
+        <criteriaItems>
+            <column>Receipt__c.Receipt_Type__c</column>
+            <operator>equals</operator>
+            <value>Consolidated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Receipt__c.Status__c</column>
+            <operator>notEqual</operator>
+            <value>Void</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Consolidated Receipts Created TODAY</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Gift__c$Receipt__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CHILD_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_TODAY</interval>
+    </timeFrameFilter>
+</Report>

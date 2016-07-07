@@ -1,0 +1,333 @@
+<apex:page id="bp" controller="BatchPresetController" tabStyle="Batch_Presets__tab">
+    <style type="text/css">
+        .col1 { width:5%; padding:3px 3px 3px 3px; }
+        .col2 { width:13%; text-align:right; vertical-align:middle; padding:3px 3px 3px 3px; min-width:120px;}
+        .col3 { width:32%; text-align:left; vertical-align:middle; padding:3px 3px 3px 3px; min-width:350px;}
+        .col4 { width:9%; text-align:left;vertical-align:middle; padding:3px 3px 3px 3px; min-width:80px;}
+        .col5 { width:9%; text-align:left;vertical-align:middle; padding:3px 3px 3px 3px; min-width:80px;}
+        .col6 { width:32%; padding:3px 3px 3px 3px;}
+        .up {width:2%; padding:3px 3px 3px 3px; }
+        .down {width:3%; padding:3px 3px 3px 3px; }
+        .row {}
+        .row:hover { background-color:#ebebeb; border:solid 1px #dcdcdc; }
+        .headerLabel {
+            color:#800000;
+            font-size:1em;
+            font-weight:bold;
+            padding:5px 2px 4px 5px;
+            border-bottom:solid 1px #dcdcdc;
+        }
+        .rich-tabhdr-side-border {  width:0px; padding:0px; border:0px; }
+        .rich-tabhdr-side-border img {  width:0px; padding:0px; border:0px; }
+    </style>
+    <link type="text/css" rel="stylesheet" href="/sCSS/20.0/sprites/1288206287000/Theme3/default/versioning.css"/>
+    
+    <script type="text/javascript">
+        function getSelectedTabName(var tabId) {
+            if (RichFaces) {
+                var tabs = RichFaces.panelTabs['bp:form:ss_shifted'];
+                for (var i = 0; i < tabs.length; i++) {
+                    var tab = tabs[i];
+                    if(tab.Id == tabId)
+                        return tab.name;
+                }
+            }
+            return null;
+        }
+        function setSelectedTab(var tabId) {
+            selectTabAction(getSelectedTabName(tabId));
+        }
+    </script>
+    
+    <!--
+    <apex:includeScript value="{!URLFOR($Resource.MoveTableRows)}"/>
+    <script type="text/javascript">
+        Event.observe(window, "load", function() {
+            $$("td.up").each(function(element) {
+                element.observe("click", up)
+            });
+
+            $$("td.down").each(function(element) {
+                element.observe("click", down)
+            });
+        });
+
+        function up(event) {
+            var element = event.element().ancestors()[0];
+            var previous = element.previous();
+            if (previous) {
+                previous.remove();
+                element.insert({after:previous});
+            }
+        }
+
+        function down(event) {
+            var element = event.element().ancestors()[0];
+            var next = element.next();
+            if (next) {
+                next.remove();
+                element.insert({before:next});
+            }
+        }
+    </script>
+    -->
+    
+    <apex:sectionHeader subtitle="New Batch Presets" title="Batch Transactions"/>
+    <apex:pageMessages />
+    
+    <apex:form id="form">
+        <apex:pageBlock mode="edit" id="pBlock">
+            <!-- <b>Batch Preset Name:</b>&nbsp; <apex:inputText /> -->
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!saveBatchPreset}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:actionFunction id="af" name="selectTabAction" action="{!selectTab}" rerender="pBlock">
+                <apex:param name="selectedTab" assignTo="{!selectedTab}" value="{!selectedTab}"/>
+            </apex:actionFunction>
+            
+            <apex:pageBlockSection title="Preset Template Detail">
+                <apex:inputField value="{!template.Name}"/>
+                <apex:inputField value="{!template.Type__c}" id="tempTYpe"/>
+                <script>document.getElementById('{!$Component.tempTYpe}').disabled = true; </script>
+            </apex:pageBlockSection>
+            <br/><br/>
+            <apex:tabPanel id="ss_shifted" switchType="client" headerSpacing="0" activeTabClass="activeTab" inactiveTabClass="inactiveTab" contentClass="tabContent" value="{!selectedTab}">
+                <apex:tab label="{!$ObjectType.Contact.label}" name="Contact" id="tab1">
+                    <apex:pageblockSection title="{!$ObjectType.Contact.label} Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="up"></th>
+                                <th class="down"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:variable value="{!1}" var="rowNum"/>
+                            <apex:repeat value="{!contactFields}" var="con">
+                                <tr id="row{!rowNum}" class="row">
+                                    <td class="up"></td><!--&#9650;-->
+                                    <td class="down"></td><!--&#9660;-->
+                                    <td class="col2"><b>{!con.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!con.sObjectType[con.fieldName]}" required="false"/></td>      <!--<td class="col3">{!con.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!con.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!con.isHidden}" disabled="{!con.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!con.isForSummary}"/></td>
+                                </tr>
+                                <apex:variable value="{!rowNum+1}" var="rowNum"/>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+                
+                <!-- ########### Org ########### -->
+                <apex:tab id="Organization" label="{!$ObjectType.Account.label}" name="Account">
+                    <apex:pageBlockSection title="{!$ObjectType.Account.label} Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="col1"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!accountFields}" var="acc">
+                                <tr id="row1" class="row">
+                                    <td class="col1"></td>
+                                    <td class="col2"><b>{!acc.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!acc.sObjectType[acc.fieldName]}" required="false"/></td>  <!--<td class="col3">{!acc.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!acc.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!acc.isHidden}" disabled="{!acc.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!acc.isForSummary}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+                
+                <!-- ########### recurring ########### -->
+                <apex:tab id="recurring" label="{!$ObjectType.Recurring_Donation__c.label}" name="causeview__Recurring_Donation__c">
+                    <apex:pageBlockSection title="{!$ObjectType.Recurring_Donation__c.label} Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="col1"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!RecurringGiftFields}" var="rgf">
+                                <tr id="row1" class="row">
+                                    <td class="col1"></td>
+                                    <td class="col2"><b>{!rgf.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!rgf.sObjectType[rgf.fieldName]}" required="false"/></td> <!--<td class="col3">{!rgf.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!rgf.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!rgf.isHidden}" disabled="{!rgf.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!rgf.isForSummary}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+                
+                <!-- ########### gift ########### -->
+                <apex:tab id="gift" label="Gift" name="causeview__Gift__c">
+                    <apex:pageBlockSection title="Gift Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="col1"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!TransactionFields}" var="gift">
+                                <tr id="row1" class="row">
+                                    <td class="col1"></td>
+                                    <td class="col2"><b>{!gift.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!gift.sObjectType[gift.fieldName]}" required="false"/></td> <!--<td class="col3">{!gift.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!gift.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!gift.isHidden}" disabled="{!gift.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!gift.isForSummary}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+                
+                <!-- ########### Payment ########### -->
+                <apex:tab id="payment" label="{!$ObjectType.Payment__c.label}" name="causeview__Payment__c">
+                    <apex:pageBlockSection title="{!$ObjectType.Payment__c.label} Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="col1"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!PaymentFields}" var="pymt">
+                                <tr id="row1" class="row">
+                                    <td class="col1"></td>
+                                    <td class="col2"><b>{!pymt.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!pymt.sObjectType[pymt.fieldName]}" required="false"/></td> <!--<td class="col3">{!pymt.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!pymt.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!pymt.isHidden}" disabled="{!pymt.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!pymt.isForSummary}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+                
+                <!-- ########### receipt ########### -->
+                <apex:tab id="receipt" label="{!$ObjectType.Receipt__c.label}" name="causeview__Receipt__c">
+                    <apex:pageBlockSection title="{!$ObjectType.Receipt__c.label} Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="col1"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!ReceiptFields}" var="recpt">
+                                <tr id="row1" class="row">
+                                    <td class="col1"></td>
+                                    <td class="col2"><b>{!recpt.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!recpt.sObjectType[recpt.fieldName]}" required="false"/></td> <!--<td class="col3">{!recpt.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!recpt.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!recpt.isHidden}" disabled="{!recpt.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!recpt.isForSummary}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+                
+                <!-- ########### gift Detail ########### -->
+                <apex:tab id="giftDetail" label="{!$ObjectType.Gift_Detail__c.label}" name="causeview__Gift_Detail__c">
+                    <apex:pageBlockSection title="{!$ObjectType.Gift_Detail__c.label} Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="col1"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!GiftDetailFields}" var="gftDetl">
+                                <tr id="row1" class="row">
+                                    <td class="col1"></td>
+                                    <td class="col2"><b>{!gftDetl.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!gftDetl.sObjectType[gftDetl.fieldName]}" required="false"/></td> <!--<td class="col3">{!gftDetl.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!gftDetl.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!gftDetl.isHidden}" disabled="{!gftDetl.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!gftDetl.isForSummary}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+                
+                <!-- ########### Event Detail ########### -->
+                <apex:tab id="eventDetail" label="{!$ObjectType.Event_Registration__c.label}" name="causeview__Event_Registration__c" rendered="{!isEventPreset}">
+                    <apex:pageBlockSection title="{!$ObjectType.Event_Registration__c.label} Presets"/>
+                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <thead class="headerLabel">
+                            <tr>
+                                <th class="col1"></th>
+                                <th class="col2">Field Name</th>
+                                <th class="col3">Default Value</th>
+                                <th class="col4">Read Only</th>
+                                <th class="col5">Hidden</th>
+                                <th class="col6">Show in Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!eventRegFields}" var="eventDetl">
+                                <tr id="row1" class="row">
+                                    <td class="col1"></td>
+                                    <td class="col2"><b>{!eventDetl.fieldLable}</b></td>
+                                    <td class="col3"><apex:inputField value="{!eventDetl.sObjectType[eventDetl.fieldName]}" required="false"/></td> <!--<td class="col3">{!eventDetl.fieldValue}</td>-->
+                                    <td class="col4"><apex:inputCheckbox value="{!eventDetl.isReadOnly}"/></td>
+                                    <td class="col5"><apex:inputCheckbox value="{!eventDetl.isHidden}" disabled="{!eventDetl.isRequired}"/></td>
+                                    <td class="col6"><apex:inputCheckbox value="{!eventDetl.isForSummary}"/></td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>
+                </apex:tab>
+            </apex:tabPanel>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

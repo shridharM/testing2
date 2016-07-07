@@ -1,0 +1,299 @@
+<apex:page controller="BatchPresetController_New1" tabStyle="Batch_Presets__tab"> <!--  tabStyle="Batch_Presets_Demo__tab" -->
+    <apex:form id="form">
+    <script type="text/javascript">
+      function loading(val) {
+        if (val) {
+          document.getElementById('contentLoading').style.display = 'block';
+          document.getElementById('contentLoaded').style.display = 'none';
+        }
+        else {
+          document.getElementById('contentLoading').style.display = 'none';
+          document.getElementById('contentLoaded').style.display = 'block';
+        }
+      }
+    </script>
+    
+    <script>
+        window.onload=function() { 
+            mapvalues =  {!MapVal};
+        };
+        var j$=jQuery.noConflict();
+        var fieldHandlers = {
+            'phone': function(field, value) {
+                return '<input type="tel" value="'+value+'" name="'+field.fieldName+'">';
+            },
+            'string': function(field, value) {
+                return '<input type="text" value="'+value+'" name="'+field.fieldName+'">';
+            },
+            'date': function(field, value) {
+                    return '<input type="date" name="'+field.fieldName+'" value="'+value+'" tabindex="-3">';
+            },
+            'datetime': function(field, value) {
+                value = value ? moment(value).utc().format('YYYY-MM-DDTHH:mm:ss.S[Z]') : '';
+                return '<input type="datetime" value="'+value+'" name="'+field.fieldName+'" tabindex="-2">';
+            },
+            'currency': function(field, value) {
+                return '<input type="number" name="'+field.fieldName+'" value="'+value+'">';
+            },
+            'textarea': function(field, value) {
+                return '<textarea name="'+field.fieldName+'">'+value+'</textarea>';
+            },
+            'option': function(field, value) {
+                return j$('<option value="'+value+'">'+field.fieldLabel+'</option>');
+            },
+            'optgroupTemplate': _.template('<optgroup label="{{label}}">{{options}}</optgroup>'),
+            'optionTemplate': _.template('<option value="{{value}}">{{label}}</option>'),
+            'selectedTemplate': _.template('<option value="{{value}}" selected="selected">{{label}}</option>'),
+            'boolean': function(field, value) {
+                var template = _.template(
+                    '<input type="checkbox" name="{{name}}" {{ {"true": true}[value] ? "checked" : "" }} value="true"/>' 
+                );
+                return template({name: field.fieldName, value: value});
+            },
+            'reference': function(field, value, description, lookupOptions) {
+                var select = j$('<select data-native-menu="false" name="'+field.fieldName+'"></select>');
+                var options = function(relatedModel) {
+                    var nameField = relatedModel.nameField();
+                    return lookupOptions[relatedModel.modelName].chain()
+                        .sortBy(function(instance) {
+                            return instance.get(nameField);
+                        })
+                        .map(function(instance) {
+                            if (value === instance.id) {
+                                return fieldHandlers.selectedTemplate({ value: instance.id, label: instance.toString() });
+                            } else {
+                                return fieldHandlers.optionTemplate({ value: instance.id, label: instance.toString() });
+                            }
+                        })
+                        .value()
+                    .join('');
+                };
+                var relatedModels = model.relatedModels(field.fieldName);
+                if (relatedModels.length > 1) {
+                    _(relatedModels).each(function(relatedModel) {
+                        select.append(fieldHandlers.optgroupTemplate({
+                            label: relatedModel.labelPlural(),
+                            options: options(relatedModel)
+                        }));
+                    });
+                } else {
+                    select.append(options(relatedModels[0]));
+                }
+                return select.html();
+            },
+            'picklist': function(field, value, description) {
+                var select = j$('<select name="'+field.fieldName+'" />');
+                if (description.nillable) {
+                    select.append(this.optionTemplate({value: '', label: '--' + Base.translatedLabel('none') + '--'}));
+                }
+                _(description.picklistValues).each(function(picklistValue) {
+                    if (value === picklistValue.value) {
+                        select.append(this.selectedTemplate({value: picklistValue.value, label: picklistValue.label}));
+                    } else {
+                        select.append(this.optionTemplate({value: picklistValue.value, label: picklistValue.label}));
+                    }
+                }, this);
+                return select.html();
+            },
+            'email': function(field, value) {
+                return j$(
+                    _.template(
+                        '<input type="email" value="{{value}}" name="{{name}}">',
+                        { name: field.fieldName, value: value, label: field.fieldLabel }
+                    )
+                ).html();
+            },
+            'multipicklist': function(field, value, description) {
+                var select = this.picklist(field, value, description);
+                select.find('select').attr('multiple', 'multiple');
+                return select.html();
+            }
+        };
+        
+        function PresetWrapper() {
+            var sObjectType = null;
+            var fieldLable = null;
+            var fieldName = null;
+            var fieldType = null;
+            var fieldValue = null;
+            var isHidden = null;
+            var isReadOnly = null;
+            var isForSummary = null;
+            var isRequired = null;
+        }
+        
+        function getMultiValuefromPicklist(fieldName)
+        {
+            var select = document.getElementById(fieldName);
+            var selected = [];
+            
+            mapvalues = {!MapVal};            
+            console.log(mapvalues);
+            
+            
+            for (var i = 0; i < select.length; i++) {
+                if (select.options[i].selected)
+                    selected.push(select.options[i]);
+            }
+            for (var i = 0; i < selected.length; i++) {
+                console.log(i);
+                console.log(selected[i]);
+                select.removeChild(selected[i])  
+                
+                j$("#table").append("<tr class='row'><td class='up'></td><td class='down'><u>Remove</u></td><td class='col2'><b>"+mapvalues[selected[i].value].fieldLable+
+                                    "</b></td><td class='col3'>"+fieldHandlers[mapvalues[selected[i].value].fieldType.toLowerCase()](mapvalues[selected[i].value], '')+"</td><td class='col4'></td><td class='col5'></td>");
+            }
+            
+            
+            //return  "'" + selected.join("','") + "'";
+        }
+        
+    </script>
+    <apex:includeScript value="{!$Resource.jQuery}"/>
+    <apex:includeScript value="{!$Resource.UnderScore}"/>
+    <apex:sectionHeader subtitle="New Batch Presets" title="Batch Transactions"/>
+    <apex:pageMessages />
+    
+        <apex:pageBlock id="pBlock">
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save"/>
+                <apex:commandButton value="Cancel" immediate="true"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Preset Template Detail">
+                <apex:inputField value="{!template.Name}"/>
+                <apex:inputField value="{!template.Type__c}" id="tempTYpe"/>
+                <script>document.getElementById('{!$Component.tempTYpe}').disabled = true; </script>
+            </apex:pageBlockSection>
+            <br/>
+            <apex:pageblockSection id="contactSection" title="{!$ObjectType.Contact.label} Presets" collapsible="true" columns="1">
+                <apex:outputPanel >
+                    <table width="100%">
+                        <tr>
+                            <td width="25%" class="selectCell">
+                               <apex:outputPanel id="multiselectPanel" layout="block" styleClass="duelingListBox">
+                                   <table class="layout">
+                                       <tr>
+                                          <td class="selectCell">
+                                            <apex:outputPanel layout="block" styleClass="selectTitle">
+                                                {!$ObjectType.Contact.label} Fields
+                                            </apex:outputPanel>
+                                            <apex:selectList id="sel1" value="{!leftselected}" multiselect="true" style="width:250px" size="25">
+                                                <apex:selectOptions value="{!unselectedvalues}" />
+                                            </apex:selectList>
+                                          </td>
+                                          <td class="buttonCell">
+                                              <apex:actionStatus id="loading" onstart="loading(true)" onstop="loading(false)" />
+                                              <!--<apex:commandButton value="Add To Preset" onclick="getMultiValuefromPicklist('{!$Component.sel1}')" immediate="true"/>-->
+                                              <!--<apex:commandButton value="Add To Preset" action="{!selectclick}" reRender="detail, sel1" status="loading"/>-->           
+                                              
+                                                                                 
+                                              <input type="Button" value="Add To Preset" onclick="getMultiValuefromPicklist('{!$Component.sel1}')" class="Button"/>
+
+                                          </td>
+                                          <td>
+                                              <div id="contentLoading" style="display:none;">
+                                                <apex:outputPanel styleClass="popupBackground" layout="block" />
+                                                <div style="text-align: center;" class="custPopup">
+                                                  <img src="/img/loading.gif" alt="Loading graphic"/>
+                                                  <b>Processing....</b>
+                                                </div>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                   </table>
+                               </apex:outputPanel>
+                            </td>
+                           
+                            <td width="75">
+                                <apex:outputPanel id="detail">
+                                    <table id="table" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                        <thead class="headerLabel">
+                                            <tr>
+                                                <th class="up"></th>
+                                                <th class="down"></th>
+                                                <th class="col2">Field Name</th>
+                                                <th class="col3">Default Value</th>
+                                                <th class="col4">Read Only</th>
+                                                <th class="col5">Show in Summary</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                        
+                                        <!--
+                                            <apex:variable value="{!0}" var="rowNum"/>
+                                            <apex:repeat value="{!contactFields}" var="con" id="contactRepeat">
+                                                <tr class="row">
+                                                    <td class="up"></td>
+                                                    <td class="down">
+                                                        <apex:commandLink value="Remove" action="{!unselectclick}" reRender="detail, sel1" status="loading">
+                                                            <apex:param name="index" value="{!rowNum}"/>
+                                                        </apex:commandLink>
+                                                    </td>
+                                                    <td class="col2"><b>{!con.fieldLable}</b></td>
+                                                    <td class="col3"><apex:inputField value="{!con.sObjectType[con.fieldName]}" required="false"/></td>   
+                                                    <td class="col4"><apex:inputCheckbox value="{!con.isReadOnly}"/></td>
+                                                    <td class="col5"><apex:inputCheckbox value="{!con.isForSummary}"/></td>
+                                                </tr>
+                                                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                                            </apex:repeat>
+                                        -->
+                                        </tbody>
+                                    </table>
+                                </apex:outputPanel>
+                            </td>
+                        </tr>
+                    </table>
+                </apex:outputPanel>
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <style type="text/css">
+        .custPopup{
+            background-color: white;
+            border-width: 0px;
+            border-style: solid;
+            left: 50%;
+            top:50%;
+            width: 150px;
+            padding:10px;
+            position: absolute;
+            z-index: 9999;
+        }
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+        
+        .col1 { width:5%; padding:3px 3px 3px 3px; }
+        .col2 { width:13%; text-align:right; vertical-align:middle; padding:3px 3px 3px 3px; min-width:120px;}
+        .col3 { width:32%; text-align:left; vertical-align:middle; padding:3px 3px 3px 3px; min-width:350px;}
+        .col4 { width:9%; text-align:left;vertical-align:middle; padding:3px 3px 3px 3px; min-width:80px;}
+        .col5 { width:9%; text-align:left;vertical-align:middle; padding:3px 3px 3px 3px; min-width:80px;}
+        .col6 { width:32%; padding:3px 3px 3px 3px;}
+        .up {width:2%; padding:3px 3px 3px 3px; }
+        .down {width:3%; padding:3px 3px 3px 3px; }
+        .row {}
+        .row:hover { background-color:#ebebeb; border:solid 1px #dcdcdc; }
+        .headerLabel {
+            color:#800000;
+            font-size:1em;
+            font-weight:bold;
+            padding:5px 2px 4px 5px;
+            border-bottom:solid 1px #dcdcdc;
+        }
+        .rich-tabhdr-side-border {  width:0px; padding:0px; border:0px; }
+        .rich-tabhdr-side-border img {  width:0px; padding:0px; border:0px; }
+    </style>
+    <link type="text/css" rel="stylesheet" href="/sCSS/20.0/sprites/1288206287000/Theme3/default/versioning.css"/>
+</apex:page>

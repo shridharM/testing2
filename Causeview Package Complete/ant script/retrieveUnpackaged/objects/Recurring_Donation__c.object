@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Causeview - Captures recurring gifts</description>
+    <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Fields_To_Exclude_From_Batch_Template</fullName>
+        <availableFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Frequency__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>of_Payments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>This is used for Batch Template VF Page</description>
+        <displayedFields>
+            <field>Organization__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_City__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Approved_Payments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Amount__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Consecutive_Declined_Payments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Cancellation_Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Branch_Num__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsDeleted</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Declined_Payments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Credit_Card_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Credit_Card_Expiry_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Credit_Card__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Encrypted_Key__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Institution_Num__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name_on_Card__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        
+        
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastActivityDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Withdrawal_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>URL_Safe_Key__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_URL_Parameters__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SystemModstamp</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>sysMergeAmount__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Constituent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Fields To Exclude From Batch Template</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Required_Fields_for_Batch_Templates</fullName>
+        <availableFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>of_Payments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Causeview gift batch templates</description>
+        <displayedFields>
+            <field>Frequency__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Constituent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Required Fields for Batch Templates</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account #</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Amount per payment</description>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Approved_Payments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of approved payments received for Active Transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of approved payments received for Active Transaction</inlineHelpText>
+        <label>Approved Payments</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_City__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank City</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Bank Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Branch_Num__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Bank branch number.</description>
+        <externalId>false</externalId>
+        <label>Branch #</label>
+        <length>24</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cancellation Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Consecutive_Declined_Payments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number consecutive declines for Active Transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number consecutive declines for Active Transaction</inlineHelpText>
+        <label>Consecutive Declined Payments</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Constituent__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Constituent</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Recurring Gifts</relationshipLabel>
+        <relationshipName>Recurring_Donations</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Credit_Card_Expiry_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date of credit card expiry.</description>
+        <externalId>false</externalId>
+        <label>Credit Card Expiry Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Credit_Card_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Credit Card Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Visa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MasterCard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>American Express</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Credit_Card__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Masked credit card number.</description>
+        <externalId>false</externalId>
+        <label>Credit Card Number</label>
+        <length>24</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Declined_Payments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of declined payments for Active Transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total number of declined payments for Active Transaction</inlineHelpText>
+        <label>Declined Payments</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of recurring transaction.</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Encrypted_Key__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Encrypted token - used to allow constituents to update their credit card data.</description>
+        <externalId>false</externalId>
+        <label>Encrypted Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Frequency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Frequency</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Monthly</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Institution_Num__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Bank institution number.</description>
+        <externalId>false</externalId>
+        <label>Institution #</label>
+        <length>24</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name_on_Card__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name on credit card.</description>
+        <externalId>false</externalId>
+        <label>Name on Card</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Payment_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Populated when the payment is changed from the initial Start Date.  Occurs when Next Payment Date or Frequency is changed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populated when the payment is changed from the initial Start Date.  Occurs when Next Payment Date or Frequency is changed.</inlineHelpText>
+        <label>New Payment Start Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Organization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Organization related to the recurring transaction.</description>
+        <externalId>false</externalId>
+        <label>Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Recurring_Donations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Reference__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The link to the cc processing company&apos;srecurring donation record</description>
+        <externalId>false</externalId>
+        <label>Reference #</label>
+        <length>60</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Credit Card</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ACH/PAD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>URL_Safe_Key__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE( Encrypted_Key__c , &apos;%&apos;, &apos;%25&apos;), &apos;=&apos; ,&apos;%3D&apos;), &apos;/&apos; ,&apos;%2F&apos;), &apos;?&apos; ,&apos;%3F&apos;), &apos;#&apos;, &apos;%23&apos;), &apos;&amp;&apos;, &apos;%26&apos;) , &apos;+&apos;, &apos;%2B&apos;)</formula>
+        <label>URL Safe Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Update_URL_Parameters__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used to merge parameters in the update URL.  Provides encrypted key and recurring ID to the update form.</description>
+        <externalId>false</externalId>
+        <formula>&quot;encryptedRecurringId=&quot; &amp; 
+URL_Safe_Key__c &amp; 
+&quot;&amp;fname=&quot; &amp; 
+Constituent__r.FirstName &amp; 
+&quot;&amp;lname=&quot; &amp;
+Constituent__r.LastName &amp;
+&quot;&amp;frequency=&quot; &amp;
+TEXT(Frequency__c)  &amp;
+&quot;&amp;amount=&quot; &amp;
+TEXT(Amount__c) &amp;
+&quot;&amp;OrgName=&quot; &amp;
+$Organization.Name  &amp;
+&quot;&amp;AccountId=&quot; &amp;
+ $Setup.App_Settings__c.CV_Account_Id__c   &amp;
+&quot;&amp;recurringId=&quot; &amp; Id &amp;
+&quot;&amp;Street=&quot; &amp; Constituent__r.MailingStreet &amp;
+&quot;&amp;City=&quot; &amp; Constituent__r.MailingCity &amp;
+&quot;&amp;State=&quot; &amp; Constituent__r.MailingState &amp;
+&quot;&amp;Postal=&quot; &amp; Constituent__r.MailingPostalCode &amp;
+&quot;&amp;Country=&quot; &amp; Constituent__r.MailingCountry &amp;
+&quot;&amp;Email=&quot; &amp; Constituent__r.Email</formula>
+        <inlineHelpText>Used to merge parameters in the update URL.  Provides encrypted key and recurring ID to the update form.</inlineHelpText>
+        <label>Update URL Parameters</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Withdrawal_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Day of the month to withdraw funds.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Day of the month to withdraw funds</inlineHelpText>
+        <label>Withdrawal Date</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>13</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>14</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>16</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>17</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>18</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>19</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>21</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>22</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>23</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>25</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>26</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>27</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>28</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>29</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>31</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>of_Payments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of recurring payments.</description>
+        <externalId>false</externalId>
+        <label>Fixed Number of Payments</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sysMergeAmountPaymentGateway__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(Amount__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>sysMergeAmountPaymentGateway</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>sysMergeAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>converts Amount from currency to number.  Used to pass to payment gateway.</description>
+        <externalId>false</externalId>
+        <formula>Amount__c</formula>
+        <label>sysMergeAmount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Recurring Gift</label>
+    <listViews>
+        <fullName>All_Recurring_Gifts</fullName>
+        <columns>NAME</columns>
+        <columns>Amount__c</columns>
+        <columns>Frequency__c</columns>
+        <columns>Constituent__c</columns>
+        <columns>Organization__c</columns>
+        <columns>Status__c</columns>
+        <columns>Type__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Recurring Gifts</label>
+    </listViews>
+    <nameField>
+        <displayFormat>RD-{00000}</displayFormat>
+        <label>Recurring Gift No.</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Recurring Gifts</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Amount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Frequency__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Constituent__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Organization__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Amount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Frequency__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Constituent__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Organization__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Amount__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Type__c</searchFilterFields>
+        <searchFilterFields>Credit_Card_Type__c</searchFilterFields>
+        <searchFilterFields>Start_Date__c</searchFilterFields>
+        <searchFilterFields>End_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Amount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Frequency__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Constituent__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Organization__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Cancel_Recurring</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Cancel Recurring</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+var mygateway;
+
+var tranResult = sforce.connection.query(&quot;Select Id,name,cv_pkg_dev_I__Gateway__c From cv_pkg_dev_I__Gift__c where  cv_pkg_dev_I__Recurring_Donation__c = &apos;{!Recurring_Donation__c.Id}&apos; order by CreatedDate Desc&quot;);
+var records=tranResult.getArray(&quot;records&quot;);
+
+if(records.length &gt; 0)
+{
+var record=records[0];
+mygateway=record.cv_pkg_dev_I__Gateway__c;}
+else
+mygateway=&apos;&apos;;
+
+
+if (window.confirm(&apos;Are you sure you would like to cancel this recurring gift?&apos;))
+window.top.location=&apos;/apex/cv_pkg_dev_I__recurringMaint?id={!Recurring_Donation__c.Id}&amp;action=cancel&amp;gateway=&apos;+mygateway;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Update_Credit_Card</fullName>
+        <availability>online</availability>
+        <description>Used to update payment information to the payment gateway.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Update Payment Information</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+var mygateway;
+
+/*var tranResult = sforce.connection.query(&quot;Select Id,name,cv_pkg_dev_I__Gateway__c, cv_pkg_dev_I__Constituent__r.FirstName,cv_pkg_dev_I__Constituent__r.lastName, cv_pkg_dev_I__Constituent__r.MailingStreet, cv_pkg_dev_I__Constituent__r.MailingCity, cv_pkg_dev_I__Constituent__r.mailingState, cv_pkg_dev_I__Constituent__r.MailingCountry, cv_pkg_dev_I__Constituent__r.MailingPostalCode, cv_pkg_dev_I__Constituent__r.Phone, cv_pkg_dev_I__Constituent__r.Email From cv_pkg_dev_I__Gift__c where  cv_pkg_dev_I__Recurring_Donation__c = &apos;{!Recurring_Donation__c.Id}&apos; order by CreatedDate Desc &quot;); */
+
+var tranResult = sforce.connection.query(&quot;Select id,name,cv_pkg_dev_I__Constituent__r.FirstName,cv_pkg_dev_I__Constituent__r.LastName,cv_pkg_dev_I__Constituent__r.MailingCity,cv_pkg_dev_I__Constituent__r.MailingCountry,cv_pkg_dev_I__Constituent__r.MailingPostalCode,cv_pkg_dev_I__Constituent__r.MailingState,cv_pkg_dev_I__Constituent__r.MailingStreet,cv_pkg_dev_I__Constituent__r.Email,cv_pkg_dev_I__Constituent__r.Phone ,(select id,name,cv_pkg_dev_I__Gateway__c from cv_pkg_dev_I__Orders__r order by Createddate Desc Limit 1)  FROM cv_pkg_dev_I__Recurring_Donation__c where  id = &apos;{!Recurring_Donation__c.Id}&apos;  &quot;); 
+
+var myfirstname = &apos;&apos;;
+var mylastname = &apos;&apos;;
+var mystate = &apos;&apos;;
+ var mycity = &apos;&apos;;
+ var mystreet = &apos;&apos;;
+ var mycountry = &apos;&apos;;
+ var mypostalcode = &apos;&apos;;
+ var myemail = &apos;&apos;;
+ var myphone = &apos;&apos;;
+
+ 
+
+
+var records=tranResult.getArray(&quot;records&quot;);
+if(records.length &gt; 0)
+{
+var record1=records[0];
+//alert(record1.cv_pkg_dev_I__Orders__r.records.cv_pkg_dev_I__Gateway__c);
+mygateway=record1.cv_pkg_dev_I__Orders__r.records.cv_pkg_dev_I__Gateway__c || &apos;&apos;;
+myfirstname=record1.cv_pkg_dev_I__Constituent__r.FirstName || &apos;&apos;;
+  mylastname=record1.cv_pkg_dev_I__Constituent__r.LastName || &apos;&apos;;
+ mystate=record1.cv_pkg_dev_I__Constituent__r.MailingState || &apos;&apos;;
+ mycity=record1.cv_pkg_dev_I__Constituent__r.MailingCity || &apos;&apos;;
+ mystreet=record1.cv_pkg_dev_I__Constituent__r.MailingStreet || &apos;&apos;;
+ mycountry=record1.cv_pkg_dev_I__Constituent__r.MailingCountry || &apos;&apos;;
+ mypostalcode=record1.cv_pkg_dev_I__Constituent__r.MailingPostalCode || &apos;&apos;;
+ myemail=record1.cv_pkg_dev_I__Constituent__r.Email || &apos;&apos;;
+ myphone=record1.cv_pkg_dev_I__Constituent__r.Phone || &apos;&apos;;
+
+ myfirstname= encodeURIComponent(myfirstname);
+ mylastname= encodeURIComponent(mylastname);
+ mystate= encodeURIComponent(mystate);
+ mycity= encodeURIComponent(mycity);
+ mystreet= encodeURIComponent(mystreet);
+ mycountry= encodeURIComponent(mycountry);
+ //myemail= encodeURIComponent(myemail);
+ 
+
+}
+
+
+var myurl = &apos;/apex/cv_pkg_dev_I__recurringMaint?id={!Recurring_Donation__c.Id}&amp;fname=&apos;+myfirstname+&apos;&amp;lname=&apos;+mylastname+&apos;&amp;Street=&apos;+mystreet+&apos;&amp;City=&apos;+mycity+&apos;&amp;State=&apos;+mystate+&apos;&amp; Country=&apos;+mycountry+&apos;&amp;Postal=&apos;+mypostalcode+&apos;&amp;Phone=&apos;+myphone+&apos;&amp;Email=&apos;+myemail+&apos;&amp;Amount={!Recurring_Donation__c.sysMergeAmountPaymentGateway__c}&amp;Frequency={!Recurring_Donation__c.Frequency__c}&amp;gateway=&apos;+mygateway;
+//myurl=myurl.replace(/#/g,&apos;&apos;);
+// myurl = encodeURIComponent(myurl);
+
+window.top.location=myurl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Update_Recurring_Profile</fullName>
+        <availability>online</availability>
+        <description>Updates frequency, next payment and status.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Update Recurring Profile</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/connection.js&quot;)} 
+var mygateway = &apos;&apos;;
+var tranResult = sforce.connection.query(&quot;Select Id,name,cv_pkg_dev_I__Gateway__c From cv_pkg_dev_I__Gift__c where  cv_pkg_dev_I__Recurring_Donation__c = &apos;{!Recurring_Donation__c.Id}&apos; order by CreatedDate Desc &quot;);
+
+var records=tranResult.getArray(&quot;records&quot;);
+if(records.length &gt; 0)
+{
+ var record=records[0];
+ mygateway=record.cv_pkg_dev_I__Gateway__c || &apos;&apos;;
+}
+
+window.top.location=&apos;/apex/cv_pkg_dev_I__recurringMaint?id={!Recurring_Donation__c.Id}&amp;action=shortupdate&amp;frequency={!Recurring_Donation__c.Frequency__c}&amp;status={!Recurring_Donation__c.Status__c}&amp;gateway=&apos;+mygateway;</url>
+    </webLinks>
+</CustomObject>

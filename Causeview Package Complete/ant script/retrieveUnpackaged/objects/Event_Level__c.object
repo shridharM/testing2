@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Causeview - event ticket and sponsorship levels</description>
+    <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Attendees_per_Level__c</fullName>
+        <defaultValue>1</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Number of attendees per Level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Define the number of attendees per Level - (Maximum 10)</inlineHelpText>
+        <label>Attendees Per Level</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Event__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Event the ticket type is belongs to</description>
+        <externalId>false</externalId>
+        <label>Event</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipName>Tickets</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>External_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>External ID - used for data integration or migration</description>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Level_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description of event Level type</description>
+        <externalId>false</externalId>
+        <label>Level Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Level_Price__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Price of Level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set to $0.00 if a free or unpaid event</inlineHelpText>
+        <label>Level Price</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Maximum_per_Order__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum number of tickets permitted per order</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Optional: maximum number of tickets permitted per order</inlineHelpText>
+        <label>Maximum per Order</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Minimum_per_Order__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Minimum tickets permitted per order</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Optional: minimum tickets permitted per order</inlineHelpText>
+        <label>Minimum per Order</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defines the order the Event Level will be displayed on the registration form.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines the order the Event Level will be displayed on the registration form.  By default, the form will order by Event Level price.</inlineHelpText>
+        <label>Order</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity_Available__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Quantity available for sale at this Level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Quantity available for sale at this Level</inlineHelpText>
+        <label>Quantity Available</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity_Remaining__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Quantity at Level remaining for sale</description>
+        <externalId>false</externalId>
+        <formula>Quantity_Available__c -  Quantity_Sold__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quantity Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity_Sold__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Quantity sold at this level</description>
+        <externalId>false</externalId>
+        <label>Quantity Sold</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sale_Ends__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Level sale end time</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Define an end date and time if you would like to restrict the sale, otherwise leave blank if there is no sale restriction.
+
+Can be used for early bird pricing.</inlineHelpText>
+        <label>Sale Ends</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sale_Starts__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Level sale start time</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Define a start date and time if you would like to restrict the sale, otherwise leave blank if there is no sale restriction.
+
+Can be used for early bird pricing.</inlineHelpText>
+        <label>Sale Starts</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of ticket type</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Planned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hidden</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Sale</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>At The Door - On Sale</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>At The Door - Hidden</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sold Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Ticket_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Quantity_Available__c *  Attendees_per_Level__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ticket Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tickets_Sold__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of tickets sold</description>
+        <externalId>false</externalId>
+        <formula>Attendees_per_Level__c * Quantity_Sold__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tickets Sold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Benefit_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total benefit amount for event level</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of benefit sponsorship amounts</inlineHelpText>
+        <label>Total Benefit Amount</label>
+        <summarizedField>Event_Level_Benefit__c.Total_Benefit_Value__c</summarizedField>
+        <summaryForeignKey>Event_Level_Benefit__c.Event_Level__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <label>Event Level</label>
+    <nameField>
+        <label>Event Level Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <namedFilters>
+        <fullName>nf_01IA00000023QO3MAM_00NA0000009yIFkMAM</fullName>
+        <active>true</active>
+        <errorMessage>The event level does not belong to the event you have allocated to.</errorMessage>
+        <field>Gift_Detail__c.Event_Level__c</field>
+        <filterItems>
+            <field>$Source.New_Campaign__c</field>
+            <operation>equals</operation>
+            <valueField>Event_Level__c.Event__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Allocation_Event Level</name>
+        <sourceObject>Gift_Detail__c</sourceObject>
+    </namedFilters>
+    <pluralLabel>Event Levels</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Event__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Attendees_per_Level__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Level_Price__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quantity_Available__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quantity_Remaining__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quantity_Sold__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Level_Description__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>attendees_per_level_validation</fullName>
+        <active>true</active>
+        <description>Attendees per level cannot be greater than 10</description>
+        <errorConditionFormula>Attendees_per_Level__c &gt; 10</errorConditionFormula>
+        <errorDisplayField>Attendees_per_Level__c</errorDisplayField>
+        <errorMessage>Attendees per level cannot be greater than 10.</errorMessage>
+    </validationRules>
+</CustomObject>

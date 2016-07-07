@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{!relatedTo.causeview__Org_Name__c}</title>
+    <style>
+        *{
+            /*border: 1px solid green;*/
+        }
+        p {margin:0;
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:12px;}
+        h4 {font-family:Arial, Helvetica, sans-serif;
+            margin:0;
+            font-size:12px;}
+        h3 {font-family:Arial, Helvetica, sans-serif;
+            margin:0;}
+        h5 {font-family:Arial, Helvetica, sans-serif;
+            margin:0;}
+
+        .receiptPayments {
+            margin:0px;padding:0px;
+            width:100%;
+            box-shadow: 10px 10px 5px #888888;
+            border:1px solid #b2b2b2;
+
+            /* -moz-border-radius-bottomleft:0px;
+            -webkit-border-bottom-left-radius:0px;
+            border-bottom-left-radius:0px;
+
+            -moz-border-radius-bottomright:0px;
+            -webkit-border-bottom-right-radius:0px;
+            border-bottom-right-radius:0px;
+
+            -moz-border-radius-topright:0px;
+            -webkit-border-top-right-radius:0px;
+            border-top-right-radius:0px;
+
+            -moz-border-radius-topleft:0px;
+            -webkit-border-top-left-radius:0px;
+            border-top-left-radius:0px; */
+        }
+        .receiptPayments table{
+            border-collapse: collapse;
+            border-spacing: 0px;
+
+            width:100%;
+            height:100%;
+            margin:0px;padding:0px;
+        }
+
+        .receiptPayments td{
+            /* vertical-align:middle;
+
+            background-color:#ffffff; */
+
+            border:1px solid #b2b2b2;
+            /* border-width: 0px 1px 1px 0px;*/
+            /* text-align:center;
+            padding:7px; */
+            font-size:12px;
+            font-family:Arial;
+            font-weight:normal;
+            color:#000000;
+        }
+
+        .receiptFunds {
+            margin:0px;padding:0px;
+            width:100%;
+            box-shadow: 10px 10px 5px #888888;
+            border:1px solid #b2b2b2;
+
+            /* -moz-border-radius-bottomleft:0px;
+            -webkit-border-bottom-left-radius:0px;
+            border-bottom-left-radius:0px;
+
+            -moz-border-radius-bottomright:0px;
+            -webkit-border-bottom-right-radius:0px;
+            border-bottom-right-radius:0px;
+
+            -moz-border-radius-topright:0px;
+            -webkit-border-top-right-radius:0px;
+            border-top-right-radius:0px;
+
+            -moz-border-radius-topleft:0px;
+            -webkit-border-top-left-radius:0px;
+            border-top-left-radius:0px; */
+        }
+        .receiptFunds table{
+            border-collapse: collapse;
+            border-spacing: 0;
+            width:100%;
+            height:100%;
+            margin:0px;padding:0px;
+        }
+
+        .receiptFunds td{
+            /* vertical-align:middle;
+
+            background-color:#ffffff;*/
+
+            border:1px solid #b2b2b2;
+            /* border-width:0px 1px 1px 0px;
+            text-align:center;
+            padding:7px; */
+            font-size:12px;
+            font-family:Arial;
+            font-weight:normal;
+            color:#000000;
+
+        }
+
+    </style></head>
+<body>
+<table width="100%" style="margin: 0 auto; padding: 0 10px 0 10px;">
+    <tbody>
+    <tr>
+        <td>
+            <!-- HEADER -->
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <td style="text-align: center;">
+                        <img style="width: 200px;" src="{!relatedTo.Letter_Logo__c}"/>
+                    </td>
+                    <td style="text-align: right;">
+                        <h3>{!relatedTo.causeview__Org_Name__c}</h3>
+                        <h5 style="margin: 0pt;">{!relatedTo.causeview__Org_Address__c}</h5>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- END:HEADER -->
+            <br/>
+            <!-- ORIGINAL -->
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <p style="text-align: center;">
+                            <!-- Thank You -->
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <br/>
+                            {!relatedTo.causeview__Receipt_Name__c} <br/>
+                            {!relatedTo.causeview__Receipt_Street__c} <br/>
+                            {!relatedTo.causeview__Receipt_City__c}, {!relatedTo.causeview__Receipt_State_Province__c} <br/>
+                            {!relatedTo.causeview__Receipt_Zip_Postal_Code__c}
+                            <br/>
+                            <br/>
+                        <p><!-- RECEIPT STATUS --></p>
+                        <p>{!relatedTo.causeview__Signature_Rich_Text__c}</p>
+
+                        <br/>
+
+                        <p>Retain for your records</p>
+                    </td>
+                    <td>
+                        <table style="margin: 0 auto;">
+                            <tr>
+                                <td><p>Receipt Number</p></td>
+                                <td><p>{!relatedTo.Name}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Donation Received</td>
+                                <td style="white-space: nowrap" NOWRAP><p>{!relatedTo.causeview__Transaction_Date__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Receipt Date</p></td>
+                                <td style="white-space: nowrap" NOWRAP><p>{!relatedTo.causeview__Formatted_Date__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Amount Received</p></td>
+                                <td><p>{!relatedTo.causeview__Receipt_Amount__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Value of Benefit</p></td>
+                                <td><p>{!relatedTo.causeview__Amount_Not_Eligible__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Donation Amount</p></td>
+                                <td><p>{!relatedTo.causeview__Gift_Total__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <br/>
+                                    <br/>
+                                    <p>Charitable Registration # [Charitable Registration #]</p>
+                                    <p>Canada Revenue Agency: www.cra-arc.gc.ca/charities</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- END:ORIGINAL -->
+            <br/>
+            <p style="width: 85%; margin: 0 auto; border: 1px dotted #000000;"></p>
+            <table width="100%" style="padding-top: 40px;">
+                <tbody>
+                <tr>
+                    <td style="text-align: center;">
+                        <img style="width: 200px;" src="{!relatedTo.Letter_Logo__c}"/>
+                    </td>
+                    <td style="text-align: right;">
+                        <h3>{!relatedTo.causeview__Org_Name__c}</h3>
+                        <h5 style="margin: 0pt;">{!relatedTo.causeview__Org_Address__c}</h5>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- COPY -->
+            <table width="100%">
+                <tbody>
+                <tr>
+                    <td colspan="2">
+                        <p style="text-align: center;">
+                            <!-- Thank You -->
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            <br/>
+                            {!relatedTo.causeview__Receipt_Name__c} <br/>
+                            {!relatedTo.causeview__Receipt_Street__c} <br/>
+                            {!relatedTo.causeview__Receipt_City__c}, {!relatedTo.causeview__Receipt_State_Province__c} <br/>
+                            {!relatedTo.causeview__Receipt_Zip_Postal_Code__c}
+                            <br/>
+                            <br/>
+                        <p>DUPLICATE RECEIPT</p>
+                        <p>{!relatedTo.causeview__Signature_Rich_Text__c}</p>
+
+                        <br/>
+
+                        <p>Retain for your records</p>
+                    </td>
+                    <td>
+                        <table style="margin: 0 auto;">
+                            <tr>
+                                <td><p>Receipt Number</p></td>
+                                <td><p>{!relatedTo.Name}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Donation Received</td>
+                                <td style="white-space: nowrap" NOWRAP><p>{!relatedTo.causeview__Transaction_Date__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Receipt Date</p></td>
+                                <td style="white-space: nowrap" NOWRAP><p>{!relatedTo.causeview__Formatted_Date__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Amount Received</p></td>
+                                <td><p>{!relatedTo.causeview__Receipt_Amount__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Value of Benefit</p></td>
+                                <td><p>{!relatedTo.causeview__Amount_Not_Eligible__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Donation Amount</p></td>
+                                <td><p>{!relatedTo.causeview__Gift_Total__c}</p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <br/>
+                                    <br/>
+                                    <p>Charitable Registration # [Charitable Registration #]</p>
+                                    <p>Canada Revenue Agency: www.cra-arc.gc.ca/charities</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- END:COPY -->
+
+            <!-- CONSOLIDATED BLOCK  -->
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body></html>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Used to track and manage the various Volunteer Opportunities within the Volunteer application.</description>
+    <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>External_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>A secondary ID, useful for data migration or a search index.</description>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Describes the volunteer opportunity.</description>
+        <externalId>false</externalId>
+        <label>Opportunity Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunity_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Roll-up: end date of the last associated Volunteer Role.</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <summarizedField>Volunteer_Role__c.End_Date__c</summarizedField>
+        <summaryForeignKey>Volunteer_Role__c.Volunteer_Opportunity__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The start date of the first associated Volunteer Role.</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <summarizedField>Volunteer_Role__c.Start_Date__c</summarizedField>
+        <summaryForeignKey>Volunteer_Role__c.Volunteer_Opportunity__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of opportunity available (Individual, Group, Family).</description>
+        <externalId>false</externalId>
+        <label>Opportunity Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Individual</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Planned_End_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The planned date for the activity or project to end.</description>
+        <externalId>false</externalId>
+        <label>Planned End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Start_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The planned date for the activity or project to begin.</description>
+        <externalId>false</externalId>
+        <label>Planned Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Volunteer program the opportunity is related to</description>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <picklist>
+            <picklistValues>
+                <fullName>To be defined by organization</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Current status of volunteer opportunity (Proposed, Open, Filled, Completed, Cancelled).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The current status of the Volunteer Opportunity</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Proposed</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Filled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Total_Service_Hours_Completed__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of volunteer hours completed (sum of all Volunteer Hours).</description>
+        <externalId>false</externalId>
+        <label>Total Service Hours Completed</label>
+        <summarizedField>Volunteer_Role__c.Number_of_Service_Hours_Completed__c</summarizedField>
+        <summaryForeignKey>Volunteer_Role__c.Volunteer_Opportunity__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Service_Hours_Confirmed__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of volunteer hours confirmed (sum of all confirmed Volunteer Hours).</description>
+        <externalId>false</externalId>
+        <label>Total Service Hours Confirmed</label>
+        <summarizedField>Volunteer_Role__c.Number_of_Service_Hours_Confirmed__c</summarizedField>
+        <summaryForeignKey>Volunteer_Role__c.Volunteer_Opportunity__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Service_Hours_Involved__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of available hours (sum of all planned Volunteer Position Shift hours).</description>
+        <externalId>false</externalId>
+        <label>Total Service Hours Involved</label>
+        <summarizedField>Volunteer_Role__c.Number_of_Service_Hours_Involved__c</summarizedField>
+        <summaryForeignKey>Volunteer_Role__c.Volunteer_Opportunity__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Volunteer_Roles__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total number of created Volunteer Roles.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of Volunteer Roles required for the Volunteer Opportunity</inlineHelpText>
+        <label>Volunteer Roles</label>
+        <summaryForeignKey>Volunteer_Role__c.Volunteer_Opportunity__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <label>Volunteer Opportunity</label>
+    <listViews>
+        <fullName>View_All</fullName>
+        <columns>NAME</columns>
+        <columns>Volunteer_Roles__c</columns>
+        <columns>Status__c</columns>
+        <columns>Opportunity_Start_Date__c</columns>
+        <columns>Opportunity_End_Date__c</columns>
+        <columns>Total_Service_Hours_Involved__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>View All</label>
+    </listViews>
+    <nameField>
+        <label>Volunteer Opportunity Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Volunteer Opportunities</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Volunteer_Roles__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity_End_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Service_Hours_Involved__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Volunteer_Roles__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity_End_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total_Service_Hours_Involved__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Volunteer_Roles__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Opportunity_Start_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Opportunity_End_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Total_Service_Hours_Involved__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATED_DATE</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Volunteer_Roles__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity_End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Total_Service_Hours_Involved__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

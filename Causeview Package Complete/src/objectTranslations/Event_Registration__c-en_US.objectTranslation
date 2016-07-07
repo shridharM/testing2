@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Event Registration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Event Registrations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Attendee Email --></label>
+        <name>Attendee_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attendee First Name --></label>
+        <name>Attendee_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Attendee Last Name --></label>
+        <name>Attendee_Last_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Time guest checked into event --></help>
+        <label><!-- Check In Time --></label>
+        <name>Check_In_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Checked In --></label>
+        <name>Checked_In__c</name>
+    </fields>
+    <fields>
+        <help><!-- Confirmation number provided to constituent upon successful registration. --></help>
+        <label><!-- Confirmation Number --></label>
+        <name>Confirmation_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event --></label>
+        <name>Event__c</name>
+        <relationshipLabel><!-- Registrations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Group Name --></label>
+        <name>Group_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group --></label>
+        <name>Group__c</name>
+        <relationshipLabel><!-- Event Registrations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Number of guest names pending for registration --></help>
+        <label><!-- Guest Names Pending --></label>
+        <name>Guest_Names_Pending__c</name>
+    </fields>
+    <fields>
+        <help><!-- Parameters used for guest registration URL.  Field is merged into guest registration email. --></help>
+        <label><!-- Guest Registration URL --></label>
+        <name>Guest_Registration_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Guest of --></label>
+        <name>Guest_of__c</name>
+        <relationshipLabel><!-- Event Registrations (Guest of) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Registrant --></label>
+        <name>Individual__c</name>
+        <relationshipLabel><!-- Event Registrations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Number of Guests --></label>
+        <name>Number_of_Guests__c</name>
+    </fields>
+    <fields>
+        <help><!-- Parent Event Registration; this generally belongs to the primary guest. --></help>
+        <label><!-- Parent Registration --></label>
+        <name>Parent_Registration__c</name>
+        <relationshipLabel><!-- Guest Registrations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payment --></label>
+        <name>Payment__c</name>
+        <relationshipLabel><!-- Event Registrations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Primary Registrant --></label>
+        <name>Primary_Registrant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Registration Date --></label>
+        <name>Registration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Registration Notes --></label>
+        <name>Registration_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checking this box will email the confirmation to the registrant. --></help>
+        <label><!-- Send Email Confirmation --></label>
+        <name>Send_Email_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sign In QR Code --></label>
+        <name>Sign_In_QR_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Attended</masterLabel>
+            <translation><!-- Attended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Show</masterLabel>
+            <translation><!-- No Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered</masterLabel>
+            <translation><!-- Registered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swapped Out</masterLabel>
+            <translation><!-- Swapped Out --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Transaction approved amount (money received) --></help>
+        <label><!-- Transaction Amount --></label>
+        <name>Transaction_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction ID --></label>
+        <name>Transaction_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction --></label>
+        <name>Transaction__c</name>
+        <relationshipLabel><!-- Registrations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- VIP --></label>
+        <name>VIP__c</name>
+    </fields>
+    <fields>
+        <label><!-- _sysGuestEmailSent --></label>
+        <name>sysGuestEmailSent__c</name>
+    </fields>
+    <fields>
+        <label><!-- _sysLastTransactionUpdate --></label>
+        <name>sysLastTransactionUpdate__c</name>
+    </fields>
+    <fields>
+        <label><!-- _sysSendEmailConfirmation --></label>
+        <name>sysSendEmailConfirmation__c</name>
+    </fields>
+    <layouts>
+        <layout>Event Registration Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Check In Information --></label>
+            <section>Check In Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- UpdateContacts --></label>
+        <name>UpdateContacts</name>
+    </webLinks>
+    <workflowTasks>
+        <description><!-- The system has sent the automated guest registration email. --></description>
+        <name>Automated_Guest_Registration_Email_Sent</name>
+        <subject><!-- Automated Guest Registration Email Sent --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- The automated event registration confirmation email has been sent. --></description>
+        <name>Event_Registration_Confirmation_Email_Sent</name>
+        <subject><!-- Event Registration Confirmation Email Sent --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Event__c.Expenses__r$Name</field>
+    </columns>
+    <columns>
+        <field>Event__c.Expenses__r$Expense_Type__c</field>
+    </columns>
+    <columns>
+        <field>Event__c.Expenses__r$Date__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Event__c.Expenses__r$Amount__c</field>
+    </columns>
+    <description>Total expenses for event</description>
+    <filter>
+        <criteriaItems>
+            <column>Event__c$Id</column>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Event__c$Event_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Total Event Expenses</name>
+    <params>
+        <name>co</name>
+        <value>0</value>
+    </params>
+    <reportType>Events_and_Expenses__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Event__c$Actual_Payment_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

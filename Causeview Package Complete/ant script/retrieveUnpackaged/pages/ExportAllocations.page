@@ -1,0 +1,7 @@
+<apex:page controller="ExportAllocationsController" contentType="text/csv#filename.csv" language="en-US">"Name","Gift_Type__c","New_Campaign__c","Campaign__c","Allocation_Date__c","Percent_Allocation__c","Appeal__c","Gift__c","Description__c","Organization__c","Amount","Tribute__c","Parent_appeal__c","fund__c","payment__c","appeal_name__c","product__c","constituent__c","approved_amount__c","fund_name__c"
+<apex:repeat value="{!records}" var="r">
+  "{!r.name}","{!r.Gift_Type__c}","{!r.New_Campaign__c}","{!r.Campaign__c}","{!r.Allocation_Date__c}","{!r.Percent_Allocation__c}","{!r.Appeal__c}","{!r.Gift__c}","{!r.Description__c}","{!r.Organization__c}","{!r.Amount__c}","{!r.Tribute__c}","{!r.Parent_Appeal__c}","{!r.Fund__c}","{!r.Payment__c}","{!r.Appeal_Name__c}","{!r.Product__c}","{!r.Constituent__c}","{!r.Approved_Amount__c}","{!r.Fund_Name__c}"
+</apex:repeat>
+<!--<apex:repeat value="{!csvFields}" var="field"></apex:repeat>-->
+<!--<apex:repeat value="{!csvFields}" var="a">"{!a}",</apex:repeat>-->
+</apex:page>

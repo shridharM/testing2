@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to be sent internally to staff member when a donor&apos;s ACH gift has been returned by the bank</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>ACH Gift Returned Notice</name>
+    <style>none</style>
+    <subject>ACH Payment {!Payment__c.Name} has been returned by the bank</subject>
+    <textOnly>Causeview Receipt Email Template
+
+
+Payment: {!Payment__c.Name}
+Constituent: {!Payment__c.Constituent__c}
+Gift: {!Payment__c.Donation__c}
+Receipt : {!Payment__c.Receipt__c}
+Reference #: {!Payment__c.External_Payment_ID__c}
+
+This is an automated internal notification that the ACH gift was returned. We recommend you void the receipt and follow up with the donor
+
+For more detail please contact your payment processor. If you require assistance in contacting your payment processor please contact Causeview Support</textOnly>
+    <type>custom</type>
+</EmailTemplate>

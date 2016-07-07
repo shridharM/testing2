@@ -1,0 +1,10 @@
+<table height="400" width="550" cellpadding="5" border="0" cellspacing="5" >
+<tr height="400" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[Hello&nbsp;{!CampaignMember.FirstName},
+<div><br></div>
+<div>As a new member and supporter of {!Organization.Name}, you are cordially invited to our {!CampaignMember.Campaign}.<br></div>
+<div><br></div>
+<div>To confirm attendance, please click RSVP below.&nbsp; We welcome you to bring additional guests.&nbsp;&nbsp;</div><div><ul><li><a href="{!CampaignMember.Form_URL__c}">RSVP</a></li></ul>Thank you again for your support.&nbsp; We look forward to seeing you at the {!CampaignMember.Campaign}.<br><br>Best regards,<br><br>{!Organization.Name}</div>]]></td>
+</tr>
+</table>

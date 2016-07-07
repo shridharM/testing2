@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Volunteer Hour</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Volunteer Hours</value>
+    </caseValues>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date volunteer hours were delivered --></help>
+        <label><!-- Date --></label>
+        <name>End_Day__c</name>
+    </fields>
+    <fields>
+        <help><!-- Determines the In-Kind value of the Hours --></help>
+        <label><!-- In-Kind Value --></label>
+        <name>In_Kind_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mileage (Miles) --></label>
+        <name>Mileage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Hours --></label>
+        <name>Service_Hours_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Logged</masterLabel>
+            <translation><!-- Logged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No-Show</masterLabel>
+            <translation><!-- No-Show --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The Volunteer Role the hours were logged against --></help>
+        <label><!-- Volunteer Role --></label>
+        <name>Volunteer_Role__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Volunteer Position Shift the hours are being logged against --></help>
+        <label><!-- Volunteer Shift --></label>
+        <name>Volunteer_Shift__c</name>
+        <relationshipLabel><!-- Volunteer Hours --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Volunteer the hours are being submitted by --></help>
+        <label><!-- Volunteer --></label>
+        <name>Volunteer__c</name>
+        <relationshipLabel><!-- Volunteer Hours --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Volunteer Hour Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
