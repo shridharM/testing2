@@ -1,0 +1,3 @@
+LastName,FirstName,Name,causeview__Frequency__c,causeview__Start_Date__c,causeview__Gift_Type__c,causeview__Receipt_Type__c,causeview__Amount__c,causeview__Date__c,causeview__Payment_Type__c,causeview__Date_Deposited__c,causeview__Amount__c,causeview__New_Campaign__c,causeview__Fund__c
+Con_Last Name*,Con_First Name*,Acc_Organization Name*,RGift_Frequency*,RGift_Start Date*,Tran_Gift Type*,Tran_Receipt Type*,Pay_Amount*,Pay_Payment Date*,Pay_Payment Type*,Pay_Date Deposited,Alloc_Allocated Amount*,Alloc_Appeal*,Alloc_Fund*
+,,,Monthly,5/26/2016,One Time Gift,Single Receipt,,5/26/2016,,,,103.5 FM -- The Star,F-00021
